@@ -53,7 +53,7 @@ export function Header() {
                     </SheetTrigger>
                     <SheetContent side="left" className="w-[300px] p-0">
                         <div className="p-6">
-                            <nav className="grid gap-4 pt-12">
+                            <nav className="flex flex-col gap-4 pt-12">
                                 {[...mobileNavLinks, ...topNavLinks, ...bottomNavLinks].map((link) => (
                                     <Link
                                         key={link.label}
@@ -79,39 +79,28 @@ export function Header() {
             </Link>
 
             <div className="hidden lg:flex flex-1 px-8 max-w-lg mx-auto">
-                <div className="relative">
-                    <Input placeholder="Search..." className="pr-10 border-gray-300 rounded-full focus:ring-0 focus:border-black" />
+                <div className="relative w-full">
+                    <Input placeholder="Search..." className="w-full pr-10 border-gray-300 rounded-full focus:ring-0 focus:border-black" />
                     <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 </div>
             </div>
             
             <div className="flex items-center gap-1">
-                <Button variant="ghost" size="icon" className="hidden lg:inline-flex">
+                <Button variant="ghost" size="icon" className="lg:hidden">
                     <Search className="h-5 w-5" />
                     <span className="sr-only">Search</span>
                 </Button>
-                <Button variant="ghost" className="hidden lg:flex text-sm font-normal">
-                    <User className="h-5 w-5 mr-2" />
-                    ACCOUNT
+                <Button variant="ghost" className="flex text-sm font-normal">
+                    <User className="h-5 w-5 md:mr-2" />
+                    <span className="hidden md:inline">ACCOUNT</span>
                 </Button>
                 <CartSheet>
-                    <Button variant="ghost" size="icon" className="relative lg:hidden">
-                        <ShoppingCart className="h-5 w-5" />
+                    <Button variant="ghost" className="relative flex text-sm font-normal">
+                        <ShoppingCart className="h-5 w-5 md:mr-2" />
+                        <span className="hidden md:inline">CART</span>
                         {itemCount > 0 && (
-                            <span className="absolute -right-1 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                            <span className="absolute right-0 top-0 flex h-4 w-4 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
                                 {itemCount}
-                            </span>
-                        )}
-                        <span className="sr-only">Shopping Cart</span>
-                    </Button>
-                </CartSheet>
-                 <CartSheet>
-                    <Button variant="ghost" className="relative hidden lg:flex text-sm font-normal">
-                        <ShoppingCart className="h-5 w-5 mr-2" />
-                        CART
-                        {itemCount > 0 && (
-                            <span className="absolute -right-2 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                            {itemCount}
                             </span>
                         )}
                         <span className="sr-only">Shopping Cart</span>
