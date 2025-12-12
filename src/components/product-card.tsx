@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import type { Product } from "@/lib/types";
 import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
+import { Eye, ShoppingBag } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -18,15 +19,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const handleAddToCart = () => {
     addItem(product);
-    // As per instruction, toast is for errors only.
-    // toast({
-    //   title: "Added to cart",
-    //   description: `${product.name} has been added to your cart.`,
-    // });
   };
   
   return (
-    <Card className="group overflow-hidden border-none shadow-none rounded-lg transition-all duration-300 hover:shadow-lg">
+    <Card className="group overflow-hidden relative border-none shadow-none rounded-none transition-all duration-300">
       <CardContent className="p-0">
         <div className="relative aspect-[3/4] overflow-hidden">
           <Link href="#">
@@ -39,13 +35,18 @@ export function ProductCard({ product }: ProductCardProps) {
               data-ai-hint={product.imageHint}
             />
           </Link>
-          <div className="absolute bottom-2 left-2 right-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-             <Button className="w-full" onClick={handleAddToCart}>Add to Cart</Button>
+          <div className="absolute top-3 right-3 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+             <Button size="icon" variant="secondary" className="rounded-full h-10 w-10">
+                <Eye className="h-4 w-4" />
+             </Button>
+             <Button size="icon" variant="secondary" className="rounded-full h-10 w-10" onClick={handleAddToCart}>
+                <ShoppingBag className="h-4 w-4" />
+             </Button>
           </div>
         </div>
-        <div className="p-4 bg-card">
-          <h3 className="font-medium truncate">{product.name}</h3>
-          <p className="text-sm text-muted-foreground">${product.price.toFixed(2)}</p>
+        <div className="p-4 text-center bg-card">
+          <h3 className="font-medium text-sm truncate">{product.name}</h3>
+          <p className="text-sm font-semibold mt-1">${product.price.toFixed(2)}</p>
         </div>
       </CardContent>
     </Card>

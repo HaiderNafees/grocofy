@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { CartProvider } from '@/context/cart-context';
@@ -7,11 +7,15 @@ import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const poppins = Poppins({ 
+  subsets: ['latin'], 
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins' 
+});
 
 export const metadata: Metadata = {
-  title: 'Shamshop Clone',
-  description: 'A clone of the Shamshop website built with Next.js and Firebase Studio',
+  title: 'SHAMS',
+  description: 'A clone of the SHAMS website built with Next.js and Firebase Studio',
 };
 
 export default function RootLayout({
@@ -24,12 +28,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body
         className={cn(
           'min-h-screen bg-background font-body antialiased',
-          inter.variable
+          poppins.variable
         )}
       >
         <CartProvider>
