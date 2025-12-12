@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "Woman in stylish outfit",
+      "imageUrl": "https://images.unsplash.com/photo-1627577279474-b87fe8490617?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMGZhc2hpb258ZW58MHx8fHwxNzY1NDkwNjc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman fashion"
+    },
+    {
+      "id": "hero-2",
+      "description": "Stylish living room with modern furniture",
+      "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGl2aW5nJTIwcm9vbXxlbnwwfHx8fDE3NjU0NzQ0MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "living room"
+    },
+    {
+      "id": "hero-3",
+      "description": "Close-up of a designer handbag",
+      "imageUrl": "https://images.unsplash.com/photo-1705909237050-7a7625b47fac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYW5kYmFnJTIwYWNjZXNzb3J5fGVufDB8fHx8MTc2NTQ1NTU2Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "handbag accessory"
+    },
+    {
+      "id": "product-1",
+      "description": "Beige Linen Shirt",
+      "imageUrl": "https://images.unsplash.com/photo-1740711152088-88a009e877bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsaW5lbiUyMHNoaXJ0fGVufDB8fHx8MTc2NTQzNjA5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "linen shirt"
+    },
+    {
+      "id": "product-2",
+      "description": "White Leather Sneakers",
+      "imageUrl": "https://images.unsplash.com/photo-1615109255391-b0dfdcd5b8d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3aGl0ZSUyMHNuZWFrZXJzfGVufDB8fHx8MTc2NTQ5OTc1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "white sneakers"
+    },
+    {
+      "id": "product-3",
+      "description": "Ceramic Plant Pot",
+      "imageUrl": "https://images.unsplash.com/photo-1718903532586-39adefb7cc99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjZXJhbWljJTIwcG90fGVufDB8fHx8MTc2NTQzMTg0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ceramic pot"
+    },
+    {
+      "id": "product-4",
+      "description": "Gold-Plated Necklace",
+      "imageUrl": "https://images.unsplash.com/photo-1611107683227-e9060eccd846?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnb2xkJTIwbmVja2xhY2V8ZW58MHx8fHwxNzY1NDc5OTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gold necklace"
+    },
+    {
+      "id": "product-5",
+      "description": "Denim Straight-Leg Jeans",
+      "imageUrl": "https://images.unsplash.com/photo-1560243563-062bfc001d68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkZW5pbSUyMGplYW5zfGVufDB8fHx8MTc2NTQ5OTc1MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "denim jeans"
+    },
+    {
+      "id": "product-6",
+      "description": "Woven Tote Bag",
+      "imageUrl": "https://images.unsplash.com/photo-1574365569389-a10d488ca3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0b3RlJTIwYmFnfGVufDB8fHx8MTc2NTQxODA4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tote bag"
+    },
+    {
+      "id": "product-7",
+      "description": "Scented Soy Candle",
+      "imageUrl": "https://images.unsplash.com/photo-1604249180474-3ebaf8747373?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2NlbnRlZCUyMGNhbmRsZXxlbnwwfHx8fDE3NjU0NTA1NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scented candle"
+    },
+    {
+      "id": "product-8",
+      "description": "Black Sunglasses",
+      "imageUrl": "https://images.unsplash.com/photo-1732139637065-1088495050db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxibGFjayUyMHN1bmdsYXNzZXN8ZW58MHx8fHwxNzY1NDgxNTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "black sunglasses"
+    }
+  ]
 }
