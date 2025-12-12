@@ -54,7 +54,7 @@ export function Header() {
                 <SheetContent side="left" className="w-[300px] p-0">
                     <div className="p-6">
                         <nav className="grid gap-4 pt-12">
-                            {mobileNavLinks.map((link) => (
+                            {[...mobileNavLinks, ...topNavLinks, ...bottomNavLinks].map((link) => (
                                 <Link
                                     key={link.label}
                                     href={link.href}
