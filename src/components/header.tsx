@@ -10,7 +10,7 @@ import { useCart } from '@/hooks/use-cart';
 import { CartSheet } from './cart-sheet';
 import { Input } from '@/components/ui/input';
 
-const topNavLinks = [
+const navLinks = [
     { href: '#', label: 'EATABLES' },
     { href: '#', label: 'PERSONAL CARE' },
     { href: '#', label: 'BEAUTY' },
@@ -20,9 +20,6 @@ const topNavLinks = [
     { href: '#', label: 'CLOTHING' },
     { href: '#', label: 'HOME DECOR' },
     { href: '#', label: 'SMOKING' },
-];
-
-const bottomNavLinks = [
     { href: '#', label: 'BRANDS' },
     { href: '#', label: 'TRACK ORDER' },
     { href: '#', label: 'CUSTOMIZE GIFT BASKET' },
@@ -43,7 +40,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 items-center">
         <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 lg:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
                         <Button variant="ghost" size="icon">
@@ -51,14 +48,14 @@ export function Header() {
                             <span className="sr-only">Toggle menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl p-0">
+                    <SheetContent side="left" className="w-full max-w-xs p-0">
                         <div className="p-6 h-full overflow-y-auto">
-                            <nav className="flex flex-col items-start gap-y-4 pt-12">
-                                {[...mobileNavLinks, ...topNavLinks, ...bottomNavLinks].map((link) => (
+                            <nav className="flex flex-col items-start gap-y-2 pt-12">
+                                {[...mobileNavLinks, ...navLinks].map((link) => (
                                     <Link
                                         key={link.label}
                                         href={link.href}
-                                        className="py-2 text-sm font-normal uppercase tracking-wider"
+                                        className="py-2 text-sm font-normal uppercase tracking-wider text-gray-700"
                                     >
                                         {link.label}
                                     </Link>
@@ -67,25 +64,34 @@ export function Header() {
                         </div>
                     </SheetContent>
                 </Sheet>
-                 <Link href="/" className="flex-shrink-0 lg:hidden">
+            </div>
+
+            <div className="flex items-center">
+                <Link href="/" className="flex-shrink-0">
                     <Logo />
                     <span className="sr-only">SHAMS Home</span>
                 </Link>
             </div>
 
-            <Link href="/" className="hidden lg:flex flex-shrink-0">
-                <Logo />
-                <span className="sr-only">SHAMS Home</span>
-            </Link>
-
-            <div className="hidden lg:flex flex-1 px-8 max-w-lg mx-auto">
-                <div className="relative w-full">
-                    <Input placeholder="Search..." className="w-full pr-10 border-gray-300 rounded-full focus:ring-0 focus:border-black" />
-                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                </div>
+            <div className="hidden lg:flex flex-1 justify-center px-8">
+                <nav className="flex items-center gap-x-4">
+                  {navLinks.slice(0, 9).map((link) => (
+                      <Link
+                          key={link.label}
+                          href={link.href}
+                          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                          {link.label}
+                      </Link>
+                  ))}
+                </nav>
             </div>
             
             <div className="flex items-center gap-1">
+                 <div className="hidden lg:flex relative w-full max-w-xs">
+                    <Input placeholder="Search..." className="w-full pr-10 border-gray-300 rounded-full focus:ring-0 focus:border-black" />
+                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                </div>
                 <Button variant="ghost" size="icon" className="lg:hidden">
                     <Search className="h-5 w-5" />
                     <span className="sr-only">Search</span>
