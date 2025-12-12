@@ -38,7 +38,7 @@ export function Footer() {
           <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
             <Link href="/" className="mb-4">
                 <Logo />
-                <span className="sr-only">SHAMS Home</span>
+                <span className="sr-only">Grocofy Home</span>
             </Link>
             <p className="text-sm max-w-xs">Subscribe to our newsletter and get 10% off your first purchase</p>
             <div className="flex w-full max-w-sm items-center space-x-2 mt-4">
@@ -79,7 +79,7 @@ export function Footer() {
         </div>
         <div className="mt-16 border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} SHAMS
+            &copy; {new Date().getFullYear()} Grocofy
           </p>
           <div className="flex items-center gap-2">
             <img src="https://cdn.shopify.com/s/files/1/0599/2369/1382/files/ssl-commerce-1_360x.png?v=1658993072" alt="Payment methods" className="h-6" />

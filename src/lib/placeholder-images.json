@@ -19,54 +19,6 @@
       "imageHint": "handbag accessory"
     },
     {
-      "id": "product-1",
-      "description": "Christmas Gift Basket",
-      "imageUrl": "https://images.unsplash.com/photo-1668432321756-5109ad1f5916?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnaWZ0JTIwYmFza2V0fGVufDB8fHx8MTc2NTUwMDYzOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gift basket"
-    },
-    {
-      "id": "product-2",
-      "description": "Christmas Gift Basket",
-      "imageUrl": "https://images.unsplash.com/photo-1760812655704-7dc53dd36194?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob2xpZGF5JTIwYmFza2V0fGVufDB8fHx8MTc2NTUwMDYzOXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "holiday basket"
-    },
-    {
-      "id": "product-3",
-      "description": "Christmas Gift Basket",
-      "imageUrl": "https://images.unsplash.com/photo-1639420482727-e5706c91cbc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaHJpc3RtYXMlMjBnaWZ0fGVufDB8fHx8MTc2NTQ1MDQ4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "christmas gift"
-    },
-    {
-      "id": "product-4",
-      "description": "Christmas Gift Crate",
-      "imageUrl": "https://images.unsplash.com/photo-1668127693714-791b24af126a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnaWZ0JTIwY3JhdGV8ZW58MHx8fHwxNzY1NTAwNjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gift crate"
-    },
-    {
-      "id": "product-5",
-      "description": "Christmas Gift Crate",
-      "imageUrl": "https://images.unsplash.com/photo-1629635771780-4bc960336c4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob2xpZGF5JTIwY3JhdGV8ZW58MHx8fHwxNzY1NTAwNjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "holiday crate"
-    },
-    {
-      "id": "product-6",
-      "description": "Woven Tote Bag",
-      "imageUrl": "https://images.unsplash.com/photo-1574365569389-a10d488ca3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0b3RlJTIwYmFnfGVufDB8fHx8MTc2NTQxODA4NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "tote bag"
-    },
-    {
-      "id": "product-7",
-      "description": "Scented Soy Candle",
-      "imageUrl": "https://images.unsplash.com/photo-1604249180474-3ebaf8747373?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2NlbnRlZCUyMGNhbmRsZXxlbnwwfHx8fDE3NjU0NTA1NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "scented candle"
-    },
-    {
-      "id": "product-8",
-      "description": "Black Sunglasses",
-      "imageUrl": "https://images.unsplash.com/photo-1732139637065-1088495050db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxibGFjayUyMHN1bmdsYXNzZXN8ZW58MHx8fHwxNzY1NDgxNTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "black sunglasses"
-    },
-    {
       "id": "category-eatables",
       "description": "A collection of various food items and snacks",
       "imageUrl": "https://images.unsplash.com/photo-1504855101244-34edfbd4b861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbmFja3MlMjBjaG9jb2xhdGV8ZW58MHx8fHwxNzY1NTEyMjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -113,66 +65,6 @@
       "description": "A collection of perfume bottles",
       "imageUrl": "https://images.unsplash.com/photo-1618994492420-b4f4d6b4890c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJmdW1lJTIwYm90dGxlc3xlbnwwfHx8fDE3NjU0NjgxNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "perfume bottles"
-    },
-    {
-      "id": "best-seller-1",
-      "description": "Samyang Hot Chicken Carbo Flavour Noodles",
-      "imageUrl": "https://images.unsplash.com/photo-1668355389099-7189347743e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzYW15YW5nJTIwbm9vZGxlc3xlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "samyang noodles"
-    },
-    {
-      "id": "best-seller-2",
-      "description": "Lindt Lindor Milk Ball chocolate",
-      "imageUrl": "https://images.unsplash.com/photo-1690642109411-89f854ad9aa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsaW5kdCUyMGNob2NvbGF0ZXxlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "lindt chocolate"
-    },
-    {
-      "id": "best-seller-3",
-      "description": "Takis Fuego Hot Chilli Pepper & Lime Tortilla Chips",
-      "imageUrl": "https://images.unsplash.com/photo-1754462529584-a36c94600a07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWtpcyUyMGZ1ZWdvfGVufDB8fHx8MTc2NTUxMjU4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "takis fuego"
-    },
-    {
-      "id": "best-seller-4",
-      "description": "Ferrero Nutella Wafer",
-      "imageUrl": "https://images.unsplash.com/photo-1653750660628-49a3414cf892?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxudXRlbGxhJTIwd2FmZXJ8ZW58MHx8fHwxNzY1NTEyNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "nutella wafer"
-    },
-    {
-      "id": "best-seller-5",
-      "description": "Takis Blue Heat Tortilla Chips",
-      "imageUrl": "https://images.unsplash.com/photo-1641651495195-f1d8b6f63121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0YWtpcyUyMGJsdWV8ZW58MHx8fHwxNzY1NTEyNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "takis blue"
-    },
-    {
-      "id": "best-seller-6",
-      "description": "Samyang Buldak Hot Chicken Habanero Lime",
-      "imageUrl": "https://picsum.photos/seed/samyang-habanero/600/600",
-      "imageHint": "samyang buldak"
-    },
-    {
-      "id": "best-seller-7",
-      "description": "Takis Mini Hot Chilli Pepper & Lime Tortilla Chips",
-      "imageUrl": "https://images.unsplash.com/photo-1708534271866-5ee620d44bea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWtpcyUyMG1pbml8ZW58MHx8fHwxNzY1NTEyNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "takis mini"
-    },
-    {
-      "id": "best-seller-8",
-      "description": "Takis Hot Chilli Pepper & Lime Tortilla Chips",
-      "imageUrl": "https://images.unsplash.com/photo-1676054991767-74ec02880be9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWtpcyUyMGhvdHxlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "takis hot"
-    },
-    {
-      "id": "best-seller-9",
-      "description": "Kinder Bueno Two Bars",
-      "imageUrl": "https://images.unsplash.com/photo-1625860927329-df5602da7729?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxraW5kZXIlMjBidWVub3xlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "kinder bueno"
-    },
-    {
-      "id": "best-seller-10",
-      "description": "Samyang Buldak Cream Carbonara Hot Chicken Flavour Noodles",
-      "imageUrl": "https://picsum.photos/seed/samyang-carbonara/600/600",
-      "imageHint": "samyang carbonara"
     },
     {
       "id": "promo-gift-basket",
@@ -251,6 +143,162 @@
       "description": "A sketch of a store front with the text Shams, home to a connoisseur",
       "imageUrl": "https://images.unsplash.com/photo-1620353982062-6a848a0635e1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "storefront sketch"
+    },
+    {
+      "id": "pringles-cheesy-cheese",
+      "description": "Pringles Snacks Cheesy Cheese",
+      "imageUrl": "https://images.unsplash.com/photo-1590912710024-6d51a6771abd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcmluZ2xlcyUyMGNoZWVzZXxlbnwwfHx8fDE3NjU1MTUxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pringles cheese"
+    },
+    {
+      "id": "pringles-hot-spicy",
+      "description": "Pringles Snacks Hot & Spicy",
+      "imageUrl": "https://images.unsplash.com/photo-1621317758612-3958e0f07c49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcmluZ2xlcyUyMHNwaWN5fGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pringles spicy"
+    },
+    {
+      "id": "pringles-original",
+      "description": "Pringles Snacks Original",
+      "imageUrl": "https://picsum.photos/seed/pringles-original/600/600",
+      "imageHint": "pringles original"
+    },
+    {
+      "id": "pringles-paprika",
+      "description": "Pringles Snacks Paprika",
+      "imageUrl": "https://images.unsplash.com/photo-1699115250220-e77b62d3e308?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcmluZ2xlcyUyMHBhcHJpa2F8ZW58MHx8fHwxNzY1NTE1MTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pringles paprika"
+    },
+    {
+      "id": "pringles-sour-cream-onion",
+      "description": "Pringles Snacks Sour Cream & Onion",
+      "imageUrl": "https://images.unsplash.com/photo-1686998424941-9006770e7f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcmluZ2xlcyUyMHNvdXIlMjBjcmVhbXxlbnwwfHx8fDE3NjU1MTUxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pringles sour cream"
+    },
+    {
+      "id": "kurkure-naughty-tomato",
+      "description": "Kurkure Naughty Tomato",
+      "imageUrl": "https://images.unsplash.com/photo-1642372849465-ad4afb304542?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8a3Vya3VyZSUyMHRvbWF0b3xlbnwwfHx8fDE3NjU1MTUxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kurkure tomato"
+    },
+    {
+      "id": "kurkure-masala-munch",
+      "description": "Kurkure Masala Munch",
+      "imageUrl": "https://picsum.photos/seed/kurkure-masala/600/600",
+      "imageHint": "kurkure masala"
+    },
+    {
+      "id": "kurkure-chutney-chaska",
+      "description": "Kurkure Chutney Chaska",
+      "imageUrl": "https://picsum.photos/seed/kurkure-chutney/600/600",
+      "imageHint": "kurkure chutney"
+    },
+    {
+      "id": "kurkure-chilli-chatka",
+      "description": "Kurkure Chilli Chatka",
+      "imageUrl": "https://images.unsplash.com/photo-1699115250220-e77b62d3e308?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxrdXJrdXJlJTIwY2hpbGxpfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kurkure chilli"
+    },
+    {
+      "id": "lays-flamin-hot",
+      "description": "Lays Flamin' Hot",
+      "imageUrl": "https://images.unsplash.com/photo-1549048882-60c37182f83a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsYXlzJTIwZmxhbWluJTIwaG90fGVufDB8fHx8MTc2NTUxNTExNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lays flamin hot"
+    },
+    {
+      "id": "lays-french-cheese",
+      "description": "Lays French Cheese",
+      "imageUrl": "https://images.unsplash.com/photo-1590912710024-6d51a6771abd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsYXlzJTIwZnJlbmNoJTIwY2hlZXNlfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lays french cheese"
+    },
+    {
+      "id": "lays-classic-salted",
+      "description": "Lays Classic Salted",
+      "imageUrl": "https://images.unsplash.com/photo-1761551724223-bc513a12918b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYXlzJTIwY2xhc3NpY3xlbnwwfHx8fDE3NjU1MTUxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lays classic"
+    },
+    {
+      "id": "lays-yogurt-herb",
+      "description": "Lays Yogurt & Herb",
+      "imageUrl": "https://images.unsplash.com/photo-1646587433838-0159a05ba4d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsYXlzJTIweW9ndXJ0JTIwaGVyYnxlbnwwfHx8fDE3NjU1MTUxMTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lays yogurt herb"
+    },
+    {
+      "id": "slanty-cheese-flavor",
+      "description": "Slanty Cheese Flavor",
+      "imageUrl": "https://images.unsplash.com/photo-1588180690208-757608cf133a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzbGFudHklMjBjaGVlc2V8ZW58MHx8fHwxNzY1NTE1MTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "slanty cheese"
+    },
+    {
+      "id": "slanty-chilli-flavor",
+      "description": "Slanty Chilli Flavor",
+      "imageUrl": "https://images.unsplash.com/photo-1586981114766-708f09a71e20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c2xhbnR5JTIwY2hpbGxpfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "slanty chilli"
+    },
+    {
+      "id": "super-crisp-salad",
+      "description": "Super Crisp Salad (Salted)",
+      "imageUrl": "https://images.unsplash.com/photo-1671366655643-dd76e4533bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdXBlciUyMGNyaXNwfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "super crisp"
+    },
+    {
+      "id": "super-crisp-masala-masti",
+      "description": "Super Crisp Masala Masti",
+      "imageUrl": "https://images.unsplash.com/photo-1649960861744-d18e65345eaf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdXBlciUyMGNyaXNwfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "super crisp"
+    },
+    {
+      "id": "super-crisp-pizza",
+      "description": "Super Crisp Pizza",
+      "imageUrl": "https://images.unsplash.com/photo-1708701498493-7817e5d3ee4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdXBlciUyMGNyaXNwfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "super crisp"
+    },
+    {
+      "id": "super-crisp-bbq",
+      "description": "Super Crisp BBQ",
+      "imageUrl": "https://images.unsplash.com/photo-1728670212431-ac192413f4b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdXBlciUyMGNyaXNwfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "super crisp"
+    },
+    {
+      "id": "super-crisp-ketchup",
+      "description": "Super Crisp Ketchup",
+      "imageUrl": "https://images.unsplash.com/photo-1671366655643-dd76e4533bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdXBlciUyMGNyaXNwfGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "super crisp"
+    },
+    {
+      "id": "super-crisp-sour-cream-onion",
+      "description": "Super Crisp Sour Cream & Onion",
+      "imageUrl": "https://images.unsplash.com/photo-1559761132-5952db82b3e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3VwZXIlMjBjcmlzcHxlbnwwfHx8fDE3NjU1MTUxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "super crisp"
+    },
+    {
+      "id": "wavy-maxx-sizzling-bbq",
+      "description": "Wavy Maxx Sizzling BBQ",
+      "imageUrl": "https://images.unsplash.com/photo-1759693834549-ff197ef70bc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3YXZ5JTIwbWF4eHxlbnwwfHx8fDE3NjU1MTUxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wavy maxx"
+    },
+    {
+      "id": "wavy-maxx-creamy-onion",
+      "description": "Wavy Maxx Creamy Onion",
+      "imageUrl": "https://images.unsplash.com/photo-1747037861771-501e1d896f5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3YXZ5JTIwbWF4eHxlbnwwfHx8fDE3NjU1MTUxMTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wavy maxx"
+    },
+    {
+      "id": "biscolata-mood-chocolate",
+      "description": "Biscolata Mood Chocolate",
+      "imageUrl": "https://images.unsplash.com/photo-1587132164684-cfd0b8214d8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxiaXNjb2xhdGElMjBjaG9jb2xhdGV8ZW58MHx8fHwxNzY1NTE1MTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "biscolata chocolate"
+    },
+    {
+      "id": "tuc-biscuit",
+      "description": "Tuc Biscuit",
+      "imageUrl": "https://images.unsplash.com/photo-1631639357086-f11329ec95cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0dWMlMjBiaXNjdWl0fGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tuc biscuit"
+    },
+    {
+      "id": "prince-biscuit",
+      "description": "Prince Biscuit",
+      "imageUrl": "https://picsum.photos/seed/prince-biscuit/600/600",
+      "imageHint": "prince biscuit"
     }
   ]
 }

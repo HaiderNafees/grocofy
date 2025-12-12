@@ -93,7 +93,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
             <div className="mt-6 flex items-start gap-3 text-sm text-muted-foreground">
                 <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5"/>
                 <div>
-                    <p className="text-foreground font-medium">Pickup available at Shams, F-6 Supermarket, Islamabad.</p>
+                    <p className="text-foreground font-medium">Pickup available at Grocofy, F-6 Supermarket, Islamabad.</p>
                     <p>Usually ready in 4 hours</p>
                 </div>
             </div>

@@ -3,10 +3,9 @@
 import { useState } from "react";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { ProductCard } from "@/components/product-card";
-import { products, bestSellers } from "@/lib/data";
+import { products } from "@/lib/data";
 import Link from "next/link";
 import { PopularCategories } from "@/components/popular-categories";
-import { BestSellerSection } from "@/components/best-seller-section";
 import { PromoSection } from "@/components/promo-section";
 import { FeaturedBrands } from "@/components/featured-brands";
 import { AboutUsSection } from "@/components/about-us-section";
@@ -36,7 +35,7 @@ export default function Home() {
             View all
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
           {products.map((product) => (
             <ProductCard 
               key={product.id} 
@@ -47,14 +46,13 @@ export default function Home() {
         </div>
       </div>
       <PopularCategories />
-      <BestSellerSection onViewProduct={handleProductView} />
       <PromoSection />
       <FeaturedBrands />
       <AboutUsSection />
       <NewsletterSignup />
 
       <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && handleCloseDialog()}>
-        <DialogContent className="max-w-lg p-0">
+        <DialogContent className="max-w-md p-0">
           {selectedProduct && <ProductDetail product={selectedProduct} />}
         </DialogContent>
       </Dialog>

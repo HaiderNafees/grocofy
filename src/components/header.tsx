@@ -50,7 +50,7 @@ export function Header() {
         <div className="flex flex-1 items-center justify-center lg:justify-start">
           <Link href="/" className="flex-shrink-0">
             <Logo />
-            <span className="sr-only">SHAMS Home</span>
+            <span className="sr-only">Grocofy Home</span>
           </Link>
         </div>
 

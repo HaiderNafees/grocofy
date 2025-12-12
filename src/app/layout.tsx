@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'SHAMS',
+  title: 'Grocofy',
   description: 'A clone of the SHAMS website built with Next.js and Firebase Studio',
 };
 
