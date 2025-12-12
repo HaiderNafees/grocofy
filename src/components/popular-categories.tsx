@@ -23,14 +23,13 @@ export function PopularCategories() {
         <h2 className="text-3xl font-serif mb-8 text-center">Popular Categories</h2>
       </div>
       
-      {/* Mobile horizontal scroll */}
-      <div className="lg:hidden">
-        <ScrollArea className="w-full whitespace-nowrap">
-          <div className="flex w-max space-x-4 px-4">
+      {/* Mobile grid */}
+      <div className="lg:hidden container">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8">
             {categories.map((category) => {
               const image = PlaceHolderImages.find((img) => img.id === category.imageId);
               return (
-                <Link href="#" key={category.name} className="group flex-shrink-0 flex flex-col items-center gap-3 w-32">
+                <Link href="#" key={category.name} className="group flex flex-col items-center gap-3">
                   <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
                     {image && (
                       <Image
@@ -38,6 +37,7 @@ export function PopularCategories() {
                         alt={category.name}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 33vw"
                         data-ai-hint={image.imageHint}
                       />
                     )}
@@ -47,8 +47,6 @@ export function PopularCategories() {
               );
             })}
           </div>
-          <ScrollBar orientation="horizontal" className="h-2.5" />
-        </ScrollArea>
       </div>
 
       {/* Desktop grid */}
