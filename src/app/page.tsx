@@ -36,7 +36,7 @@ export default function Home() {
             View all
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-5">
           {products.map((product) => (
             <ProductCard 
               key={product.id} 
@@ -54,7 +54,7 @@ export default function Home() {
       <NewsletterSignup />
 
       <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && handleCloseDialog()}>
-        <DialogContent className="max-w-3xl p-0">
+        <DialogContent className="max-w-lg p-0">
           {selectedProduct && <ProductDetail product={selectedProduct} />}
         </DialogContent>
       </Dialog>
