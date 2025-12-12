@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { PopularCategories } from "@/components/popular-categories";
 import { BestSellerSection } from "@/components/best-seller-section";
+import { PromoSection } from "@/components/promo-section";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       </div>
       <PopularCategories />
       <BestSellerSection />
+      <PromoSection />
     </>
   );
 }
