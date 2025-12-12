@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -11,26 +10,9 @@ import { CartSheet } from './cart-sheet';
 import { Input } from '@/components/ui/input';
 
 const navLinks = [
-    { href: '#', label: 'EATABLES' },
-    { href: '#', label: 'PERSONAL CARE' },
-    { href: '#', label: 'BEAUTY' },
-    { href: '#', label: 'FRAGRANCE' },
-    { href: '#', label: 'GIFTS' },
-    { href: '#', label: 'LIFE STYLE' },
-    { href: '#', label: 'CLOTHING' },
-    { href: '#', label: 'HOME DECOR' },
-    { href: '#', label: 'SMOKING' },
-    { href: '#', label: 'BRANDS' },
-    { href: '#', label: 'TRACK ORDER' },
-    { href: '#', label: 'CUSTOMIZE GIFT BASKET' },
-    { href: '#', label: 'SALE' },
-];
-
-const mobileNavLinks = [
-  { href: '/', label: 'HOME' },
-  { href: '#', label: 'SHOP' },
-  { href: '#', label: 'ABOUT US' },
-  { href: '#', label: 'CONTACT US' },
+    { href: '#', label: 'Shop' },
+    { href: '#', label: 'About Us' },
+    { href: '#', label: 'Contact Us' },
 ];
 
 export function Header() {
@@ -39,80 +21,78 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 items-center">
-        <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-2 lg:hidden">
-                <Sheet>
-                    <SheetTrigger asChild>
-                        <Button variant="ghost" size="icon">
-                            <Menu className="h-6 w-6" />
-                            <span className="sr-only">Toggle menu</span>
-                        </Button>
-                    </SheetTrigger>
-                    <SheetContent side="left" className="w-full max-w-xs p-0">
-                        <div className="p-6 h-full overflow-y-auto">
-                            <nav className="flex flex-col items-start gap-y-2 pt-12">
-                                {[...mobileNavLinks, ...navLinks].map((link) => (
-                                    <Link
-                                        key={link.label}
-                                        href={link.href}
-                                        className="py-2 text-sm font-normal uppercase tracking-wider text-gray-700"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
-                            </nav>
-                        </div>
-                    </SheetContent>
-                </Sheet>
-            </div>
-
-            <div className="flex items-center">
-                <Link href="/" className="flex-shrink-0">
-                    <Logo />
-                    <span className="sr-only">SHAMS Home</span>
-                </Link>
-            </div>
-
-            <div className="hidden lg:flex flex-1 justify-center px-8">
-                <nav className="flex items-center gap-x-4">
-                  {navLinks.slice(0, 9).map((link) => (
-                      <Link
-                          key={link.label}
-                          href={link.href}
-                          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                          {link.label}
-                      </Link>
+        <div className="flex items-center lg:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-full max-w-xs p-0">
+              <div className="p-6 h-full overflow-y-auto">
+                <nav className="flex flex-col items-start gap-y-2 pt-12">
+                  {[...navLinks].map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="py-2 text-base font-normal uppercase tracking-wider text-gray-700"
+                    >
+                      {link.label}
+                    </Link>
                   ))}
                 </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        <div className="flex flex-1 items-center justify-center lg:justify-start">
+          <Link href="/" className="flex-shrink-0">
+            <Logo />
+            <span className="sr-only">SHAMS Home</span>
+          </Link>
+        </div>
+
+        <div className="hidden lg:flex flex-1 justify-center px-8">
+            <nav className="flex items-center gap-x-8">
+              {navLinks.map((link) => (
+                  <Link
+                      key={link.label}
+                      href={link.href}
+                      className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                      {link.label}
+                  </Link>
+              ))}
+            </nav>
+        </div>
+        
+        <div className="flex items-center justify-end gap-1">
+            <div className="hidden lg:flex relative w-full max-w-xs">
+                <Input placeholder="Search..." className="w-full pr-10 border-gray-300 rounded-full focus:ring-0 focus:border-black" />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             </div>
-            
-            <div className="flex items-center gap-1">
-                 <div className="hidden lg:flex relative w-full max-w-xs">
-                    <Input placeholder="Search..." className="w-full pr-10 border-gray-300 rounded-full focus:ring-0 focus:border-black" />
-                    <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                </div>
-                <Button variant="ghost" size="icon" className="lg:hidden">
-                    <Search className="h-5 w-5" />
-                    <span className="sr-only">Search</span>
+            <Button variant="ghost" size="icon" className="lg:hidden">
+                <Search className="h-5 w-5" />
+                <span className="sr-only">Search</span>
+            </Button>
+            <Button variant="ghost" className="flex text-sm font-normal">
+                <User className="h-5 w-5 md:mr-2" />
+                <span className="hidden md:inline">ACCOUNT</span>
+            </Button>
+            <CartSheet>
+                <Button variant="ghost" className="relative flex text-sm font-normal">
+                    <ShoppingCart className="h-5 w-5 md:mr-2" />
+                    <span className="hidden md:inline">CART</span>
+                    {itemCount > 0 && (
+                        <span className="absolute right-0 top-0 flex h-4 w-4 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                            {itemCount}
+                        </span>
+                    )}
+                    <span className="sr-only">Shopping Cart</span>
                 </Button>
-                <Button variant="ghost" className="flex text-sm font-normal">
-                    <User className="h-5 w-5 md:mr-2" />
-                    <span className="hidden md:inline">ACCOUNT</span>
-                </Button>
-                <CartSheet>
-                    <Button variant="ghost" className="relative flex text-sm font-normal">
-                        <ShoppingCart className="h-5 w-5 md:mr-2" />
-                        <span className="hidden md:inline">CART</span>
-                        {itemCount > 0 && (
-                            <span className="absolute right-0 top-0 flex h-4 w-4 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                                {itemCount}
-                            </span>
-                        )}
-                        <span className="sr-only">Shopping Cart</span>
-                    </Button>
-                </CartSheet>
-            </div>
+            </CartSheet>
         </div>
       </div>
     </header>
