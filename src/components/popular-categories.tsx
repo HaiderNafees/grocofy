@@ -66,8 +66,8 @@ export function PopularCategories() {
       </div>
       
       {/* Desktop: Centered grid */}
-      <div className="hidden lg:container">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-8 lg:px-12">
+      <div className="hidden lg:block container">
+        <div className="grid grid-cols-5 gap-x-6 gap-y-8 px-12">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
