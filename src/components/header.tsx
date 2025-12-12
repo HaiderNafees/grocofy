@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -51,14 +52,14 @@ export function Header() {
                             <span className="sr-only">Toggle menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="w-[300px] p-0">
-                        <div className="p-6">
-                            <nav className="flex flex-col gap-4 pt-12">
+                    <SheetContent side="left" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl p-0">
+                        <div className="p-6 h-full overflow-y-auto">
+                            <nav className="flex flex-col lg:flex-row lg:flex-wrap lg:justify-center gap-4 pt-12">
                                 {[...mobileNavLinks, ...topNavLinks, ...bottomNavLinks].map((link) => (
                                     <Link
                                         key={link.label}
                                         href={link.href}
-                                        className="flex w-full items-center py-2 text-base font-semibold"
+                                        className="flex w-full lg:w-auto items-center py-2 text-base font-semibold lg:px-4"
                                     >
                                         {link.label}
                                     </Link>
