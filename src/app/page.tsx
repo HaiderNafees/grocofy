@@ -1,9 +1,10 @@
 import { HeroCarousel } from "@/components/hero-carousel";
 import { ProductCard } from "@/components/product-card";
-import { products } from "@/lib/data";
+import { products, bestSellers } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { PopularCategories } from "@/components/popular-categories";
+import { BestSellerSection } from "@/components/best-seller-section";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         </div>
       </div>
       <PopularCategories />
+      <BestSellerSection />
     </>
   );
 }

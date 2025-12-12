@@ -113,6 +113,66 @@
       "description": "A collection of perfume bottles",
       "imageUrl": "https://images.unsplash.com/photo-1618994492420-b4f4d6b4890c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJmdW1lJTIwYm90dGxlc3xlbnwwfHx8fDE3NjU0NjgxNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "perfume bottles"
+    },
+    {
+      "id": "best-seller-1",
+      "description": "Samyang Hot Chicken Carbo Flavour Noodles",
+      "imageUrl": "https://images.unsplash.com/photo-1668355389099-7189347743e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzYW15YW5nJTIwbm9vZGxlc3xlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "samyang noodles"
+    },
+    {
+      "id": "best-seller-2",
+      "description": "Lindt Lindor Milk Ball chocolate",
+      "imageUrl": "https://images.unsplash.com/photo-1690642109411-89f854ad9aa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsaW5kdCUyMGNob2NvbGF0ZXxlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lindt chocolate"
+    },
+    {
+      "id": "best-seller-3",
+      "description": "Takis Fuego Hot Chilli Pepper & Lime Tortilla Chips",
+      "imageUrl": "https://images.unsplash.com/photo-1754462529584-a36c94600a07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWtpcyUyMGZ1ZWdvfGVufDB8fHx8MTc2NTUxMjU4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "takis fuego"
+    },
+    {
+      "id": "best-seller-4",
+      "description": "Ferrero Nutella Wafer",
+      "imageUrl": "https://images.unsplash.com/photo-1653750660628-49a3414cf892?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxudXRlbGxhJTIwd2FmZXJ8ZW58MHx8fHwxNzY1NTEyNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nutella wafer"
+    },
+    {
+      "id": "best-seller-5",
+      "description": "Takis Blue Heat Tortilla Chips",
+      "imageUrl": "https://images.unsplash.com/photo-1641651495195-f1d8b6f63121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0YWtpcyUyMGJsdWV8ZW58MHx8fHwxNzY1NTEyNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "takis blue"
+    },
+    {
+      "id": "best-seller-6",
+      "description": "Samyang Buldak Hot Chicken Habanero Lime",
+      "imageUrl": "https://picsum.photos/seed/samyang-habanero/600/600",
+      "imageHint": "samyang buldak"
+    },
+    {
+      "id": "best-seller-7",
+      "description": "Takis Mini Hot Chilli Pepper & Lime Tortilla Chips",
+      "imageUrl": "https://images.unsplash.com/photo-1708534271866-5ee620d44bea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWtpcyUyMG1pbml8ZW58MHx8fHwxNzY1NTEyNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "takis mini"
+    },
+    {
+      "id": "best-seller-8",
+      "description": "Takis Hot Chilli Pepper & Lime Tortilla Chips",
+      "imageUrl": "https://images.unsplash.com/photo-1676054991767-74ec02880be9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWtpcyUyMGhvdHxlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "takis hot"
+    },
+    {
+      "id": "best-seller-9",
+      "description": "Kinder Bueno Two Bars",
+      "imageUrl": "https://images.unsplash.com/photo-1625860927329-df5602da7729?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxraW5kZXIlMjBidWVub3xlbnwwfHx8fDE3NjU1MTI1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kinder bueno"
+    },
+    {
+      "id": "best-seller-10",
+      "description": "Samyang Buldak Cream Carbonara Hot Chicken Flavour Noodles",
+      "imageUrl": "https://picsum.photos/seed/samyang-carbonara/600/600",
+      "imageHint": "samyang carbonara"
     }
   ]
 }

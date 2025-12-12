@@ -7,6 +7,7 @@ export interface Product {
   image: string;
   imageHint: string;
   category: string;
+  soldOut?: boolean;
 }
 
 export interface CartItem {
