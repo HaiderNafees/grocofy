@@ -12,9 +12,9 @@ interface User {
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  login: (email: string, pass: string) => User | null;
+  login: (email: string, pass: string) => Promise<User | null>;
   logout: () => void;
-  signup: (email: string, pass: string) => User | null;
+  signup: (email: string, pass: string) => Promise<User | null>;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -66,38 +66,45 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  const login = (email: string, pass: string): User | null => {
-    try {
-        const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
-        if (storedUsers[email] && storedUsers[email].password === pass) {
+  const login = async (email: string, pass: string): Promise<User | null> => {
+    return new Promise((resolve) => {
+        try {
+            const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
+            if (storedUsers[email] && storedUsers[email].password === pass) {
+                const user: User = { email, isAdmin: email === ADMIN_EMAIL };
+                localStorage.setItem('user', JSON.stringify(user));
+                setUser(user);
+                resolve(user);
+            } else {
+                resolve(null);
+            }
+        } catch (error) {
+            console.error("Failed during login", error);
+            resolve(null);
+        }
+    });
+  };
+
+  const signup = async (email: string, pass: string): Promise<User | null> => {
+     return new Promise((resolve) => {
+        try {
+            const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
+            if (storedUsers[email]) {
+                resolve(null); // User already exists
+                return;
+            }
+            storedUsers[email] = { password: pass };
+            localStorage.setItem('users', JSON.stringify(storedUsers));
+            
             const user: User = { email, isAdmin: email === ADMIN_EMAIL };
             localStorage.setItem('user', JSON.stringify(user));
             setUser(user);
-            return user;
+            resolve(user);
+        } catch (error) {
+            console.error("Failed during signup", error);
+            resolve(null);
         }
-    } catch (error) {
-        console.error("Failed during login", error);
-    }
-    return null;
-  };
-
-  const signup = (email: string, pass: string): User | null => {
-    try {
-        const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
-        if (storedUsers[email]) {
-            return null; // User already exists
-        }
-        storedUsers[email] = { password: pass };
-        localStorage.setItem('users', JSON.stringify(storedUsers));
-        
-        const user: User = { email, isAdmin: email === ADMIN_EMAIL };
-        localStorage.setItem('user', JSON.stringify(user));
-        setUser(user);
-        return user;
-    } catch (error) {
-        console.error("Failed during signup", error);
-    }
-    return null;
+    });
   };
 
   const logout = () => {

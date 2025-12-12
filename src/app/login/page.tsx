@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -47,7 +48,7 @@ export default function LoginPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
     try {
-      const user = login(values.email, values.password);
+      const user = await login(values.email, values.password);
       if (user) {
         if (user.isAdmin) {
             router.push('/admin');

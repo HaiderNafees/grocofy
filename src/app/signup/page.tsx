@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -54,8 +55,8 @@ export default function SignupPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
     try {
-      const success = signup(values.email, values.password);
-      if (success) {
+      const user = await signup(values.email, values.password);
+      if (user) {
         router.push('/account');
       } else {
         toast({
