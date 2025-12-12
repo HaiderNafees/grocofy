@@ -5,7 +5,7 @@ const getImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
   if (!image) {
     return {
-      imageUrl: "https://picsum.photos/seed/error/600/800",
+      imageUrl: "https://picsum.photos/seed/error/600/600",
       imageHint: "placeholder image"
     }
   }
@@ -18,43 +18,43 @@ const getImage = (id: string) => {
 export const products: Product[] = [
   {
     id: 'prod-1',
-    name: 'Beige Linen Shirt',
-    price: 75.00,
+    name: 'Christmas Gift Basket-0258862',
+    price: 80330,
     image: getImage('product-1').imageUrl,
-    imageHint: getImage('product-1').imageHint,
-    category: 'Clothing',
+    imageHint: 'gift basket christmas',
+    category: 'Gifts',
   },
   {
     id: 'prod-2',
-    name: 'White Leather Sneakers',
-    price: 120.00,
+    name: 'Christmas Gift Basket-0258860',
+    price: 23550,
     image: getImage('product-2').imageUrl,
-    imageHint: getImage('product-2').imageHint,
-    category: 'Shoes',
+    imageHint: 'christmas basket',
+    category: 'Gifts',
   },
   {
     id: 'prod-3',
-    name: 'Ceramic Plant Pot',
-    price: 45.00,
+    name: 'Christmas Gift Basket-0258859',
+    price: 14760,
     image: getImage('product-3').imageUrl,
-    imageHint: getImage('product-3').imageHint,
-    category: 'Homeware',
+    imageHint: 'holiday basket',
+    category: 'Gifts',
   },
   {
     id: 'prod-4',
-    name: 'Gold-Plated Necklace',
-    price: 60.00,
+    name: 'Christmas Gift Crate-0258854',
+    price: 32410,
     image: getImage('product-4').imageUrl,
-    imageHint: getImage('product-4').imageHint,
-    category: 'Accessories',
+    imageHint: 'gift crate',
+    category: 'Gifts',
   },
   {
     id: 'prod-5',
-    name: 'Denim Straight-Leg Jeans',
-    price: 90.00,
+    name: 'Christmas Gift Crate-0258850',
+    price: 57040,
     image: getImage('product-5').imageUrl,
-    imageHint: getImage('product-5').imageHint,
-    category: 'Clothing',
+    imageHint: 'holiday crate',
+    category: 'Gifts',
   },
   {
     id: 'prod-6',

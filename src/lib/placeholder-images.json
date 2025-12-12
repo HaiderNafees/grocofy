@@ -20,33 +20,33 @@
     },
     {
       "id": "product-1",
-      "description": "Beige Linen Shirt",
-      "imageUrl": "https://images.unsplash.com/photo-1740711152088-88a009e877bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsaW5lbiUyMHNoaXJ0fGVufDB8fHx8MTc2NTQzNjA5MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "linen shirt"
+      "description": "Christmas Gift Basket",
+      "imageUrl": "https://images.unsplash.com/photo-1668432321756-5109ad1f5916?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnaWZ0JTIwYmFza2V0fGVufDB8fHx8MTc2NTUwMDYzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gift basket"
     },
     {
       "id": "product-2",
-      "description": "White Leather Sneakers",
-      "imageUrl": "https://images.unsplash.com/photo-1615109255391-b0dfdcd5b8d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3aGl0ZSUyMHNuZWFrZXJzfGVufDB8fHx8MTc2NTQ5OTc1MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "white sneakers"
+      "description": "Christmas Gift Basket",
+      "imageUrl": "https://images.unsplash.com/photo-1760812655704-7dc53dd36194?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob2xpZGF5JTIwYmFza2V0fGVufDB8fHx8MTc2NTUwMDYzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "holiday basket"
     },
     {
       "id": "product-3",
-      "description": "Ceramic Plant Pot",
-      "imageUrl": "https://images.unsplash.com/photo-1718903532586-39adefb7cc99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjZXJhbWljJTIwcG90fGVufDB8fHx8MTc2NTQzMTg0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "ceramic pot"
+      "description": "Christmas Gift Basket",
+      "imageUrl": "https://images.unsplash.com/photo-1639420482727-e5706c91cbc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaHJpc3RtYXMlMjBnaWZ0fGVufDB8fHx8MTc2NTQ1MDQ4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "christmas gift"
     },
     {
       "id": "product-4",
-      "description": "Gold-Plated Necklace",
-      "imageUrl": "https://images.unsplash.com/photo-1611107683227-e9060eccd846?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnb2xkJTIwbmVja2xhY2V8ZW58MHx8fHwxNzY1NDc5OTQ1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "gold necklace"
+      "description": "Christmas Gift Crate",
+      "imageUrl": "https://images.unsplash.com/photo-1668127693714-791b24af126a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnaWZ0JTIwY3JhdGV8ZW58MHx8fHwxNzY1NTAwNjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gift crate"
     },
     {
       "id": "product-5",
-      "description": "Denim Straight-Leg Jeans",
-      "imageUrl": "https://images.unsplash.com/photo-1560243563-062bfc001d68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkZW5pbSUyMGplYW5zfGVufDB8fHx8MTc2NTQ5OTc1MHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "denim jeans"
+      "description": "Christmas Gift Crate",
+      "imageUrl": "https://images.unsplash.com/photo-1629635771780-4bc960336c4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob2xpZGF5JTIwY3JhdGV8ZW58MHx8fHwxNzY1NTAwNjM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "holiday crate"
     },
     {
       "id": "product-6",
