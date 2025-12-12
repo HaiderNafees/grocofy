@@ -50,8 +50,8 @@ export function ProductCard({ product }: ProductCardProps) {
           )}
         </div>
         <div className="p-4 text-center">
-          <h3 className="font-normal text-sm text-muted-foreground">{product.name}</h3>
-          <p className="text-base font-semibold mt-1">Rs. {product.price.toLocaleString()}</p>
+          <h3 className="font-sans text-base text-muted-foreground">{product.name}</h3>
+          <p className="text-lg font-semibold mt-1">Rs. {product.price.toLocaleString()}</p>
         </div>
       </CardContent>
     </Card>
