@@ -9,7 +9,6 @@ import { ProductForm } from '@/components/admin/product-form';
 import { ProductList } from '@/components/admin/product-list';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Separator } from '@/components/ui/separator';
 
 export default function AdminPage() {
   const { user, loading } = useAuth();
