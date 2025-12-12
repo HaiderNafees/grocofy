@@ -1,13 +1,12 @@
+
 'use client';
 
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
-import { ShieldCheck } from 'lucide-react';
 
 export default function AccountPage() {
   const { user, loading, logout } = useAuth();
@@ -26,46 +25,53 @@ export default function AccountPage() {
 
   if (loading || !user) {
     return (
-        <div className="container py-12 flex items-center justify-center">
-            <Card className="w-full max-w-md">
-                <CardHeader>
-                    <Skeleton className="h-8 w-3/4" />
-                    <Skeleton className="h-4 w-1/2" />
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    <Skeleton className="h-6 w-full" />
-                    <Skeleton className="h-10 w-24" />
-                </CardContent>
-            </Card>
+      <div className="container py-12">
+        <div className="flex justify-between items-center mb-10">
+          <Skeleton className="h-10 w-1/4" />
+          <Skeleton className="h-6 w-20" />
         </div>
+        <div className="grid lg:grid-cols-3 gap-12">
+          <div className="lg:col-span-2 space-y-4">
+            <Skeleton className="h-8 w-1/3" />
+            <Skeleton className="h-4 w-1/2" />
+          </div>
+          <div className="space-y-4">
+            <Skeleton className="h-8 w-1/2" />
+            <Skeleton className="h-4 w-3/4" />
+            <Skeleton className="h-4 w-1/2" />
+          </div>
+        </div>
+      </div>
     );
   }
 
   return (
-    <div className="container py-12 flex items-center justify-center">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>My Account</CardTitle>
-          <CardDescription>Welcome back, {user.email}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h3 className="font-semibold">User Information</h3>
-            <p className="text-sm text-muted-foreground">Email: {user.email}</p>
-          </div>
-          {user.isAdmin && (
-            <Link href="/admin" passHref>
-              <Button variant="outline">
-                <ShieldCheck className="mr-2 h-4 w-4" />
-                Go to Admin Panel
-              </Button>
+    <div className="container py-12">
+      <div className="flex justify-between items-baseline mb-10">
+        <h1 className="text-4xl font-serif">My account</h1>
+        <button onClick={handleSignOut} className="text-sm underline hover:no-underline">
+          Log out
+        </button>
+      </div>
+
+      <div className="grid lg:grid-cols-3 gap-x-12">
+        <div className="lg:col-span-2">
+          <h2 className="text-2xl font-serif mb-4">Order History</h2>
+          <p className="text-muted-foreground">You haven't placed any orders yet.</p>
+        </div>
+        
+        <div>
+          <h3 className="text-xl font-serif mb-4">Account details</h3>
+          <div className="space-y-2">
+            <p>{user.name}</p>
+            {/* This is a placeholder for address details */}
+            <p>Pakistan</p>
+            <Link href="#" className="text-sm underline hover:no-underline">
+                View addresses (1)
             </Link>
-          )}
-          <Button onClick={handleSignOut} variant="destructive">
-            Sign Out
-          </Button>
-        </CardContent>
-      </Card>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
