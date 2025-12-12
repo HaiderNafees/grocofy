@@ -34,7 +34,6 @@ const mobileNavLinks = [
   { href: '#', label: 'SHOP' },
   { href: '#', label: 'ABOUT US' },
   { href: '#', label: 'CONTACT US' },
-  { href: '#', label: 'TRACK YOUR ORDER' },
 ];
 
 export function Header() {
@@ -54,12 +53,12 @@ export function Header() {
                     </SheetTrigger>
                     <SheetContent side="left" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl p-0">
                         <div className="p-6 h-full overflow-y-auto">
-                            <nav className="flex flex-col lg:flex-row lg:flex-wrap lg:justify-center gap-4 pt-12">
+                            <nav className="flex flex-wrap justify-start items-center gap-x-8 gap-y-4 pt-12">
                                 {[...mobileNavLinks, ...topNavLinks, ...bottomNavLinks].map((link) => (
                                     <Link
                                         key={link.label}
                                         href={link.href}
-                                        className="flex w-full lg:w-auto items-center py-2 text-base font-semibold lg:px-4"
+                                        className="py-2 text-base font-semibold uppercase tracking-wider"
                                     >
                                         {link.label}
                                     </Link>
