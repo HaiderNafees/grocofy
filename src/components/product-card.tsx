@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/lib/types";
 import { useCart } from "@/hooks/use-cart";
-import { useToast } from "@/hooks/use-toast";
 import { Eye, ShoppingBag } from "lucide-react";
 
 interface ProductCardProps {
@@ -15,7 +14,6 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
-  const { toast } = useToast();
 
   const handleAddToCart = () => {
     addItem(product);
@@ -30,21 +28,21 @@ export function ProductCard({ product }: ProductCardProps) {
               src={product.image}
               alt={product.name}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               data-ai-hint={product.imageHint}
             />
           </Link>
           <div className="absolute top-3 right-3 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-             <Button size="icon" variant="secondary" className="rounded-full h-10 w-10">
+             <Button size="icon" variant="secondary" className="rounded-full h-9 w-9">
                 <Eye className="h-4 w-4" />
              </Button>
-             <Button size="icon" variant="secondary" className="rounded-full h-10 w-10" onClick={handleAddToCart}>
+             <Button size="icon" variant="secondary" className="rounded-full h-9 w-9" onClick={handleAddToCart}>
                 <ShoppingBag className="h-4 w-4" />
              </Button>
           </div>
         </div>
-        <div className="p-4 text-center bg-card">
+        <div className="p-3 text-center bg-card">
           <h3 className="font-medium text-sm truncate">{product.name}</h3>
           <p className="text-sm font-semibold mt-1">${product.price.toFixed(2)}</p>
         </div>
