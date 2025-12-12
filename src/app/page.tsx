@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <>
       <HeroCarousel />
-      <PopularCategories />
       <div className="container py-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold tracking-wide">New in store</h2>
@@ -23,6 +22,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <PopularCategories />
     </>
   );
 }
