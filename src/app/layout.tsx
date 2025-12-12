@@ -1,9 +1,11 @@
+
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { CartProvider } from '@/context/cart-context';
 import { AuthProvider } from '@/context/auth-context';
+import { ProductProvider } from '@/context/product-context';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -38,14 +40,16 @@ export default function RootLayout({
         )}
       >
         <AuthProvider>
-          <CartProvider>
-            <div className="relative flex min-h-dvh flex-col bg-background">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-            <Toaster />
-          </CartProvider>
+          <ProductProvider>
+            <CartProvider>
+              <div className="relative flex min-h-dvh flex-col bg-background">
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+              <Toaster />
+            </CartProvider>
+          </ProductProvider>
         </AuthProvider>
       </body>
     </html>

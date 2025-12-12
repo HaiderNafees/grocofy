@@ -1,32 +1,57 @@
+
 'use client';
 
-import { useState } from 'react';
-import { products } from '@/lib/data';
+import { useState, useEffect } from 'react';
+import { useProducts } from '@/hooks/use-products';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/product-card';
-import { Separator } from '@/components/ui/separator';
 import { Minus, Plus, CheckCircle2, Share2, Twitter, Pin } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const { addItem } = useCart();
-  const allProducts = [...products];
-  const product = allProducts.find((p) => p.id === params.id);
+  const { products, loading } = useProducts();
   const [quantity, setQuantity] = useState(1);
+  const [product, setProduct] = useState(products.find((p) => p.id === params.id));
 
-  if (!product) {
-    notFound();
+  useEffect(() => {
+    if(!loading) {
+      const foundProduct = products.find((p) => p.id === params.id);
+      if (foundProduct) {
+        setProduct(foundProduct);
+      } else {
+        notFound();
+      }
+    }
+  }, [params.id, products, loading]);
+
+
+  if (loading || !product) {
+    return (
+        <div className="container py-12">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+                <Skeleton className="aspect-square rounded-lg" />
+                <div className="space-y-6">
+                    <Skeleton className="h-8 w-3/4" />
+                    <Skeleton className="h-10 w-1/4" />
+                    <Skeleton className="h-4 w-1/2" />
+                    <Skeleton className="h-12 w-full" />
+                    <Skeleton className="h-12 w-full" />
+                </div>
+            </div>
+        </div>
+    );
   }
-
+  
   const relatedProducts = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 5);
 
   const handleAddToCart = () => {
     if (product.soldOut) return;
-    for (let i = 0; i < quantity; i++) {
-        addItem(product);
-    }
+    addItem(product, quantity);
+    setQuantity(1);
   };
 
   return (

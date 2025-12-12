@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { ReactNode } from 'react';
@@ -5,6 +6,7 @@ import { createContext, useState, useEffect } from 'react';
 
 interface User {
   email: string;
+  isAdmin: boolean;
 }
 
 interface AuthContextType {
@@ -17,12 +19,13 @@ interface AuthContextType {
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const ADMIN_EMAIL = 'admin@grocofy.com';
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // This effect runs once on mount to check for a user in local storage.
     try {
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
@@ -30,7 +33,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     } catch (error) {
       console.error("Failed to parse user from localStorage", error);
-      // If parsing fails, ensure user is null
       setUser(null);
     } finally {
       setLoading(false);
@@ -38,12 +40,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = (email: string, pass: string): boolean => {
-    // This is a mock login. In a real app, you'd validate credentials.
-    // We'll check if a user with this email exists.
     try {
         const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
         if (storedUsers[email] && storedUsers[email].password === pass) {
-            const user = { email };
+            const user: User = { email, isAdmin: email === ADMIN_EMAIL };
             localStorage.setItem('user', JSON.stringify(user));
             setUser(user);
             return true;
@@ -55,7 +55,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const signup = (email: string, pass: string): boolean => {
-    // This is a mock signup.
     try {
         const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
         if (storedUsers[email]) {
@@ -64,7 +63,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         storedUsers[email] = { password: pass };
         localStorage.setItem('users', JSON.stringify(storedUsers));
         
-        const user = { email };
+        const user: User = { email, isAdmin: email === ADMIN_EMAIL };
         localStorage.setItem('user', JSON.stringify(user));
         setUser(user);
         return true;

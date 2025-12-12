@@ -1,14 +1,17 @@
+
 'use client';
 
 import { useState } from 'react';
 import { ProductCard } from '@/components/product-card';
-import { products } from '@/lib/data';
+import { useProducts } from '@/hooks/use-products';
 import { ProductDetail } from '@/components/product-detail';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import type { Product } from '@/lib/types';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function AllProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const { products, loading } = useProducts();
 
   const handleProductView = (product: Product) => {
     setSelectedProduct(product);
@@ -27,22 +30,34 @@ export default function AllProductsPage() {
             Browse our full collection of products.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onView={() => handleProductView(product)}
-            />
-          ))}
-        </div>
+        {loading ? (
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                {Array.from({ length: 10 }).map((_, i) => (
+                    <div key={i} className="space-y-2">
+                        <Skeleton className="aspect-[1/1]" />
+                        <Skeleton className="h-4 w-3/4" />
+                        <Skeleton className="h-6 w-1/2" />
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {products.map((product) => (
+                <ProductCard
+                key={product.id}
+                product={product}
+                onView={() => handleProductView(product)}
+                />
+            ))}
+            </div>
+        )}
       </div>
 
       <Dialog
         open={!!selectedProduct}
         onOpenChange={(open) => !open && handleCloseDialog()}
       >
-        <DialogContent className="max-w-md p-0">
+        <DialogContent className="max-w-4xl p-0">
           {selectedProduct && <ProductDetail product={selectedProduct} />}
         </DialogContent>
       </Dialog>

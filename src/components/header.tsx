@@ -1,9 +1,10 @@
+
 "use client";
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Search, User, ShoppingCart } from 'lucide-react';
+import { Menu, Search, User, ShoppingCart, ShieldCheck } from 'lucide-react';
 import { Logo } from '@/components/icons';
 import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/use-auth';
@@ -11,7 +12,7 @@ import { CartSheet } from './cart-sheet';
 import { Input } from '@/components/ui/input';
 
 const navLinks = [
-    { href: '#', label: 'Shop' },
+    { href: '/products', label: 'Shop' },
     { href: '#', label: 'About Us' },
     { href: '#', label: 'Contact Us' },
 ];
@@ -34,7 +35,7 @@ export function Header() {
             <SheetContent side="left" className="w-full max-w-xs p-0">
               <div className="p-6 h-full overflow-y-auto">
                 <nav className="flex flex-col items-start gap-y-2 pt-12">
-                  {[...navLinks].map((link) => (
+                  {[...navLinks, ...(user?.isAdmin ? [{href: '/admin', label: 'Admin Panel'}] : [])].map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
@@ -67,6 +68,15 @@ export function Header() {
                       {link.label}
                   </Link>
               ))}
+              {user?.isAdmin && (
+                <Link
+                    href="/admin"
+                    className="text-base font-medium text-primary hover:text-primary/90 transition-colors flex items-center gap-2"
+                >
+                    <ShieldCheck className="h-5 w-5" />
+                    Admin Panel
+                </Link>
+              )}
             </nav>
         </div>
         
