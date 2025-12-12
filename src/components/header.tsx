@@ -58,7 +58,7 @@ export function Header() {
                                     <Link
                                         key={link.label}
                                         href={link.href}
-                                        className="py-2 text-base font-semibold uppercase tracking-wider"
+                                        className="py-2 text-sm font-normal uppercase tracking-wider"
                                     >
                                         {link.label}
                                     </Link>
