@@ -203,6 +203,48 @@
       "description": "An Adidas watch with a dark background",
       "imageUrl": "https://images.unsplash.com/photo-1620710632225-059247275d31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZGlkYXMlMjB3YXRjaHxlbnwwfHx8fDE3NjU1OTYyNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "adidas watch"
+    },
+    {
+      "id": "brand-maarc",
+      "description": "Maarc brand logo",
+      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/1_150x.png?v=1630232537",
+      "imageHint": "maarc logo"
+    },
+    {
+      "id": "brand-mecarmy",
+      "description": "MecArmy brand logo",
+      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/2_150x.png?v=1630232537",
+      "imageHint": "mecarmy logo"
+    },
+    {
+      "id": "brand-michael-kors",
+      "description": "Michael Kors brand logo",
+      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/3_150x.png?v=1630232537",
+      "imageHint": "michael kors logo"
+    },
+    {
+      "id": "brand-mileeven",
+      "description": "Mileeven brand logo",
+      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/4_150x.png?v=1630232537",
+      "imageHint": "mileeven logo"
+    },
+    {
+      "id": "brand-marks-spencer",
+      "description": "Marks & Spencer brand logo",
+      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/5_150x.png?v=1630232537",
+      "imageHint": "marks spencer logo"
+    },
+    {
+      "id": "brand-nestle",
+      "description": "Nestle brand logo",
+      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/6_150x.png?v=1630232537",
+      "imageHint": "nestle logo"
+    },
+    {
+      "id": "brand-neutrogena",
+      "description": "Neutrogena brand logo",
+      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/7_150x.png?v=1630232537",
+      "imageHint": "neutrogena logo"
     }
   ]
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { PopularCategories } from "@/components/popular-categories";
 import { BestSellerSection } from "@/components/best-seller-section";
 import { PromoSection } from "@/components/promo-section";
+import { FeaturedBrands } from "@/components/featured-brands";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <PopularCategories />
       <BestSellerSection />
       <PromoSection />
+      <FeaturedBrands />
     </>
   );
 }
