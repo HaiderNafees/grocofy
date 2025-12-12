@@ -7,6 +7,7 @@ import { Menu, Search, User, ShoppingBag } from 'lucide-react';
 import { Logo } from '@/components/icons';
 import { useCart } from '@/hooks/use-cart';
 import { CartSheet } from './cart-sheet';
+import { Input } from '@/components/ui/input';
 
 const navLinks = [
   { href: '/', label: 'HOME' },
@@ -56,28 +57,20 @@ export function Header() {
                     <span className="sr-only">Toggle menu</span>
                 </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px]">
-                <div className="p-6">
-                    <div className="mb-8 flex justify-end">
-                      <SheetTrigger asChild>
-                        <Button variant="ghost" size="icon">
-                          <X className="h-6 w-6" />
-                          <span className="sr-only">Close menu</span>
-                        </Button>
-                      </SheetTrigger>
-                    </div>
-                    <nav className="grid gap-4">
-                    {navLinks.map((link) => (
-                        <Link
-                        key={link.label}
-                        href={link.href}
-                        className="flex w-full items-center py-2 text-base font-semibold"
-                        >
-                        {link.label}
-                        </Link>
-                    ))}
-                    </nav>
-                </div>
+                <SheetContent side="right" className="w-[300px] p-0">
+                  <div className="p-6">
+                      <nav className="grid gap-4 pt-12">
+                      {navLinks.map((link) => (
+                          <Link
+                          key={link.label}
+                          href={link.href}
+                          className="flex w-full items-center py-2 text-base font-semibold"
+                          >
+                          {link.label}
+                          </Link>
+                      ))}
+                      </nav>
+                  </div>
                 </SheetContent>
             </Sheet>
         </div>
@@ -91,9 +84,9 @@ export function Header() {
                     <span className="sr-only">Toggle menu</span>
                 </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[300px]">
+                <SheetContent side="left" className="w-[300px] p-0">
                 <div className="p-6">
-                    <nav className="grid gap-4">
+                    <nav className="grid gap-4 pt-12">
                     {navLinks.map((link) => (
                         <Link
                         key={link.label}
@@ -113,25 +106,14 @@ export function Header() {
             </Link>
         </div>
         
-        <div className="hidden lg:flex items-center gap-6">
-            <nav className="flex items-center gap-6">
-                {navLinks.slice(0, 5).map((link) => (
-                <Link
-                    key={link.label}
-                    href={link.href}
-                    className="text-sm font-medium uppercase tracking-wider text-foreground/80 transition-colors hover:text-foreground"
-                >
-                    {link.label}
-                </Link>
-                ))}
-            </nav>
+        <div className="hidden lg:flex flex-1 justify-center px-8">
+            <div className="relative w-full max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input placeholder="Search..." className="pl-10" />
+            </div>
         </div>
         
         <div className="hidden lg:flex items-center gap-2">
-          <Button variant="ghost" size="icon">
-            <Search className="h-5 w-5" />
-            <span className="sr-only">Search</span>
-          </Button>
           <Button variant="ghost" size="icon">
             <User className="h-5 w-5" />
             <span className="sr-only">Account</span>
@@ -152,5 +134,3 @@ export function Header() {
     </header>
   );
 }
-
-import { X } from 'lucide-react';

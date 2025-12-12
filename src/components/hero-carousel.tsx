@@ -5,12 +5,11 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Autoplay from "embla-carousel-autoplay";
 
 const heroImages = PlaceHolderImages.filter(img => img.id.startsWith("hero-"));
 
@@ -22,6 +21,12 @@ export function HeroCarousel() {
         opts={{
           loop: true,
         }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+            stopOnInteraction: true,
+          }),
+        ]}
       >
         <CarouselContent>
           {heroImages.map((image, index) => (
@@ -56,10 +61,6 @@ export function HeroCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-4">
-            <CarouselPrevious className="static translate-y-0 text-white bg-black/30 hover:bg-black/50 border-none rounded-none h-10 w-10" />
-            <CarouselNext className="static translate-y-0 text-white bg-black/30 hover:bg-black/50 border-none rounded-none h-10 w-10" />
-        </div>
       </Carousel>
     </section>
   );
