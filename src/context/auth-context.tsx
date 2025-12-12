@@ -12,9 +12,9 @@ interface User {
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  login: (email: string, pass: string) => boolean;
+  login: (email: string, pass: string) => User | null;
   logout: () => void;
-  signup: (email: string, pass: string) => boolean;
+  signup: (email: string, pass: string) => User | null;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -66,26 +66,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  const login = (email: string, pass: string): boolean => {
+  const login = (email: string, pass: string): User | null => {
     try {
         const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
         if (storedUsers[email] && storedUsers[email].password === pass) {
             const user: User = { email, isAdmin: email === ADMIN_EMAIL };
             localStorage.setItem('user', JSON.stringify(user));
             setUser(user);
-            return true;
+            return user;
         }
     } catch (error) {
         console.error("Failed during login", error);
     }
-    return false;
+    return null;
   };
 
-  const signup = (email: string, pass: string): boolean => {
+  const signup = (email: string, pass: string): User | null => {
     try {
         const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
         if (storedUsers[email]) {
-            return false; // User already exists
+            return null; // User already exists
         }
         storedUsers[email] = { password: pass };
         localStorage.setItem('users', JSON.stringify(storedUsers));
@@ -93,11 +93,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         const user: User = { email, isAdmin: email === ADMIN_EMAIL };
         localStorage.setItem('user', JSON.stringify(user));
         setUser(user);
-        return true;
+        return user;
     } catch (error) {
         console.error("Failed during signup", error);
     }
-    return false;
+    return null;
   };
 
   const logout = () => {
