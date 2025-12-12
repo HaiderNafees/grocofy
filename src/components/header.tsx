@@ -6,9 +6,9 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Search, User, ShoppingCart } from 'lucide-react';
 import { Logo } from '@/components/icons';
 import { useCart } from '@/hooks/use-cart';
+import { useAuth } from '@/hooks/use-auth';
 import { CartSheet } from './cart-sheet';
 import { Input } from '@/components/ui/input';
-import { useUser } from '@/firebase';
 
 const navLinks = [
     { href: '#', label: 'Shop' },
@@ -18,7 +18,7 @@ const navLinks = [
 
 export function Header() {
   const { itemCount } = useCart();
-  const { user, loading } = useUser();
+  const { user } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">

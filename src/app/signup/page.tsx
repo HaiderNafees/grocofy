@@ -21,10 +21,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/use-auth';
 
 const formSchema = z
   .object({
@@ -41,6 +41,7 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
+  const { signup } = useAuth();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,15 +53,22 @@ export default function SignupPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
-    const auth = getAuth();
     try {
-      await createUserWithEmailAndPassword(auth, values.email, values.password);
-      router.push('/account');
+      const success = signup(values.email, values.password);
+      if (success) {
+        router.push('/account');
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Signup Failed',
+          description: 'An account with this email already exists.',
+        });
+      }
     } catch (error: any) {
-       toast({
+      toast({
         variant: 'destructive',
         title: 'Signup Failed',
-        description: error.message,
+        description: error.message || 'An unexpected error occurred.',
       });
     } finally {
       setLoading(false);

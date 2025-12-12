@@ -1,17 +1,15 @@
 'use client';
 
-import { useUser } from '@/firebase';
+import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { getAuth, signOut } from 'firebase/auth';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export default function AccountPage() {
-  const { user, loading } = useUser();
+  const { user, loading, logout } = useAuth();
   const router = useRouter();
-  const auth = getAuth();
 
   useEffect(() => {
     if (!loading && !user) {
@@ -19,8 +17,8 @@ export default function AccountPage() {
     }
   }, [user, loading, router]);
 
-  const handleSignOut = async () => {
-    await signOut(auth);
+  const handleSignOut = () => {
+    logout();
     router.push('/');
   };
 
@@ -52,7 +50,6 @@ export default function AccountPage() {
           <div>
             <h3 className="font-semibold">User Information</h3>
             <p className="text-sm text-muted-foreground">Email: {user.email}</p>
-            <p className="text-sm text-muted-foreground">UID: {user.uid}</p>
           </div>
           <Button onClick={handleSignOut} variant="destructive">
             Sign Out

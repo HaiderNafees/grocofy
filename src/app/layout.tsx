@@ -3,10 +3,10 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { CartProvider } from '@/context/cart-context';
+import { AuthProvider } from '@/context/auth-context';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { FirebaseClientProvider } from '@/firebase';
 
 const poppins = Poppins({ 
   subsets: ['latin'], 
@@ -37,7 +37,7 @@ export default function RootLayout({
           poppins.variable
         )}
       >
-        <FirebaseClientProvider>
+        <AuthProvider>
           <CartProvider>
             <div className="relative flex min-h-dvh flex-col bg-background">
               <Header />
@@ -46,7 +46,7 @@ export default function RootLayout({
             </div>
             <Toaster />
           </CartProvider>
-        </FirebaseClientProvider>
+        </AuthProvider>
       </body>
     </html>
   );

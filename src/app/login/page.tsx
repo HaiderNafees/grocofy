@@ -21,20 +21,21 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/use-auth';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Invalid email address.' }),
-  password: z.string().min(6, { message: 'Password must be at least 6 characters.' }),
+  password: z.string().min(1, { message: 'Password is required.' }),
 });
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
+  const { login } = useAuth();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -45,15 +46,22 @@ export default function LoginPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
-    const auth = getAuth();
     try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      router.push('/account');
+      const success = login(values.email, values.password);
+      if (success) {
+        router.push('/account');
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Authentication Failed',
+          description: 'Invalid email or password.',
+        });
+      }
     } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Authentication Failed',
-        description: error.message,
+        description: error.message || 'An unexpected error occurred.',
       });
     } finally {
       setLoading(false);
