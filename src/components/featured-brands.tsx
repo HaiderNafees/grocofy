@@ -19,6 +19,7 @@ const brandImages = PlaceHolderImages.filter((img) =>
 export function FeaturedBrands() {
   return (
     <section className="container py-12">
+      <h2 className="text-3xl font-serif mb-8">Featured Brands</h2>
       <Carousel
         className="w-full"
         opts={{
@@ -34,35 +35,32 @@ export function FeaturedBrands() {
           }),
         ]}
       >
-        <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-serif text-center">Featured Brands</h2>
-            <div className="flex items-center gap-2">
-                <CarouselPrevious className="relative -left-0 -top-0 -translate-y-0" />
-                <CarouselNext className="relative -right-0 -top-0 -translate-y-0" />
-            </div>
-        </div>
-        <CarouselContent className="-ml-4">
-          {brandImages.map((image) => (
-            <CarouselItem
-              key={image.id}
-              className="pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
-            >
-              <Link href="#">
-                <div className="p-4 bg-gray-100 rounded-lg flex items-center justify-center h-24 group">
-                  <div className="relative h-12 w-full">
-                    <Image
-                      src={image.imageUrl}
-                      alt={image.description}
-                      fill
-                      className="object-contain transition-transform duration-300 group-hover:scale-110"
-                      data-ai-hint={image.imageHint}
-                    />
+        <div className="relative">
+          <CarouselContent className="-ml-4">
+            {brandImages.map((image) => (
+              <CarouselItem
+                key={image.id}
+                className="pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
+              >
+                <Link href="#">
+                  <div className="p-4 bg-gray-100 rounded-lg flex items-center justify-center h-24 group">
+                    <div className="relative h-12 w-full">
+                      <Image
+                        src={image.imageUrl}
+                        alt={image.description}
+                        fill
+                        className="object-contain transition-transform duration-300 group-hover:scale-110"
+                        data-ai-hint={image.imageHint}
+                      />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+                </Link>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12" />
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12" />
+        </div>
       </Carousel>
     </section>
   );
