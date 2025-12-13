@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { HeroCarousel } from "@/components/hero-carousel";
+import dynamic from "next/dynamic";
 import { ProductCard } from "@/components/product-card";
 import { useProducts } from '@/hooks/use-products';
 import Link from "next/link";
@@ -16,12 +16,20 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import type { Product } from "@/lib/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ErrorBoundary } from "@/components/error-boundary";
+import { NoSSR } from "@/components/no-ssr";
+
+// Dynamic import for HeroCarousel to prevent SSR issues
+const HeroCarousel = dynamic(() => import("@/components/hero-carousel"), {
+  ssr: false,
+  loading: () => <div className="w-full h-96 bg-gray-200 animate-pulse" />
+});
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isClient, setIsClient] = useState(false);
   const { products, loading } = useProducts();
-  const newInStoreProducts = products.filter(p => p.isNew).slice(0, 10);
+  const newInStoreProducts = products.filter((p: Product) => p.isNew).slice(0, 10);
 
   useEffect(() => {
     setIsClient(true);
@@ -36,9 +44,10 @@ export default function Home() {
   };
 
   return (
-    <>
-      <HeroCarousel />
-      <div className="container py-12">
+    <ErrorBoundary>
+      <>
+        <HeroCarousel />
+        <div className="container py-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold tracking-wide">New in store</h2>
           <Link href="/products" className="text-sm font-medium hover:underline">
@@ -94,13 +103,14 @@ export default function Home() {
       <AboutUsSection />
       <NewsletterSignup />
 
-      {isClient && (
-        <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && handleCloseDialog()}>
+      <NoSSR>
+        <Dialog open={!!selectedProduct} onOpenChange={(open: boolean) => !open && handleCloseDialog()}>
           <DialogContent className="max-w-4xl p-0">
             {selectedProduct && <ProductDetail product={selectedProduct} />}
           </DialogContent>
         </Dialog>
-      )}
-    </>
+      </NoSSR>
+      </>
+    </ErrorBoundary>
   );
 }
