@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 interface NoSSRProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   fallback?: React.ReactNode;
 }
 

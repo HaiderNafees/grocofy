@@ -38,13 +38,17 @@ export default function Home() {
   };
 
   return (
-    <ErrorBoundary fallback={
-      <div className="p-4 text-center">
-        <p className="text-red-500">Something went wrong. Please refresh the page.</p>
-      </div>
-    }>
+    <ErrorBoundary 
+      fallback={
+        <div className="p-4 text-center">
+          <p className="text-red-500">Something went wrong. Please refresh the page.</p>
+        </div>
+      }
+    >
       <>
-        <NoSSR fallback={<div className="w-full h-96 bg-gray-200 animate-pulse" />}>
+        <NoSSR 
+          fallback={<div className="w-full h-96 bg-gray-200 animate-pulse" />}
+        >
           <HeroCarousel />
         </NoSSR>
         <div className="container py-12">
