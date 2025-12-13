@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
+import { HeroCarousel } from "@/components/hero-carousel";
 import { ProductCard } from "@/components/product-card";
 import { useProducts } from '@/hooks/use-products';
 import Link from "next/link";
@@ -18,12 +18,6 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { NoSSR } from "@/components/no-ssr";
-
-// Dynamic import for HeroCarousel to prevent SSR issues
-const HeroCarousel = dynamic(() => import("@/components/hero-carousel"), {
-  ssr: false,
-  loading: () => <div className="w-full h-96 bg-gray-200 animate-pulse" />
-});
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -50,7 +44,9 @@ export default function Home() {
       </div>
     }>
       <>
-        <HeroCarousel />
+        <NoSSR fallback={<div className="w-full h-96 bg-gray-200 animate-pulse" />}>
+          <HeroCarousel />
+        </NoSSR>
         <div className="container py-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold tracking-wide">New in store</h2>
