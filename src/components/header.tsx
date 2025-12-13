@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Search, User, ShoppingCart } from 'lucide-react';
 import { Logo } from '@/components/icons';
@@ -24,30 +25,28 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 items-center">
         {/* Logo */}
-        <div className="flex-1 flex justify-start">
+        <div className="lg:flex-1 flex justify-start">
           <Link href="/" className="flex-shrink-0">
             <Logo />
             <span className="sr-only">Grocofy Home</span>
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex flex-1 justify-center items-center gap-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
-              style={{ fontSize: '14px' }}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Search Bar */}
+        <div className="hidden lg:flex flex-1 justify-center items-center px-8">
+            <div className="w-full max-w-sm relative">
+                <Input
+                    type="search"
+                    placeholder="Search..."
+                    className="w-full rounded-full"
+                />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            </div>
+        </div>
         
         {/* Icons and Mobile Menu */}
         <div className="flex flex-1 items-center justify-end gap-1">
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" className="lg:hidden">
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
           </Button>
