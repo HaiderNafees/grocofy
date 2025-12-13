@@ -26,29 +26,29 @@ export function PopularCategories() {
         </h2>
       </div>
 
-      {/* Mobile: Horizontally scrolling 2-column grid */}
+      {/* Mobile: Vertical scrolling grid */}
       <div className="lg:hidden">
-        <ScrollArea className="w-full whitespace-nowrap">
-          <div className="w-max px-4">
-            <div className="grid grid-flow-col grid-rows-2 gap-x-6 gap-y-8">
+        <ScrollArea className="w-full">
+          <div className="px-4">
+            <div className="grid grid-cols-2 gap-6 py-4">
               {categories.map((category) => {
                 const image = PlaceHolderImages.find(
                   (img) => img.id === category.imageId
                 );
                 return (
                   <Link
-                    href="#"
+                    href={`/products?category=${encodeURIComponent(category.name)}`}
                     key={category.name}
-                    className="group flex flex-col items-center gap-3 w-36"
+                    className="group flex flex-col items-center gap-3"
                   >
-                    <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
                       {image && (
                         <Image
                           src={image.imageUrl}
                           alt={category.name}
                           fill
                           className="object-cover"
-                          sizes="30vw"
+                          sizes="40vw"
                           data-ai-hint={image.imageHint}
                         />
                       )}
@@ -61,7 +61,7 @@ export function PopularCategories() {
               })}
             </div>
           </div>
-          <ScrollBar orientation="horizontal" />
+          <ScrollBar orientation="vertical" />
         </ScrollArea>
       </div>
       
@@ -74,7 +74,7 @@ export function PopularCategories() {
             );
             return (
               <Link
-                href="#"
+                href={`/products?category=${encodeURIComponent(category.name)}`}
                 key={category.name}
                 className="group flex flex-col items-center gap-3"
               >

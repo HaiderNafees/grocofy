@@ -10,7 +10,7 @@ export const products: Product[] = [
     price: 945,
     image: 'https://iili.io/fYK3fZN.jpg',
     imageHint: 'ritter sport marzipan chocolate',
-    category: 'Snacks',
+    category: 'Eatables',
     isNew: true,
   },
   {
@@ -19,7 +19,7 @@ export const products: Product[] = [
     price: 945,
     image: 'https://iili.io/fYKB46B.png',
     imageHint: 'ritter sport kakao mousse chocolate',
-    category: 'Snacks',
+    category: 'Eatables',
     isNew: true,
   },
   {
@@ -28,7 +28,7 @@ export const products: Product[] = [
     price: 945,
     image: 'https://iili.io/fYfKy0P.png',
     imageHint: 'ritter sport milk chocolate butter biscuit',
-    category: 'Snacks',
+    category: 'Eatables',
     isNew: true,
   },
   {
@@ -37,7 +37,7 @@ export const products: Product[] = [
     price: 350,
     image: 'https://iili.io/fYfjJVa.png',
     imageHint: 'mogu mogu juice pineapple nata de coco',
-    category: 'Beverages',
+    category: 'Drinkable',
     isNew: true,
   },
   {

@@ -1,7 +1,8 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ProductCard } from '@/components/product-card';
 import { useProducts } from '@/hooks/use-products';
 import { ProductDetail } from '@/components/product-detail';
@@ -12,6 +13,18 @@ import { Skeleton } from '@/components/ui/skeleton';
 export default function AllProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { products, loading } = useProducts();
+  const searchParams = useSearchParams();
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
+
+  useEffect(() => {
+    const category = searchParams.get('category');
+    if (category) {
+      const filtered = products.filter(product => product.category === category);
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [searchParams, products]);
 
   const handleProductView = (product: Product) => {
     setSelectedProduct(product);
@@ -21,13 +34,19 @@ export default function AllProductsPage() {
     setSelectedProduct(null);
   };
 
+  const category = searchParams.get('category');
+  const pageTitle = category ? `${category} Products` : 'All Products';
+  const pageDescription = category 
+    ? `Browse our collection of ${category.toLowerCase()} products.` 
+    : 'Browse our full collection of products.';
+
   return (
     <>
       <div className="container py-12">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold tracking-tight">All Products</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{pageTitle}</h1>
           <p className="mt-2 text-muted-foreground">
-            Browse our full collection of products.
+            {pageDescription}
           </p>
         </div>
         {loading ? (
@@ -40,9 +59,13 @@ export default function AllProductsPage() {
                     </div>
                 ))}
             </div>
+        ) : filteredProducts.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">No products found in this category.</p>
+          </div>
         ) : (
             <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
                 <ProductCard
                 key={product.id}
                 product={product}
