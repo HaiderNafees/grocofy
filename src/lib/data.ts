@@ -32,12 +32,12 @@ export const products: Product[] = [
     isNew: true,
   },
   {
-    id: 'pringles-paprika-4',
-    name: 'Pringles Snacks Paprika — 165g',
-    price: 945,
-    image: 'https://www.shopatshams.com/cdn/shop/products/PringlesSnacksPaprika-165g.jpg?v=1658498565',
-    imageHint: 'pringles paprika',
-    category: 'Snacks',
+    id: 'mogu-mogu-pineapple-4',
+    name: 'Mogu Mogu Juice with Nata De Coco, Pineapple',
+    price: 350,
+    image: 'https://iili.io/fYfjJVa.png',
+    imageHint: 'mogu mogu juice pineapple nata de coco',
+    category: 'Beverages',
     isNew: true,
   },
   {
