@@ -111,49 +111,49 @@
     {
       "id": "brand-maarc",
       "description": "Maarc brand logo",
-      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/1_150x.png?v=1630232537",
+      "imageUrl": "https://picsum.photos/seed/maarc-logoabay/150/150x150/300/300.jpg?v=1630232537",
       "imageHint": "maarc logo"
     },
     {
       "id": "brand-mecarmy",
       "description": "MecArmy brand logo",
-      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/2_150x.png?v=1630232537",
+      "imageUrl": "https://picsum.photos/seed/mecarmyabay/300/150x150/300/150.jpg?v=1630232537",
       "imageHint": "mecarmy logo"
     },
     {
       "id": "brand-michael-kors",
       "description": "Michael Kors brand logo",
-      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/3_150x.png?v=1630232537",
+      "imageUrl": "https://picsum.photos/seed/michael-korsabay/300/150x150/300/150.jpg?v=1630232537",
       "imageHint": "michael kors logo"
     },
     {
       "id": "brand-mileeven",
       "description": "Mileeven brand logo",
-      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/4_150x.png?v=1630232537",
+      "imageUrl": "https://picsum.photos/seed/mileevenabay/300/150x150/300/150.jpg?v=1630232537",
       "imageHint": "mileeven logo"
     },
     {
       "id": "brand-marks-spencer",
       "description": "Marks & Spencer brand logo",
-      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/5_150x.png?v=1630232537",
+      "imageUrl": "https://picsum.photos/seed/marks-spencerabay/300/150x150/300/150.jpg?v=1630232537",
       "imageHint": "marks spencer logo"
     },
     {
       "id": "brand-nestle",
       "description": "Nestle brand logo",
-      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/6_150x.png?v=1630232537",
+      "imageUrl": "https://picsum.photos/seed/nestleabay/300/150x150/300/150.jpg?v=1630232537",
       "imageHint": "nestle logo"
     },
     {
       "id": "brand-neutrogena",
       "description": "Neutrogena brand logo",
-      "imageUrl": "https://www.shopatshams.com/cdn/shop/files/7_150x.png?v=1630232537",
+      "imageUrl": "https://picsum.photos/seed/neutrogenaabay/300/150x150/300/150.jpg?v=1630232537",
       "imageHint": "neutrogena logo"
     },
     {
       "id": "about-us-banner",
       "description": "A sketch of a store front with the text Shams, home to a connoisseur",
-      "imageUrl": "https://images.unsplash.com/photo-1620353982062-6a848a0635e1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageUrl": "https://images.unsplash.com/photo-1620353982062-6a848a0635e1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==",
       "imageHint": "storefront sketch"
     },
     {
