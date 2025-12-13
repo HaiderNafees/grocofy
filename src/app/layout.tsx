@@ -38,6 +38,7 @@ export default function RootLayout({
           'min-h-screen bg-background font-body antialiased',
           poppins.variable
         )}
+        suppressHydrationWarning={true}
       >
         <AuthProvider>
           <ProductProvider>
