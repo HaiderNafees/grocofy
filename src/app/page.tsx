@@ -44,7 +44,11 @@ export default function Home() {
   };
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary fallback={
+      <div className="p-4 text-center">
+        <p className="text-red-500">Something went wrong. Please refresh the page.</p>
+      </div>
+    }>
       <>
         <HeroCarousel />
         <div className="container py-12">
@@ -103,12 +107,14 @@ export default function Home() {
       <AboutUsSection />
       <NewsletterSignup />
 
-      <NoSSR>
-        <Dialog open={!!selectedProduct} onOpenChange={(open: boolean) => !open && handleCloseDialog()}>
-          <DialogContent className="max-w-4xl p-0">
-            {selectedProduct && <ProductDetail product={selectedProduct} />}
-          </DialogContent>
-        </Dialog>
+      <NoSSR fallback={null}>
+        <>
+          <Dialog open={!!selectedProduct} onOpenChange={(open: boolean) => !open && handleCloseDialog()}>
+            <DialogContent className="max-w-4xl p-0">
+              {selectedProduct && <ProductDetail product={selectedProduct} />}
+            </DialogContent>
+          </Dialog>
+        </>
       </NoSSR>
       </>
     </ErrorBoundary>
