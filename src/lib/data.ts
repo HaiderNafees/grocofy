@@ -41,12 +41,12 @@ export const products: Product[] = [
     isNew: true,
   },
   {
-    id: 'pringles-sour-cream-onion-5',
-    name: 'Pringles Snacks Sour Cream & Onion — 165g',
+    id: 'pringles-cheesy-cheese-5',
+    name: 'Pringles Cheesy Cheese Chips 165g',
     price: 945,
-    image: 'https://www.shopatshams.com/cdn/shop/products/PringlesSnacksSourCream_Onion-165g.jpg?v=1658498616',
-    imageHint: 'pringles sour cream',
-    category: 'Snacks',
+    image: 'https://iili.io/fYqlfxR.png',
+    imageHint: 'pringles cheesy cheese chips',
+    category: 'Eatables',
     isNew: true,
   },
   {
