@@ -24,13 +24,10 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     // Load products from localStorage or use initial data
     try {
       if (typeof window !== 'undefined') {
-        const storedProducts = localStorage.getItem('products');
-        if (storedProducts) {
-          setProducts(JSON.parse(storedProducts));
-        } else {
-          setProducts(initialProducts);
-          localStorage.setItem('products', JSON.stringify(initialProducts));
-        }
+        // Force refresh by clearing localStorage and using updated initial data
+        localStorage.removeItem('products');
+        setProducts(initialProducts);
+        localStorage.setItem('products', JSON.stringify(initialProducts));
       } else {
         setProducts(initialProducts);
       }

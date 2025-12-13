@@ -8,7 +8,7 @@ export const products: Product[] = [
     id: 'ritter-sport-marzipan-1',
     name: 'Ritter Sport Marzipan Dark Chocolate, Fresh from Germany, Chocolate with Marzipan Filling, Ritter Sport Chocolates in Colorful Variety, 3.5 Ounce (Pack of 12)',
     price: 945,
-    image: 'https://iili.io/fYK3fZN.png',
+    image: 'https://iili.io/fYK3fZN.jpg',
     imageHint: 'ritter sport marzipan chocolate',
     category: 'Snacks',
     isNew: true,
