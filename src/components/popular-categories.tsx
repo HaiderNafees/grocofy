@@ -9,6 +9,17 @@ const categories = [
   { name: 'Snacks', imageId: 'category-snacks' },
   { name: 'Biscuits', imageId: 'category-biscuits' },
   { name: 'Drinkable', imageId: 'category-drinkable' },
+  { name: 'Dairy', imageId: 'category-dairy' },
+  { name: 'Cooking Essentials', imageId: 'category-cooking' },
+  { name: 'Grains & Rice', imageId: 'category-grains' },
+  { name: 'Beverages', imageId: 'category-beverages' },
+  { name: 'Personal Care', imageId: 'category-personal' },
+  { name: 'Household', imageId: 'category-household' },
+  { name: 'Baby Care', imageId: 'category-baby' },
+  { name: 'Bakery', imageId: 'category-bakery' },
+  { name: 'Frozen Foods', imageId: 'category-frozen' },
+  { name: 'Pasta & Noodles', imageId: 'category-pasta' },
+  { name: 'Condiments', imageId: 'category-condiments' },
 ];
 
 export function PopularCategories() {
@@ -59,7 +70,7 @@ export function PopularCategories() {
       
       {/* Desktop: Centered grid */}
       <div className="hidden lg:block container">
-        <div className="grid grid-cols-4 gap-x-8 gap-y-8 px-12 justify-center max-w-4xl mx-auto">
+        <div className="grid grid-cols-5 gap-x-6 gap-y-8 px-12 justify-center max-w-6xl mx-auto">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
@@ -70,7 +81,7 @@ export function PopularCategories() {
                 key={category.name}
                 className="group flex flex-col items-center gap-3"
               >
-                <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-primary transition-all duration-300">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-primary transition-all duration-300">
                   {image && (
                     <Image
                       src={image.imageUrl}
@@ -82,7 +93,7 @@ export function PopularCategories() {
                     />
                   )}
                 </div>
-                <span className="text-sm font-medium text-center whitespace-normal">
+                <span className="text-xs font-medium text-center whitespace-normal">
                   {category.name}
                 </span>
               </Link>
