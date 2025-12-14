@@ -23,13 +23,20 @@ export default function AdminPage() {
   const { user, loading, logout } = useAuth();
   const { products, loading: productsLoading } = useProducts();
   const [categoryFilter, setCategoryFilter] = useState('all');
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading && (!user || !user.isAdmin)) {
-      router.push('/login');
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loading && isClient) {
+      if (!user || !user.isAdmin) {
+        router.push('/login');
+      }
     }
-  }, [user, loading, router]);
+  }, [user, loading, isClient, router]);
   
   const handleSignOut = () => {
     logout();
@@ -48,7 +55,7 @@ export default function AdminPage() {
     return products.filter(p => p.category === categoryFilter);
   }, [products, categoryFilter]);
 
-  if (loading || !user || !user.isAdmin) {
+  if (!isClient || loading || !user || !user.isAdmin) {
     return (
       <div className="container py-12">
         <div className="space-y-4">

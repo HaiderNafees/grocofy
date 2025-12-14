@@ -58,7 +58,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
-        setUser(JSON.parse(storedUser));
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
+      } else {
+        // Check if admin should be auto-logged in for development
+        const adminUser = {
+          name: ADMIN_NAME,
+          email: ADMIN_EMAIL,
+          isAdmin: true
+        };
+        // Optionally auto-login admin for development
+        // setUser(adminUser);
+        // localStorage.setItem('user', JSON.stringify(adminUser));
       }
     } catch (error) {
       console.error("Failed to parse user from localStorage", error);
