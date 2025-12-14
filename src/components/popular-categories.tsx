@@ -37,7 +37,7 @@ export function PopularCategories() {
                 key={category.name}
                 className="flex flex-col items-center gap-1 group"
               >
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
+                <div className="relative w-16 h-12 rounded-lg overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
                   {image && (
                     <Image
                       src={image.imageUrl}
@@ -71,7 +71,7 @@ export function PopularCategories() {
                 key={category.name}
                 className="flex flex-col items-center gap-2 group"
               >
-                <div className="relative w-14 h-14 rounded-full overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
+                <div className="relative w-20 h-16 rounded-lg overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
                   {image && (
                     <Image
                       src={image.imageUrl}
@@ -105,7 +105,7 @@ export function PopularCategories() {
                 key={category.name}
                 className="flex flex-col items-center gap-3 group"
               >
-                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-primary transition-all duration-300">
+                <div className="relative w-28 h-20 rounded-lg overflow-hidden border-2 border-gray-200 group-hover:border-primary transition-all duration-300">
                   {image && (
                     <Image
                       src={image.imageUrl}
