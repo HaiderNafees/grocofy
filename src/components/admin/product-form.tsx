@@ -20,13 +20,14 @@ import { useProducts } from '@/hooks/use-products';
 import { type Product } from '@/lib/types';
 import { useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { ImageUpload } from './image-upload';
 
 const formSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1, 'Name is required'),
   price: z.coerce.number().min(0, 'Price must be a positive number'),
   category: z.string().min(1, 'Category is required'),
-  image: z.string().url('Must be a valid URL').or(z.literal('')),
+  image: z.string().optional(), // Allow any string (URL or data URL)
   imageHint: z.string().optional(),
   isNew: z.boolean().optional(),
   soldOut: z.boolean().optional(),
@@ -138,9 +139,13 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
           name="image"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Image URL (Optional)</FormLabel>
+              <FormLabel>Product Image</FormLabel>
               <FormControl>
-                <Input placeholder="https://picsum.photos/seed/..." {...field} />
+                <ImageUpload
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder={form.watch("name") || "Product image"}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
