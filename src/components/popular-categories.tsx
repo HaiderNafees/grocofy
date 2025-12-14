@@ -38,17 +38,19 @@ export function PopularCategories() {
                 className="group"
               >
                 <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
-                  <div className="aspect-square relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
+                  <div className="aspect-square relative flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full"></div>
                     {image && (
-                      <Image
-                        src={image.imageUrl}
-                        alt={category.name}
-                        fill
-                        className="object-cover p-4"
-                        sizes="120px"
-                        data-ai-hint={image.imageHint}
-                      />
+                      <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                        <Image
+                          src={image.imageUrl}
+                          alt={category.name}
+                          fill
+                          className="object-cover"
+                          sizes="80px"
+                          data-ai-hint={image.imageHint}
+                        />
+                      </div>
                     )}
                   </div>
                   <div className="p-3 text-center">
@@ -77,17 +79,19 @@ export function PopularCategories() {
                 className="group"
               >
                 <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
-                  <div className="aspect-square relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
+                  <div className="aspect-square relative flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full"></div>
                     {image && (
-                      <Image
-                        src={image.imageUrl}
-                        alt={category.name}
-                        fill
-                        className="object-cover p-5"
-                        sizes="160px"
-                        data-ai-hint={image.imageHint}
-                      />
+                      <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                        <Image
+                          src={image.imageUrl}
+                          alt={category.name}
+                          fill
+                          className="object-cover"
+                          sizes="96px"
+                          data-ai-hint={image.imageHint}
+                        />
+                      </div>
                     )}
                   </div>
                   <div className="p-3 text-center">
@@ -116,17 +120,19 @@ export function PopularCategories() {
                 className="group"
               >
                 <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20">
-                  <div className="aspect-square relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
+                  <div className="aspect-square relative flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full"></div>
                     {image && (
-                      <Image
-                        src={image.imageUrl}
-                        alt={category.name}
-                        fill
-                        className="object-cover p-6"
-                        sizes="200px"
-                        data-ai-hint={image.imageHint}
-                      />
+                      <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-white shadow-md">
+                        <Image
+                          src={image.imageUrl}
+                          alt={category.name}
+                          fill
+                          className="object-cover"
+                          sizes="112px"
+                          data-ai-hint={image.imageHint}
+                        />
+                      </div>
                     )}
                   </div>
                   <div className="p-4 text-center">
