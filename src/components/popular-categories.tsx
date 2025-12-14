@@ -24,7 +24,7 @@ export function PopularCategories() {
         </h2>
       </div>
 
-      {/* Mobile: 2-column vertical grid */}
+      {/* Mobile: 2-column grid with 4 icons each */}
       <div className="block sm:hidden container px-4">
         <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
           {categories.map((category) => {
@@ -58,41 +58,72 @@ export function PopularCategories() {
         </div>
       </div>
 
-      {/* Tablet+: Compact horizontal scroll */}
-      <div className="hidden sm:block w-full">
-        <ScrollArea className="w-full">
-          <div className="flex space-x-3 md:space-x-4 px-4 sm:px-6 lg:px-8 pb-2">
-            {categories.map((category) => {
-              const image = PlaceHolderImages.find(
-                (img) => img.id === category.imageId
-              );
-              return (
-                <Link
-                  href={`/products?category=${encodeURIComponent(category.name)}`}
-                  key={category.name}
-                  className="flex flex-col items-center gap-2 flex-shrink-0 group"
-                >
-                  <div className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
-                    {image && (
-                      <Image
-                        src={image.imageUrl}
-                        alt={category.name}
-                        fill
-                        className="object-cover"
-                        sizes="64px"
-                        data-ai-hint={image.imageHint}
-                      />
-                    )}
-                  </div>
-                  <span className="text-xs font-medium text-center whitespace-normal max-w-[80px]">
-                    {category.name}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-          <ScrollBar orientation="horizontal" className="hidden md:block" />
-        </ScrollArea>
+      {/* Tablet: 4x2 grid with medium icons */}
+      <div className="hidden sm:block lg:hidden container px-6">
+        <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
+          {categories.map((category) => {
+            const image = PlaceHolderImages.find(
+              (img) => img.id === category.imageId
+            );
+            return (
+              <Link
+                href={`/products?category=${encodeURIComponent(category.name)}`}
+                key={category.name}
+                className="flex flex-col items-center gap-2 group"
+              >
+                <div className="relative w-14 h-14 rounded-full overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
+                  {image && (
+                    <Image
+                      src={image.imageUrl}
+                      alt={category.name}
+                      fill
+                      className="object-cover"
+                      sizes="56px"
+                      data-ai-hint={image.imageHint}
+                    />
+                  )}
+                </div>
+                <span className="text-xs font-medium text-center whitespace-normal">
+                  {category.name}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Desktop: 4x2 grid with large icons */}
+      <div className="hidden lg:block container px-8">
+        <div className="grid grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {categories.map((category) => {
+            const image = PlaceHolderImages.find(
+              (img) => img.id === category.imageId
+            );
+            return (
+              <Link
+                href={`/products?category=${encodeURIComponent(category.name)}`}
+                key={category.name}
+                className="flex flex-col items-center gap-3 group"
+              >
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-primary transition-all duration-300">
+                  {image && (
+                    <Image
+                      src={image.imageUrl}
+                      alt={category.name}
+                      fill
+                      className="object-cover"
+                      sizes="80px"
+                      data-ai-hint={image.imageHint}
+                    />
+                  )}
+                </div>
+                <span className="text-sm font-medium text-center whitespace-normal">
+                  {category.name}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

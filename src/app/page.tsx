@@ -47,7 +47,7 @@ export default function Home() {
             <div className="h-4 bg-gray-200 rounded w-20"></div>
           </div>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {Array.from({ length: 10 }).map((_, i) => (
               <div key={i} className="space-y-3">
                 <div className="aspect-square bg-gray-200 rounded"></div>
                 <div className="h-4 bg-gray-200 rounded w-3/4"></div>
@@ -84,7 +84,7 @@ export default function Home() {
         
         {loading ? (
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-              {Array.from({ length: 5 }).map((_, i) => (
+              {Array.from({ length: 10 }).map((_, i) => (
                 <div key={i} className="space-y-3">
                   <Skeleton className="aspect-square" />
                   <Skeleton className="h-4 w-3/4" />
@@ -111,9 +111,9 @@ export default function Home() {
               </ScrollArea>
             </div>
 
-            {/* Desktop grid */}
-            <div className="hidden lg:grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-              {newInStoreProducts.slice(0, 5).map((product) => (
+            {/* Desktop 5x2 grid */}
+            <div className="hidden lg:grid grid-cols-5 gap-4 md:gap-6">
+              {newInStoreProducts.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
