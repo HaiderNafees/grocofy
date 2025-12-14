@@ -74,7 +74,7 @@ export default function Home() {
         >
           <HeroCarousel />
         </NoSSR>
-        <div className="container py-8 sm:py-12">
+        <div className="container py-4 sm:py-6">
         <div className="flex justify-between items-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-serif tracking-wide">New in store</h2>
           <Link href="/products" className="text-sm font-medium hover:underline text-gray-600 hover:text-gray-900 transition-colors">

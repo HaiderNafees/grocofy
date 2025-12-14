@@ -17,16 +17,16 @@ const categories = [
 
 export function PopularCategories() {
   return (
-    <section className="py-6 sm:py-8">
+    <section className="py-2 sm:py-3">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif mb-6 sm:mb-8 text-center">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif mb-3 sm:mb-4 text-center">
           Popular Categories
         </h2>
       </div>
 
       {/* Mobile: 2-column grid with modern cards */}
       <div className="block sm:hidden container px-4">
-        <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
+        <div className="grid grid-cols-2 gap-3">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
@@ -66,7 +66,7 @@ export function PopularCategories() {
 
       {/* Tablet: 4x2 grid with medium cards */}
       <div className="hidden sm:block lg:hidden container px-6">
-        <div className="grid grid-cols-4 gap-5 max-w-3xl mx-auto">
+        <div className="grid grid-cols-4 gap-4">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
@@ -106,7 +106,7 @@ export function PopularCategories() {
 
       {/* Desktop: 4x2 grid with large cards */}
       <div className="hidden lg:block container px-8">
-        <div className="grid grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-4 gap-5">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
