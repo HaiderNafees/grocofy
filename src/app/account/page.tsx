@@ -64,10 +64,9 @@ export default function AccountPage() {
           <h3 className="text-xl font-serif mb-4">Account details</h3>
           <div className="space-y-2">
             <p>{user.name}</p>
-            {/* This is a placeholder for address details */}
-            <p>Pakistan</p>
-            <Link href="#" className="text-sm underline hover:no-underline">
-                View addresses (1)
+            <p>{user.email}</p>
+            <Link href="/account/addresses" className="text-sm underline hover:no-underline">
+                View addresses
             </Link>
           </div>
         </div>
