@@ -13,6 +13,13 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -128,9 +135,23 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Category</FormLabel>
-                <FormControl>
-                  <Input placeholder="Snacks" {...field} className="w-full" />
-                </FormControl>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select a category" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="Eatables">Eatables</SelectItem>
+                    <SelectItem value="Snacks">Snacks</SelectItem>
+                    <SelectItem value="Biscuits">Biscuits</SelectItem>
+                    <SelectItem value="Drinkable">Drinkable</SelectItem>
+                    <SelectItem value="Dairy">Dairy</SelectItem>
+                    <SelectItem value="Personal Care">Personal Care</SelectItem>
+                    <SelectItem value="Household">Household</SelectItem>
+                    <SelectItem value="Baby Care">Baby Care</SelectItem>
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}
