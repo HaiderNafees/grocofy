@@ -24,10 +24,44 @@ export function PopularCategories() {
         </h2>
       </div>
 
-      {/* All screens: Compact horizontal scroll */}
-      <div className="w-full">
+      {/* Mobile: 2-column vertical grid */}
+      <div className="block sm:hidden container px-4">
+        <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
+          {categories.map((category) => {
+            const image = PlaceHolderImages.find(
+              (img) => img.id === category.imageId
+            );
+            return (
+              <Link
+                href={`/products?category=${encodeURIComponent(category.name)}`}
+                key={category.name}
+                className="flex flex-col items-center gap-1 group"
+              >
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
+                  {image && (
+                    <Image
+                      src={image.imageUrl}
+                      alt={category.name}
+                      fill
+                      className="object-cover"
+                      sizes="48px"
+                      data-ai-hint={image.imageHint}
+                    />
+                  )}
+                </div>
+                <span className="text-xs font-medium text-center whitespace-normal">
+                  {category.name}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Tablet+: Compact horizontal scroll */}
+      <div className="hidden sm:block w-full">
         <ScrollArea className="w-full">
-          <div className="flex space-x-2 sm:space-x-3 md:space-x-4 px-4 sm:px-6 lg:px-8 pb-2">
+          <div className="flex space-x-3 md:space-x-4 px-4 sm:px-6 lg:px-8 pb-2">
             {categories.map((category) => {
               const image = PlaceHolderImages.find(
                 (img) => img.id === category.imageId
@@ -36,9 +70,9 @@ export function PopularCategories() {
                 <Link
                   href={`/products?category=${encodeURIComponent(category.name)}`}
                   key={category.name}
-                  className="flex flex-col items-center gap-1 sm:gap-2 flex-shrink-0 group"
+                  className="flex flex-col items-center gap-2 flex-shrink-0 group"
                 >
-                  <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
+                  <div className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
                     {image && (
                       <Image
                         src={image.imageUrl}
@@ -50,14 +84,14 @@ export function PopularCategories() {
                       />
                     )}
                   </div>
-                  <span className="text-xs font-medium text-center whitespace-normal max-w-[60px] sm:max-w-[80px]">
+                  <span className="text-xs font-medium text-center whitespace-normal max-w-[80px]">
                     {category.name}
                   </span>
                 </Link>
               );
             })}
           </div>
-          <ScrollBar orientation="horizontal" className="hidden sm:block" />
+          <ScrollBar orientation="horizontal" className="hidden md:block" />
         </ScrollArea>
       </div>
     </section>

@@ -101,14 +101,14 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full max-w-none">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 w-full">
+        <div className="grid grid-cols-1 gap-4">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem className="sm:col-span-2 lg:col-span-3">
-                <FormLabel>Product Name</FormLabel>
+              <FormItem>
+                <FormLabel className="text-sm font-medium">Product Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Pringles Original" {...field} className="w-full" />
                 </FormControl>
@@ -116,68 +116,57 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="price"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Price</FormLabel>
-                <FormControl>
-                  <Input type="number" placeholder="945" {...field} className="w-full" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="category"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Category</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="price"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium">Price (Rs.)</FormLabel>
                   <FormControl>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select a category" />
-                    </SelectTrigger>
+                    <Input type="number" placeholder="945" {...field} className="w-full" />
                   </FormControl>
-                  <SelectContent>
-                    <SelectItem value="Eatables">Eatables</SelectItem>
-                    <SelectItem value="Snacks">Snacks</SelectItem>
-                    <SelectItem value="Biscuits">Biscuits</SelectItem>
-                    <SelectItem value="Drinkable">Drinkable</SelectItem>
-                    <SelectItem value="Dairy">Dairy</SelectItem>
-                    <SelectItem value="Personal Care">Personal Care</SelectItem>
-                    <SelectItem value="Household">Household</SelectItem>
-                    <SelectItem value="Baby Care">Baby Care</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="imageHint"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Image Hint (Optional)</FormLabel>
-                <FormControl>
-                  <Input placeholder="product image" {...field} className="w-full" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="category"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium">Category</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Select category" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Eatables">Eatables</SelectItem>
+                      <SelectItem value="Snacks">Snacks</SelectItem>
+                      <SelectItem value="Biscuits">Biscuits</SelectItem>
+                      <SelectItem value="Drinkable">Drinkable</SelectItem>
+                      <SelectItem value="Dairy">Dairy</SelectItem>
+                      <SelectItem value="Personal Care">Personal Care</SelectItem>
+                      <SelectItem value="Household">Household</SelectItem>
+                      <SelectItem value="Baby Care">Baby Care</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
 
-        <div className="w-full">
           <FormField
             control={form.control}
             name="image"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Product Image</FormLabel>
+                <FormLabel className="text-sm font-medium">Product Image</FormLabel>
                 <FormControl>
                   <ImageUpload
                     value={field.value}
@@ -189,51 +178,77 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
               </FormItem>
             )}
           />
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField
             control={form.control}
-            name="isNew"
+            name="imageHint"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-3 sm:p-4">
+              <FormItem>
+                <FormLabel className="text-sm font-medium">Image Hint (Optional)</FormLabel>
                 <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
+                  <Input placeholder="product image" {...field} className="w-full" />
                 </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel className="text-sm sm:text-base">New Product</FormLabel>
-                </div>
+                <FormMessage />
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="soldOut"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-3 sm:p-4">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel className="text-sm sm:text-base">Sold Out</FormLabel>
-                </div>
-              </FormItem>
-            )}
-          />
+
+          <div className="grid grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="isNew"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-center space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <FormLabel className="text-sm font-medium cursor-pointer">
+                    New Product
+                  </FormLabel>
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="soldOut"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-center space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <FormLabel className="text-sm font-medium cursor-pointer">
+                    Sold Out
+                  </FormLabel>
+                </FormItem>
+              )}
+            />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Button type="submit" className="w-full">
-            {productToEdit ? 'Update Product' : 'Add Product'}
+        <div className="flex flex-col sm:flex-row gap-3 pt-4">
+          <Button 
+            type="submit" 
+            className="flex-1 sm:flex-none"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? 'Saving...' : (productToEdit ? 'Update Product' : 'Add Product')}
           </Button>
-          {productToEdit && onFinishEditing && (
-            <Button variant="outline" className="w-full" onClick={onFinishEditing}>Cancel</Button>
+          {onFinishEditing && (
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={onFinishEditing}
+              className="flex-1 sm:flex-none"
+            >
+              Cancel
+            </Button>
           )}
         </div>
       </form>
