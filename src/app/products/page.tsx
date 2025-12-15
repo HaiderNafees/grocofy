@@ -81,7 +81,6 @@ function ProductsContent() {
           {selectedProduct && (
             <ProductDetail 
               product={selectedProduct} 
-              onClose={handleCloseDialog}
             />
           )}
         </DialogContent>

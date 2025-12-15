@@ -7,6 +7,7 @@ import { ProductCard } from "@/components/product-card";
 import { useProducts } from '@/hooks/use-products';
 import Link from "next/link";
 import { PopularCategories } from "@/components/popular-categories";
+import { CoffeeEssentials } from "@/components/coffee-essentials";
 import { PromoSection } from "@/components/promo-section";
 import { FeaturedBrands } from "@/components/featured-brands";
 import { AboutUsSection } from "@/components/about-us-section";
@@ -125,6 +126,7 @@ export default function Home() {
         )}
       </div>
       <PopularCategories />
+      <CoffeeEssentials />
       <PromoSection />
       <FeaturedBrands />
       <AboutUsSection />
