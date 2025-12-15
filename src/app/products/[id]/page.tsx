@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useProducts } from '@/hooks/use-products';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -11,22 +11,23 @@ import { Minus, Plus, CheckCircle2, Share2, Twitter, Pin } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = React.use(params);
   const { addItem } = useCart();
   const { products, loading } = useProducts();
   const [quantity, setQuantity] = useState(1);
-  const [product, setProduct] = useState(products.find((p) => p.id === params.id));
+  const [product, setProduct] = useState(products.find((p) => p.id === resolvedParams.id));
 
   useEffect(() => {
     if(!loading) {
-      const foundProduct = products.find((p) => p.id === params.id);
+      const foundProduct = products.find((p) => p.id === resolvedParams.id);
       if (foundProduct) {
         setProduct(foundProduct);
       } else {
         notFound();
       }
     }
-  }, [params.id, products, loading]);
+  }, [resolvedParams.id, products, loading]);
 
 
   if (loading || !product) {
