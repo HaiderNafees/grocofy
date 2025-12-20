@@ -7,6 +7,7 @@ import { useAuth } from '@/hooks/use-auth';
 import { useProducts } from '@/hooks/use-products';
 import { ProductForm } from '@/components/admin/product-form';
 import { ProductList } from '@/components/admin/product-list';
+import { OrdersSection } from '@/components/admin/orders-section';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -76,9 +77,10 @@ export default function AdminPage() {
         </Button>
       </div>
       <Tabs defaultValue="products" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 mb-6 sm:mb-8">
+        <TabsList className="grid w-full grid-cols-3 mb-6 sm:mb-8">
           <TabsTrigger value="products" className="text-sm sm:text-base">Manage Products</TabsTrigger>
           <TabsTrigger value="add" className="text-sm sm:text-base">Add New Product</TabsTrigger>
+          <TabsTrigger value="orders" className="text-sm sm:text-base">Manage Orders</TabsTrigger>
         </TabsList>
         <TabsContent value="products">
           <Card className="w-full">
@@ -117,6 +119,9 @@ export default function AdminPage() {
               <ProductForm />
             </CardContent>
           </Card>
+        </TabsContent>
+        <TabsContent value="orders">
+          <OrdersSection />
         </TabsContent>
       </Tabs>
     </div>

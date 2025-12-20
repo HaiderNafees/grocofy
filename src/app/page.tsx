@@ -7,7 +7,6 @@ import { ProductCard } from "@/components/product-card";
 import { useProducts } from '@/hooks/use-products';
 import Link from "next/link";
 import { PopularCategories } from "@/components/popular-categories";
-import { CoffeeEssentials } from "@/components/coffee-essentials";
 import { PromoSection } from "@/components/promo-section";
 import { FeaturedBrands } from "@/components/featured-brands";
 import { AboutUsSection } from "@/components/about-us-section";
@@ -19,6 +18,8 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { NoSSR } from "@/components/no-ssr";
+
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -126,7 +127,6 @@ export default function Home() {
         )}
       </div>
       <PopularCategories />
-      <CoffeeEssentials />
       <PromoSection />
       <FeaturedBrands />
       <AboutUsSection />

@@ -4,263 +4,3472 @@ import type { Product } from './types';
 // This is now just the initial seed data.
 // The app will use localStorage as the primary source of truth.
 export const products: Product[] = [
+  // Pringles Products (5 varieties)
   {
-    id: 'ritter-sport-marzipan-1',
-    name: 'Ritter Sport Marzipan Dark Chocolate, Fresh from Germany, Chocolate with Marzipan Filling, Ritter Sport Chocolates in Colorful Variety, 3.5 Ounce (Pack of 12)',
+    id: 'pringles-cheesy-cheese-new-1',
+    name: 'Pringles Snacks Cheesy Cheese',
     price: 945,
-    image: 'https://iili.io/fYK3fZN.jpg',
-    imageHint: 'ritter sport marzipan chocolate',
-    category: 'Eatables',
+    image: 'https://picsum.photos/seed/pringles-cheesy-cheese-new/600/600',
+    imageHint: 'pringles cheesy cheese',
+    category: 'Snacks',
     isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'ritter-sport-kakao-mousse-2',
-    name: 'Ritter Sport Kakao (Cocoa) Mousse Chocolate - Pack of 3',
+    id: 'pringles-hot-spicy-new-2',
+    name: 'Pringles Snacks Hot & Spicy',
     price: 945,
-    image: 'https://iili.io/fYKB46B.png',
-    imageHint: 'ritter sport kakao mousse chocolate',
-    category: 'Eatables',
+    image: 'https://picsum.photos/seed/pringles-hot-spicy-new/600/600',
+    imageHint: 'pringles hot spicy',
+    category: 'Snacks',
     isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'ritter-sport-milk-chocolate-3',
-    name: 'Ritter Sport Milk Chocolate with Butter Biscuit, 3.5 oz',
+    id: 'pringles-original-new-3',
+    name: 'Pringles Snacks Original',
     price: 945,
-    image: 'https://iili.io/fYfKy0P.png',
-    imageHint: 'ritter sport milk chocolate butter biscuit',
-    category: 'Eatables',
+    image: 'https://picsum.photos/seed/pringles-original-new/600/600',
+    imageHint: 'pringles original',
+    category: 'Snacks',
     isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'mogu-mogu-pineapple-4',
-    name: 'Mogu Mogu Juice with Nata De Coco, Pineapple',
+    id: 'pringles-paprika-new-4',
+    name: 'Pringles Snacks Paprika',
+    price: 945,
+    image: 'https://picsum.photos/seed/pringles-paprika-new/600/600',
+    imageHint: 'pringles paprika',
+    category: 'Snacks',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'pringles-sour-cream-onion-new-5',
+    name: 'Pringles Snacks Sour Cream & Onion',
+    price: 945,
+    image: 'https://picsum.photos/seed/pringles-sour-cream-onion-new/600/600',
+    imageHint: 'pringles sour cream onion',
+    category: 'Snacks',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Fox Products (3 varieties)
+  {
+    id: 'fox-fruit-tin-6',
+    name: 'Fox Fruit Tin',
     price: 350,
-    image: 'https://iili.io/fYfjJVa.png',
-    imageHint: 'mogu mogu juice pineapple nata de coco',
-    category: 'Drinkable',
-    isNew: true,
-  },
-  {
-    id: 'pringles-cheesy-cheese-5',
-    name: 'Pringles Cheesy Cheese Chips 165g',
-    price: 945,
-    image: 'https://iili.io/fYqlfxR.png',
-    imageHint: 'pringles cheesy cheese chips',
+    image: 'https://picsum.photos/seed/fox-fruit-tin/600/600',
+    imageHint: 'fox fruit tin',
     category: 'Eatables',
     isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'kurkure-naughty-tomato-6',
-    name: 'Kurkure Naughty Tomato — 47.5g',
-    price: 75,
-    image: 'https://picsum.photos/seed/kurkure-naughty-tomato/600/600',
-    imageHint: 'kurkure tomato',
-    category: 'Snacks',
+    id: 'fox-berries-tin-7',
+    name: 'Fox Berries Tin',
+    price: 350,
+    image: 'https://picsum.photos/seed/fox-berries-tin/600/600',
+    imageHint: 'fox berries tin',
+    category: 'Eatables',
     isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'kurkure-masala-munch-7',
-    name: 'Kurkure Masala Munch — 47.5g',
-    price: 75,
-    image: 'https://picsum.photos/seed/kurkure-masala-munch/600/600',
-    imageHint: 'kurkure masala',
-    category: 'Snacks',
+    id: 'fox-fruity-mints-8',
+    name: 'Fox Fruity Mints',
+    price: 250,
+    image: 'https://picsum.photos/seed/fox-fruity-mints/600/600',
+    imageHint: 'fox fruity mints',
+    category: 'Eatables',
     isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1400,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 2700,
+        label: 'Pack of 12'
+      }
+    ]
   },
+  
+  // Lotus Products (2 varieties)
   {
-    id: 'kurkure-chutney-chaska-8',
-    name: 'Kurkure Chutney Chaska — 47.5g',
-    price: 75,
-    image: 'https://picsum.photos/seed/kurkure-chutney-chaska/600/600',
-    imageHint: 'kurkure chutney',
-    category: 'Snacks',
-    isNew: true,
-  },
-  {
-    id: 'kurkure-chilli-chatka-9',
-    name: 'Kurkure Chilli Chatka — 47.5g',
-    price: 75,
-    image: 'https://picsum.photos/seed/kurkure-chilli-chatka/600/600',
-    imageHint: 'kurkure chilli',
-    category: 'Snacks',
-    isNew: true,
-  },
-  {
-    id: 'lays-flamin-hot-10',
-    name: "Lays Flamin' Hot — 34.5g",
-    price: 75,
-    image: 'https://picsum.photos/seed/lays-flamin-hot/600/600',
-    imageHint: 'lays flamin hot',
-    category: 'Snacks',
-    isNew: true,
-  },
-  {
-    id: 'lays-french-cheese-11',
-    name: 'Lays French Cheese — 34.5g',
-    price: 75,
-    image: 'https://picsum.photos/seed/lays-french-cheese/600/600',
-    imageHint: 'lays french cheese',
-    category: 'Snacks',
-  },
-  {
-    id: 'lays-classic-salted-12',
-    name: 'Lays Classic Salted — 34.5g',
-    price: 75,
-    image: 'https://picsum.photos/seed/lays-classic-salted/600/600',
-    imageHint: 'lays classic',
-    category: 'Snacks',
-  },
-  {
-    id: 'lays-yogurt-herb-13',
-    name: 'Lays Yogurt & Herb — 34.5g',
-    price: 75,
-    image: 'https://picsum.photos/seed/lays-yogurt-herb/600/600',
-    imageHint: 'lays yogurt herb',
-    category: 'Snacks',
-  },
-  {
-    id: 'slanty-cheese-flavor-14',
-    name: 'Slanty Cheese Flavor — 20g',
-    price: 35,
-    image: 'https://picsum.photos/seed/slanty-cheese-flavor/600/600',
-    imageHint: 'slanty cheese',
-    category: 'Snacks',
-  },
-  {
-    id: 'slanty-chilli-flavor-15',
-    name: 'Slanty Chilli Flavor — 20g',
-    price: 35,
-    image: 'https://picsum.photos/seed/slanty-chilli-flavor/600/600',
-    imageHint: 'slanty chilli',
-    category: 'Snacks',
-  },
-  {
-    id: 'super-crisp-salad-16',
-    name: 'Super Crisp Salad (Salted) — 22g',
-    price: 35,
-    image: 'https://picsum.photos/seed/super-crisp-salad/600/600',
-    imageHint: 'super crisp',
-    category: 'Snacks',
-  },
-  {
-    id: 'super-crisp-masala-masti-17',
-    name: 'Super Crisp Masala Masti — 22g',
-    price: 35,
-    image: 'https://picsum.photos/seed/super-crisp-masala-masti/600/600',
-    imageHint: 'super crisp',
-    category: 'Snacks',
-  },
-  {
-    id: 'super-crisp-pizza-18',
-    name: 'Super Crisp Pizza — 22g',
-    price: 35,
-    image: 'https://picsum.photos/seed/super-crisp-pizza/600/600',
-    imageHint: 'super crisp',
-    category: 'Snacks',
-  },
-  {
-    id: 'super-crisp-bbq-19',
-    name: 'Super Crisp BBQ — 22g',
-    price: 35,
-    image: 'https://picsum.photos/seed/super-crisp-bbq/600/600',
-    imageHint: 'super crisp',
-    category: 'Snacks',
-  },
-  {
-    id: 'super-crisp-ketchup-20',
-    name: 'Super Crisp Ketchup — 22g',
-    price: 35,
-    image: 'https://picsum.photos/seed/super-crisp-ketchup/600/600',
-    imageHint: 'super crisp',
-    category: 'Snacks',
-  },
-  {
-    id: 'super-crisp-sour-cream-onion-21',
-    name: 'Super Crisp Sour Cream & Onion — 22g',
-    price: 35,
-    image: 'https://picsum.photos/seed/super-crisp-sour-cream-onion/600/600',
-    imageHint: 'super crisp',
-    category: 'Snacks',
-  },
-  {
-    id: 'wavy-maxx-sizzling-bbq-22',
-    name: 'Wavy Maxx Sizzling BBQ — 25g',
-    price: 50,
-    image: 'https://picsum.photos/seed/wavy-maxx-sizzling-bbq/600/600',
-    imageHint: 'wavy maxx',
-    category: 'Snacks',
-  },
-  {
-    id: 'wavy-maxx-creamy-onion-23',
-    name: 'Wavy Maxx Creamy Onion — 25g',
-    price: 50,
-    image: 'https://picsum.photos/seed/wavy-maxx-creamy-onion/600/600',
-    imageHint: 'wavy maxx',
-    category: 'Snacks',
-  },
-  {
-    id: 'biscolata-mood-chocolate-24',
-    name: 'Biscolata Mood Chocolate — 100g',
-    price: 399,
-    image: 'https://picsum.photos/seed/biscolata-mood-chocolate/600/600',
-    imageHint: 'biscolata chocolate',
-    category: 'Biscuits',
-  },
-  {
-    id: 'tuc-biscuit-25',
-    name: 'Tuc Biscuit — 66g',
-    price: 80,
-    image: 'https://picsum.photos/seed/tuc-biscuit/600/600',
-    imageHint: 'tuc biscuit',
-    category: 'Biscuits',
-  },
-  {
-    id: 'prince-biscuit-26',
-    name: 'Prince Biscuit — 68g',
-    price: 80,
-    image: 'https://picsum.photos/seed/prince-biscuit/600/600',
-    imageHint: 'prince biscuit',
-    category: 'Biscuits',
-  },
-  {
-    id: 'nido-milk-powder-27',
-    name: 'Nido Full Cream Milk Powder — 400g',
+    id: 'lotus-biscuit-9',
+    name: 'Lotus Biscuit',
     price: 450,
-    image: 'https://picsum.photos/seed/nido-milk-powder/600/600',
-    imageHint: 'nido milk powder',
-    category: 'Dairy',
+    image: 'https://picsum.photos/seed/lotus-biscuit/600/600',
+    imageHint: 'lotus biscuit',
+    category: 'Biscuits',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 2500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 4800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'coca-cola-30',
-    name: 'Coca Cola — 2.25L',
-    price: 180,
-    image: 'https://picsum.photos/seed/coca-cola/600/600',
-    imageHint: 'coca cola',
+    id: 'lotus-biscuit-spread-10',
+    name: 'Lotus Biscuit Spread',
+    price: 650,
+    image: 'https://picsum.photos/seed/lotus-biscuit-spread/600/600',
+    imageHint: 'lotus biscuit spread',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 650,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 3700,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 7200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Davidoff Coffee Products (4 varieties)
+  {
+    id: 'davidoff-rich-aroma-11',
+    name: 'Davidoff Coffee Rich Aroma',
+    price: 850,
+    image: 'https://picsum.photos/seed/davidoff-rich-aroma/600/600',
+    imageHint: 'davidoff coffee rich aroma',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'davidoff-fine-aroma-12',
+    name: 'Davidoff Coffee Fine Aroma',
+    price: 850,
+    image: 'https://picsum.photos/seed/davidoff-fine-aroma/600/600',
+    imageHint: 'davidoff coffee fine aroma',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'davidoff-espresso-57-13',
+    name: 'Davidoff Coffee Espresso 57',
+    price: 850,
+    image: 'https://picsum.photos/seed/davidoff-espresso-57/600/600',
+    imageHint: 'davidoff coffee espresso 57',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'davidoff-crema-intense-14',
+    name: 'Davidoff Coffee Crema Intense',
+    price: 850,
+    image: 'https://picsum.photos/seed/davidoff-crema-intense/600/600',
+    imageHint: 'davidoff coffee crema intense',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Uncle Barns Products (2 varieties)
+  {
+    id: 'uncle-barns-tempura-flour-15',
+    name: 'Uncle Barns Tempura Flour',
+    price: 450,
+    image: 'https://picsum.photos/seed/uncle-barns-tempura-flour/600/600',
+    imageHint: 'uncle barns tempura flour',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 2500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 4800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'uncle-barns-bread-crumbs-16',
+    name: 'Uncle Barns Bread Crumbs',
+    price: 350,
+    image: 'https://picsum.photos/seed/uncle-barns-bread-crumbs/600/600',
+    imageHint: 'uncle barns bread crumbs',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Nescafe Products (3 varieties)
+  {
+    id: 'nescafe-gold-decaf-17',
+    name: 'Nescafe Gold Blend Decaf',
+    price: 750,
+    image: 'https://picsum.photos/seed/nescafe-gold-decaf/600/600',
+    imageHint: 'nescafe gold decaf',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 750,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 8000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'nescafe-gold-alta-rica-18',
+    name: 'Nescafe Gold Alta Rica',
+    price: 750,
+    image: 'https://picsum.photos/seed/nescafe-gold-alta-rica/600/600',
+    imageHint: 'nescafe gold alta rica',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 750,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 8000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'nescafe-gold-blend-19',
+    name: 'Nescafe Gold Blend',
+    price: 750,
+    image: 'https://picsum.photos/seed/nescafe-gold-blend/600/600',
+    imageHint: 'nescafe gold blend',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 750,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 8000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Ritz Crackers (1 variety)
+  {
+    id: 'ritz-cracker-original-20',
+    name: 'Ritz Cracker Original',
+    price: 450,
+    image: 'https://picsum.photos/seed/ritz-cracker-original/600/600',
+    imageHint: 'ritz cracker original',
+    category: 'Biscuits',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 2500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 4800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Samyang Buldak Ramen Products (6 varieties)
+  {
+    id: 'samyang-buldak-carbonara-21',
+    name: 'Samyang Buldak Ramen Carbonara (Pack of 5)',
+    price: 1250,
+    image: 'https://picsum.photos/seed/samyang-buldak-carbonara/600/600',
+    imageHint: 'samyang buldak carbonara',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 3700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 7200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 14000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'samyang-buldak-harbenoro-lime-22',
+    name: 'Samyang Buldak Ramen Harbenoro Lime (Pack of 5)',
+    price: 1250,
+    image: 'https://picsum.photos/seed/samyang-buldak-harbenoro-lime/600/600',
+    imageHint: 'samyang buldak harbenoro lime',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 3700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 7200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 14000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'samyang-buldak-carbonara-spicy-23',
+    name: 'Samyang Buldak Ramen Carbonara Spicy (Pack of 5)',
+    price: 1250,
+    image: 'https://picsum.photos/seed/samyang-buldak-carbonara-spicy/600/600',
+    imageHint: 'samyang buldak carbonara spicy',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 3700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 7200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 14000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'samyang-buldak-2x-red-24',
+    name: 'Samyang Buldak Ramen 2x Red (Pack of 5)',
+    price: 1250,
+    image: 'https://picsum.photos/seed/samyang-buldak-2x-red/600/600',
+    imageHint: 'samyang buldak 2x red',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 3700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 7200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 14000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'samyang-buldak-cheese-25',
+    name: 'Samyang Buldak Ramen Cheese (Pack of 5)',
+    price: 1250,
+    image: 'https://picsum.photos/seed/samyang-buldak-cheese/600/600',
+    imageHint: 'samyang buldak cheese',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 3700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 7200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 14000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'samyang-buldak-original-black-26',
+    name: 'Samyang Buldak Ramen Original Black (Pack of 5)',
+    price: 1250,
+    image: 'https://picsum.photos/seed/samyang-buldak-original-black/600/600',
+    imageHint: 'samyang buldak original black',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 3700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 7200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 14000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Bounty Products (2 varieties)
+  {
+    id: 'bounty-chocolate-bar-27',
+    name: 'Bounty Chocolate Bar STD (24s) 57 gm',
+    price: 5200,
+    image: 'https://picsum.photos/seed/bounty-chocolate-bar/600/600',
+    imageHint: 'bounty chocolate bar',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 5200,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 15000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 29000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 56000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'bounty-fruit-nut-bar-28',
+    name: 'Bounty Fruit & Nut Bar 4 Pack 128g',
+    price: 1450,
+    image: 'https://picsum.photos/seed/bounty-fruit-nut-bar/600/600',
+    imageHint: 'bounty fruit nut bar',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8100,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 15600,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Cadbury Products (8 varieties)
+  {
+    id: 'cadbury-dairy-fruit-nut-29',
+    name: 'Cadbury Dairy Fruit & Nut (12s) 135g',
+    price: 990,
+    image: 'https://picsum.photos/seed/cadbury-dairy-fruit-nut/600/600',
+    imageHint: 'cadbury dairy fruit nut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-dairy-hazelnut-30',
+    name: 'Cadbury Dairy Hazelnut (12s) 135g',
+    price: 990,
+    image: 'https://picsum.photos/seed/cadbury-dairy-hazelnut/600/600',
+    imageHint: 'cadbury dairy hazelnut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-dairy-milk-31',
+    name: 'Cadbury Dairy Milk (12s) 135g',
+    price: 990,
+    image: 'https://picsum.photos/seed/cadbury-dairy-milk/600/600',
+    imageHint: 'cadbury dairy milk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-dairy-milk-fruit-nut-32',
+    name: 'Cadbury Dairy Milk Fruit & Nut (12s) 130g',
+    price: 990,
+    image: 'https://picsum.photos/seed/cadbury-dairy-milk-fruit-nut/600/600',
+    imageHint: 'cadbury dairy milk fruit nut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-dairy-milk-hazelnut-33',
+    name: 'Cadbury Dairy Milk Hazelnut (12s) 130g',
+    price: 990,
+    image: 'https://picsum.photos/seed/cadbury-dairy-milk-hazelnut/600/600',
+    imageHint: 'cadbury dairy milk hazelnut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-dairy-milk-plain-34',
+    name: 'Cadbury Dairy Milk Plain (12s) 130g',
+    price: 990,
+    image: 'https://picsum.photos/seed/cadbury-dairy-milk-plain/600/600',
+    imageHint: 'cadbury dairy milk plain',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-dairy-milk-roasted-almond-35',
+    name: 'Cadbury Dairy Milk Roasted Almond (12s) 130g',
+    price: 990,
+    image: 'https://picsum.photos/seed/cadbury-dairy-milk-roasted-almond/600/600',
+    imageHint: 'cadbury dairy milk roasted almond',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-flake-36',
+    name: 'Cadbury Flake (36s) 15g',
+    price: 6300,
+    image: 'https://picsum.photos/seed/cadbury-flake/600/600',
+    imageHint: 'cadbury flake',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 6300,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 18500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 36000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 70000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'cadbury-flake-milk-37',
+    name: 'Cadbury Flake Milk (12s) 28g',
+    price: 3900,
+    image: 'https://picsum.photos/seed/cadbury-flake-milk/600/600',
+    imageHint: 'cadbury flake milk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 3900,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 11500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 22500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 44000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Ferrero Rocher Products (3 varieties)
+  {
+    id: 'ferrero-rocher-hazel-dark-38',
+    name: 'Ferrero Rocher Hazel Dark 55% 3 Pack 90g',
+    price: 3900,
+    image: 'https://picsum.photos/seed/ferrero-rocher-hazel-dark/600/600',
+    imageHint: 'ferrero rocher hazel dark',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 3900,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 11500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 22500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 44000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ferrero-rocher-hazelnut-white-39',
+    name: 'Ferrero Rocher Hazelnut White 3 Pack 90g',
+    price: 3900,
+    image: 'https://picsum.photos/seed/ferrero-rocher-hazelnut-white/600/600',
+    imageHint: 'ferrero rocher hazelnut white',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 3900,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 11500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 22500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 44000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ferrero-rocher-original-milk-40',
+    name: 'Ferrero Rocher Original Milk 3 Pack 90g',
+    price: 3900,
+    image: 'https://picsum.photos/seed/ferrero-rocher-original-milk/600/600',
+    imageHint: 'ferrero rocher original milk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 3900,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 11500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 22500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 44000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Godiva Products (2 varieties)
+  {
+    id: 'godiva-masterpieces-dark-41',
+    name: 'Godiva Masterpieces Dark Chocolate (12s) 30g',
+    price: 4200,
+    image: 'https://picsum.photos/seed/godiva-masterpieces-dark/600/600',
+    imageHint: 'godiva masterpieces dark',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 4200,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 12500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 24000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 47000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'godiva-masterpieces-milk-42',
+    name: 'Godiva Masterpieces Milk Chocolate (12s) 30g',
+    price: 4200,
+    image: 'https://picsum.photos/seed/godiva-masterpieces-milk/600/600',
+    imageHint: 'godiva masterpieces milk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 4200,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 12500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 24000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 47000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Hershey Product
+  {
+    id: 'hershey-kisses-milk-43',
+    name: 'Hershey Kisses Milk Chocolate 8.4oz',
+    price: 2650,
+    image: 'https://picsum.photos/seed/hershey-kisses-milk/600/600',
+    imageHint: 'hershey kisses milk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 2650,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 7800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 15000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 29000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Kinder Products (4 varieties)
+  {
+    id: 'kinder-joy-egg-girl-44',
+    name: 'Kinder Joy Egg Girl 20 gm',
+    price: 310,
+    image: 'https://picsum.photos/seed/kinder-joy-egg-girl/600/600',
+    imageHint: 'kinder joy egg girl',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 310,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1750,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3400,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kinder-joy-egg-boy-45',
+    name: 'Kinder Joy Egg Boy 20 gm',
+    price: 310,
+    image: 'https://picsum.photos/seed/kinder-joy-egg-boy/600/600',
+    imageHint: 'kinder joy egg boy',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 310,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1750,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3400,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kinder-maxi-t10-46',
+    name: 'Kinder Maxi T10 210gm pack 210g',
+    price: 1950,
+    image: 'https://picsum.photos/seed/kinder-maxi-t10/600/600',
+    imageHint: 'kinder maxi t10',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1950,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 5800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 11200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 22000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kinder-tronky-t5-47',
+    name: 'Kinder Tronky T5 90 gm',
+    price: 1400,
+    image: 'https://picsum.photos/seed/kinder-tronky-t5/600/600',
+    imageHint: 'kinder tronky t5',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1400,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4100,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 7900,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 15400,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Kit Kat Products (6 varieties)
+  {
+    id: 'kit-kat-2-finger-48',
+    name: 'Kit Kat 2 Finger (36s) 20.7g',
+    price: 4650,
+    image: 'https://picsum.photos/seed/kit-kat-2-finger/600/600',
+    imageHint: 'kit kat 2 finger',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 4650,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 13800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 27000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 52000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kit-kat-4-finger-uk-49',
+    name: 'Kit Kat 4 Finger (UK) 41.5g',
+    price: 6000,
+    image: 'https://picsum.photos/seed/kit-kat-4-finger-uk/600/600',
+    imageHint: 'kit kat 4 finger uk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 6000,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 17800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 34000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 65000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kitkat-2f-caramel-50',
+    name: 'KITKAT 2F CARAMEL 8 pack 8X20.7G',
+    price: 1450,
+    image: 'https://picsum.photos/seed/kitkat-2f-caramel/600/600',
+    imageHint: 'kitkat 2f caramel',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8300,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 16000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kitkat-2f-cookies-cream-51',
+    name: 'KITKAT 2F COOKIES & CREAM 8 pack 8X20.7G',
+    price: 1450,
+    image: 'https://picsum.photos/seed/kitkat-2f-cookies-cream/600/600',
+    imageHint: 'kitkat 2f cookies cream',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8300,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 16000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kitkat-2f-dark-52',
+    name: 'KITKAT 2F DARK 8 PACK 8X20.7G',
+    price: 1450,
+    image: 'https://picsum.photos/seed/kitkat-2f-dark/600/600',
+    imageHint: 'kitkat 2f dark',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8300,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 16000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kitkat-2f-white-53',
+    name: 'KITKAT 2F WHITE 8 PACK 8X20.7G',
+    price: 1450,
+    image: 'https://picsum.photos/seed/kitkat-2f-white/600/600',
+    imageHint: 'kitkat 2f white',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8300,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 16000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'kitkat-2f-nescafe-mocha-54',
+    name: 'KITKAT 2F NESCAFE MOCHA 8 pack 8X20.7G',
+    price: 1450,
+    image: 'https://picsum.photos/seed/kitkat-2f-nescafe-mocha/600/600',
+    imageHint: 'kitkat 2f nescafe mocha',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4300,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8300,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 16000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // M&M Products (4 varieties)
+  {
+    id: 'mm-chocolate-pouch-55',
+    name: 'M&M Chocolate Pouch 30X150G',
+    price: 1650,
+    image: 'https://picsum.photos/seed/mm-chocolate-pouch/600/600',
+    imageHint: 'mm chocolate pouch',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1650,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 9300,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 18000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mm-minis-pouch-56',
+    name: 'M&M Minis Pouch 27X176G',
+    price: 1695,
+    image: 'https://picsum.photos/seed/mm-minis-pouch/600/600',
+    imageHint: 'mm minis pouch',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1695,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4980,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 9630,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 18660,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mm-chocolate-box-57',
+    name: 'M&M Chocolate Box (24s) 45g',
+    price: 6800,
+    image: 'https://picsum.photos/seed/mm-chocolate-box/600/600',
+    imageHint: 'mm chocolate box',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 6800,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 20400,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 40800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 81600,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mm-peanut-pouch-58',
+    name: 'M&M Peanut Pouch 150 gm',
+    price: 1650,
+    image: 'https://picsum.photos/seed/mm-peanut-pouch/600/600',
+    imageHint: 'mm peanut pouch',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1650,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 9300,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 18000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Mackintosh Quality Street Products (2 varieties)
+  {
+    id: 'mackintosh-quality-street-tin-59',
+    name: 'Mackintosh Quality Street tin 150 gm',
+    price: 2100,
+    image: 'https://picsum.photos/seed/mackintosh-quality-street-tin/600/600',
+    imageHint: 'mackintosh quality street tin',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 2100,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 6200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 12000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 23000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mackintosh-quality-street-250-60',
+    name: 'Mackintosh Quality Street 250 gm',
+    price: 3100,
+    image: 'https://picsum.photos/seed/mackintosh-quality-street-250/600/600',
+    imageHint: 'mackintosh quality street 250',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 3100,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 9100,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 17500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 34000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'quality-street-tin-61',
+    name: 'Quality Street Tin 900 gm',
+    price: 5800,
+    image: 'https://picsum.photos/seed/quality-street-tin/600/600',
+    imageHint: 'quality street tin',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 5800,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 17200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 33000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 64000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Malteaser Product
+  {
+    id: 'malteaser-chocolate-pouch-62',
+    name: 'Malteaser Chocolate Pouch 175g',
+    price: 1450,
+    image: 'https://picsum.photos/seed/malteaser-chocolate-pouch/600/600',
+    imageHint: 'malteaser chocolate pouch',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8100,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 15600,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Celebration Tub Product
+  {
+    id: 'celebration-tub-63',
+    name: 'Celebration Tub 550g',
+    price: 4800,
+    image: 'https://picsum.photos/seed/celebration-tub/600/600',
+    imageHint: 'celebration tub',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 4800,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 14200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 27500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 53000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Mars Products (2 varieties)
+  {
+    id: 'mars-fruit-nut-64',
+    name: 'MARS FRUIT & NUT 4 PACK 128g',
+    price: 1450,
+    image: 'https://picsum.photos/seed/mars-fruit-nut/600/600',
+    imageHint: 'mars fruit nut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 1450,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 4200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 8100,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 15600,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mars-regular-65',
+    name: 'Mars Regular (24s) 51g',
+    price: 5200,
+    image: 'https://picsum.photos/seed/mars-regular/600/600',
+    imageHint: 'mars regular',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 5200,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 15000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 29000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 56000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Mr Beast Chocolate Product
+  {
+    id: 'mr-beast-chocolate-almond-66',
+    name: 'Mr Beast Chocolate Almond (10s) 60g',
+    price: 10800,
+    image: 'https://picsum.photos/seed/mr-beast-chocolate-almond/600/600',
+    imageHint: 'mr beast chocolate almond',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 10800,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 32000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 62000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 120000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Nutella Products (2 varieties)
+  {
+    id: 'nutella-b-ready-t10-67',
+    name: 'Nutella B Ready T10 22gmx10',
+    price: 2250,
+    image: 'https://picsum.photos/seed/nutella-b-ready-t10/600/600',
+    imageHint: 'nutella b ready t10',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 2250,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 6700,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 13000,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 25000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'nutella-b-ready-t6-68',
+    name: 'Nutella Chocolate Spread 350g',
+    price: 990,
+    image: 'https://picsum.photos/seed/nutella-chocolate-spread/600/600',
+    imageHint: 'nutella chocolate spread',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 990,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5600,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Mogu Mogu Products (8 varieties)
+  {
+    id: 'mogu-mogu-mango-69',
+    name: 'Mogu Mogu Nata D Coco Mango',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-mango/600/600',
+    imageHint: 'mogu mogu mango',
     category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'dove-soap-31',
-    name: 'Dove Beauty Bar Soap — 100g',
-    price: 120,
-    image: 'https://picsum.photos/seed/dove-soap/600/600',
-    imageHint: 'dove soap',
-    category: 'Personal Care',
+    id: 'mogu-mogu-coconut-70',
+    name: 'Mogu Mogu Nata D Coco Coconut',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-coconut/600/600',
+    imageHint: 'mogu mogu coconut',
+    category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'detergent-powder-32',
-    name: 'Ariel Detergent Powder — 1kg',
-    price: 450,
-    image: 'https://picsum.photos/seed/ariel-detergent/600/600',
-    imageHint: 'ariel detergent',
-    category: 'Household',
+    id: 'mogu-mogu-pineapple-71',
+    name: 'Mogu Mogu Nata D Coco Pineapple',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-pineapple/600/600',
+    imageHint: 'mogu mogu pineapple',
+    category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
   },
   {
-    id: 'baby-diapers-33',
-    name: 'Pampers Baby Diapers — Medium (56 count)',
-    price: 1200,
-    image: 'https://picsum.photos/seed/pampers-diapers/600/600',
-    imageHint: 'pampers diapers',
-    category: 'Baby Care',
+    id: 'mogu-mogu-lychee-72',
+    name: 'Mogu Mogu Nata D Coco Lychee',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-lychee/600/600',
+    imageHint: 'mogu mogu lychee',
+    category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mogu-mogu-strawberry-73',
+    name: 'Mogu Mogu Nata D Coco Strawberry',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-strawberry/600/600',
+    imageHint: 'mogu mogu strawberry',
+    category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mogu-mogu-peach-74',
+    name: 'Mogu Mogu Nata D Coco Peach',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-peach/600/600',
+    imageHint: 'mogu mogu peach',
+    category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mogu-mogu-grape-75',
+    name: 'Mogu Mogu Nata D Coco Grape',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-grape/600/600',
+    imageHint: 'mogu mogu grape',
+    category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'mogu-mogu-orange-76',
+    name: 'Mogu Mogu Nata D Coco Orange',
+    price: 350,
+    image: 'https://picsum.photos/seed/mogu-mogu-orange/600/600',
+    imageHint: 'mogu mogu orange',
+    category: 'Drinkable',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 350,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1000,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 1950,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 3800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Movenpick Coffee Products (3 varieties)
+  {
+    id: 'movenpick-decaff-77',
+    name: 'Movenpick Decaff Coffee',
+    price: 850,
+    image: 'https://picsum.photos/seed/movenpick-decaff/600/600',
+    imageHint: 'movenpick decaff coffee',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'movenpick-intense-78',
+    name: 'Movenpick Intense Coffee',
+    price: 850,
+    image: 'https://picsum.photos/seed/movenpick-intense/600/600',
+    imageHint: 'movenpick intense coffee',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'movenpick-original-79',
+    name: 'Movenpick Original Coffee',
+    price: 850,
+    image: 'https://picsum.photos/seed/movenpick-original/600/600',
+    imageHint: 'movenpick original coffee',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Additional Nescafe Products (2 varieties)
+  {
+    id: 'nescafe-classic-imported-80',
+    name: 'Nescafe Classic Imported',
+    price: 750,
+    image: 'https://picsum.photos/seed/nescafe-classic-imported/600/600',
+    imageHint: 'nescafe classic imported',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 750,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 8000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'nescafe-3in1-81',
+    name: 'Nescafe 3in1',
+    price: 750,
+    image: 'https://picsum.photos/seed/nescafe-3in1/600/600',
+    imageHint: 'nescafe 3in1',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 750,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2200,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4200,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 8000,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Nutella Chocolate Spread
+  {
+    id: 'nutella-chocolate-spread-82',
+    name: 'Nutella Chocolate Spread',
+    price: 850,
+    image: 'https://picsum.photos/seed/nutella-chocolate-spread/600/600',
+    imageHint: 'nutella chocolate spread',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 850,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2500,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 4800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 9200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // American Garden Peanut Butter Products (2 varieties)
+  {
+    id: 'american-garden-peanut-chunk-83',
+    name: 'American Garden Peanut Butter Chunk',
+    price: 650,
+    image: 'https://picsum.photos/seed/american-garden-peanut-chunk/600/600',
+    imageHint: 'american garden peanut butter chunk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 650,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 3700,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 7200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'american-garden-peanut-creamy-84',
+    name: 'American Garden Peanut Butter Creamy',
+    price: 650,
+    image: 'https://picsum.photos/seed/american-garden-peanut-creamy/600/600',
+    imageHint: 'american garden peanut butter creamy',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 650,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 1900,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 3700,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 7200,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // Ritter Sport Products (15 varieties)
+  {
+    id: 'ritter-sport-cocoa-mousse-85',
+    name: 'Ritter Sport Cocoa Mousse',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-cocoa-mousse/600/600',
+    imageHint: 'ritter sport cocoa mousse',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-alpine-milk-86',
+    name: 'Ritter Sport Alpine Milk',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-alpine-milk/600/600',
+    imageHint: 'ritter sport alpine milk',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-butter-biscuit-87',
+    name: 'Ritter Sport Butter Biscuit',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-butter-biscuit/600/600',
+    imageHint: 'ritter sport butter biscuit',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-cashew-88',
+    name: 'Ritter Sport Cashew',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-cashew/600/600',
+    imageHint: 'ritter sport cashew',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-cocoa-wafer-89',
+    name: 'Ritter Sport Cocoa Wafer',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-cocoa-wafer/600/600',
+    imageHint: 'ritter sport cocoa wafer',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-coffee-hazelnut-90',
+    name: 'Ritter Sport Coffee Hazelnut',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-coffee-hazelnut/600/600',
+    imageHint: 'ritter sport coffee hazelnut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-dark-almond-91',
+    name: 'Ritter Sport Dark Almond',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-dark-almond/600/600',
+    imageHint: 'ritter sport dark almond',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-dark-mint-92',
+    name: 'Ritter Sport Dark Mint',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-dark-mint/600/600',
+    imageHint: 'ritter sport dark mint',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-cornflakes-93',
+    name: 'Ritter Sport Cornflakes',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-cornflakes/600/600',
+    imageHint: 'ritter sport cornflakes',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-fine-milk-94',
+    name: 'Ritter Sport Fine Milk Chocolate',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-fine-milk/600/600',
+    imageHint: 'ritter sport fine milk chocolate',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-honey-salted-almond-95',
+    name: 'Ritter Sport Honey Salted Almond',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-honey-salted-almond/600/600',
+    imageHint: 'ritter sport honey salted almond',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-marzipan-96',
+    name: 'Ritter Sport Marzipan',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-marzipan/600/600',
+    imageHint: 'ritter sport marzipan',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-praline-94',
+    name: 'Ritter Sport Praline',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-praline/600/600',
+    imageHint: 'ritter sport praline',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-pure-50-95',
+    name: 'Ritter Sport Pure 50%',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-pure-50/600/600',
+    imageHint: 'ritter sport pure 50',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-raisin-nut-96',
+    name: 'Ritter Sport Raisin Nut',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-raisin-nut/600/600',
+    imageHint: 'ritter sport raisin nut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-salted-caramel-97',
+    name: 'Ritter Sport Salted Caramel',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-salted-caramel/600/600',
+    imageHint: 'ritter sport salted caramel',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-white-crisp-98',
+    name: 'Ritter Sport White Crisp',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-white-crisp/600/600',
+    imageHint: 'ritter sport white crisp',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-white-hazelnut-99',
+    name: 'Ritter Sport White Whole Hazelnut',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-white-hazelnut/600/600',
+    imageHint: 'ritter sport white hazelnut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'ritter-sport-whole-hazelnut-100',
+    name: 'Ritter Sport Whole Hazelnut',
+    price: 945,
+    image: 'https://picsum.photos/seed/ritter-sport-whole-hazelnut/600/600',
+    imageHint: 'ritter sport whole hazelnut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 945,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 2800,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 5500,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 10800,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  
+  // My Chew Candy Products (7 varieties)
+  {
+    id: 'my-chew-blueberry-101',
+    name: 'My Chew Candy Blueberry',
+    price: 150,
+    image: 'https://picsum.photos/seed/my-chew-blueberry/600/600',
+    imageHint: 'my chew candy blueberry',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 150,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 420,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 1500,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'my-chew-chocolate-102',
+    name: 'My Chew Candy Chocolate',
+    price: 150,
+    image: 'https://picsum.photos/seed/my-chew-chocolate/600/600',
+    imageHint: 'my chew candy chocolate',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 150,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 420,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 1500,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'my-chew-coconut-103',
+    name: 'My Chew Candy Coconut',
+    price: 150,
+    image: 'https://picsum.photos/seed/my-chew-coconut/600/600',
+    imageHint: 'my chew candy coconut',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 150,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 420,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 1500,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'my-chew-grape-104',
+    name: 'My Chew Candy Grape',
+    price: 150,
+    image: 'https://picsum.photos/seed/my-chew-grape/600/600',
+    imageHint: 'my chew candy grape',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 150,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 420,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 1500,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'my-chew-lychee-105',
+    name: 'My Chew Candy Lychee',
+    price: 150,
+    image: 'https://picsum.photos/seed/my-chew-lychee/600/600',
+    imageHint: 'my chew candy lychee',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 150,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 420,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 1500,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'my-chew-mango-106',
+    name: 'My Chew Candy Mango',
+    price: 150,
+    image: 'https://picsum.photos/seed/my-chew-mango/600/600',
+    imageHint: 'my chew candy mango',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 150,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 420,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 1500,
+        label: 'Pack of 12'
+      }
+    ]
+  },
+  {
+    id: 'my-chew-strawberry-107',
+    name: 'My Chew Candy Strawberry',
+    price: 150,
+    image: 'https://picsum.photos/seed/my-chew-strawberry/600/600',
+    imageHint: 'my chew candy strawberry',
+    category: 'Eatables',
+    isNew: true,
+    packOptions: [
+      {
+        quantity: 1,
+        price: 150,
+        label: 'Single'
+      },
+      {
+        quantity: 3,
+        price: 420,
+        label: 'Pack of 3'
+      },
+      {
+        quantity: 6,
+        price: 800,
+        label: 'Pack of 6'
+      },
+      {
+        quantity: 12,
+        price: 1500,
+        label: 'Pack of 12'
+      }
+    ]
   },
 ];
 

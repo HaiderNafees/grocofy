@@ -27,6 +27,8 @@ import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/use-auth';
 
+export const dynamic = 'force-dynamic';
+
 const formSchema = z
   .object({
     name: z.string().min(1, { message: 'Name is required.' }),

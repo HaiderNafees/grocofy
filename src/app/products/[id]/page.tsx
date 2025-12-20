@@ -5,17 +5,22 @@ import React, { useState, useEffect } from 'react';
 import { useProducts } from '@/hooks/use-products';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/product-card';
 import { Minus, Plus, CheckCircle2, Share2, Twitter, Pin } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { Skeleton } from '@/components/ui/skeleton';
 
+export const dynamic = 'force-dynamic';
+
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = React.use(params);
-  const { addItem } = useCart();
+  const { addItem, clearCart } = useCart();
   const { products, loading } = useProducts();
+  const router = useRouter();
   const [quantity, setQuantity] = useState(1);
+  const [selectedPack, setSelectedPack] = useState(0);
   const [product, setProduct] = useState(products.find((p) => p.id === resolvedParams.id));
 
   useEffect(() => {
@@ -49,10 +54,35 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   
   const relatedProducts = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 5);
 
+  const currentPrice = product.packOptions ? product.packOptions[selectedPack].price : product.price;
+  const currentQuantity = product.packOptions ? product.packOptions[selectedPack].quantity : quantity;
+
   const handleAddToCart = () => {
     if (product.soldOut) return;
-    addItem(product, quantity);
-    setQuantity(1);
+    const productToAdd = {
+      ...product,
+      price: currentPrice,
+      packLabel: product.packOptions ? product.packOptions[selectedPack].label : undefined
+    };
+    addItem(productToAdd, currentQuantity);
+    if (!product.packOptions) {
+      setQuantity(1);
+    }
+  };
+
+  const handleBuyNow = () => {
+    if (product.soldOut) return;
+    // Clear cart first to ensure only this product goes to checkout
+    clearCart();
+    const productToAdd = {
+      ...product,
+      price: currentPrice,
+      packLabel: product.packOptions ? product.packOptions[selectedPack].label : undefined
+    };
+    // Add the product to cart
+    addItem(productToAdd, currentQuantity);
+    // Redirect to checkout page
+    router.push('/checkout');
   };
 
   return (
@@ -74,33 +104,57 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           <h1 className="text-3xl font-bold tracking-tight">{product.name}</h1>
           
           <p className='mt-4 font-semibold'>Price</p>
-          <p className="text-2xl font-semibold">Rs. {product.price.toLocaleString()}</p>
+          <p className="text-2xl font-semibold">Rs. {currentPrice.toLocaleString()}</p>
           <p className="text-sm text-muted-foreground mt-1">Tax included.</p>
 
-          <div className="mt-6">
-            <p className="font-medium mb-2">Quantity</p>
-            <div className="flex items-center gap-2">
-                <Button
-                    variant="outline"
-                    size="icon"
-                    className="h-10 w-10 rounded-none"
-                    onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                >
-                    <Minus className="h-4 w-4" />
-                </Button>
-                <div className="h-10 w-16 flex items-center justify-center border border-input">
-                  {quantity}
-                </div>
-                <Button
-                    variant="outline"
-                    size="icon"
-                    className="h-10 w-10 rounded-none"
-                    onClick={() => setQuantity(q => q + 1)}
-                >
-                    <Plus className="h-4 w-4" />
-                </Button>
+          {product.packOptions && (
+            <div className="mt-6">
+              <p className="font-medium mb-2">Pack Options</p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {product.packOptions.map((pack, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedPack(index)}
+                    className={`p-3 border rounded-lg text-center transition-colors ${
+                      selectedPack === index
+                        ? 'border-orange-500 bg-orange-50 text-orange-700'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="font-medium">{pack.label}</div>
+                    <div className="text-sm text-muted-foreground">Rs. {pack.price.toLocaleString()}</div>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
+
+          {!product.packOptions && (
+            <div className="mt-6">
+              <p className="font-medium mb-2">Quantity</p>
+              <div className="flex items-center gap-2">
+                  <Button
+                      variant="outline"
+                      size="icon"
+                      className="h-10 w-10 rounded-none"
+                      onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                  >
+                      <Minus className="h-4 w-4" />
+                  </Button>
+                  <div className="h-10 w-16 flex items-center justify-center border border-input">
+                    {quantity}
+                  </div>
+                  <Button
+                      variant="outline"
+                      size="icon"
+                      className="h-10 w-10 rounded-none"
+                      onClick={() => setQuantity(q => q + 1)}
+                  >
+                      <Plus className="h-4 w-4" />
+                  </Button>
+              </div>
+            </div>
+          )}
           
           <div className="mt-6 flex flex-col gap-4">
             <Button 
@@ -112,7 +166,12 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               >
               Add to Cart
             </Button>
-            <Button size="lg" className="w-full md:w-auto rounded-none uppercase tracking-wider py-6 bg-orange-500 hover:bg-orange-600">
+            <Button 
+                size="lg" 
+                className="w-full md:w-auto rounded-none uppercase tracking-wider py-6 bg-orange-500 hover:bg-orange-600"
+                onClick={handleBuyNow}
+                disabled={product.soldOut}
+              >
               Buy it now
             </Button>
           </div>

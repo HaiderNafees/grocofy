@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
-import { products as initialProducts } from '@/lib/data';
+import { loadProducts, addProduct, updateProduct, deleteProduct } from '@/lib/product-storage';
 
 export async function GET() {
   try {
-    return NextResponse.json(initialProducts, {
+    const products = loadProducts();
+    return NextResponse.json(products, {
       headers: {
         'Cache-Control': 'no-store, no-cache, must-revalidate',
         'Pragma': 'no-cache',
@@ -21,7 +22,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const product = await request.json();
-    // In a real app, you would save this to a database
+    const newProducts = addProduct(product);
     return NextResponse.json(product, { status: 201 });
   } catch (error) {
     return NextResponse.json(
@@ -34,7 +35,7 @@ export async function POST(request: Request) {
 export async function PUT(request: Request) {
   try {
     const product = await request.json();
-    // In a real app, you would update this in the database
+    updateProduct(product);
     return NextResponse.json(product, { status: 200 });
   } catch (error) {
     return NextResponse.json(
@@ -56,7 +57,7 @@ export async function DELETE(request: Request) {
       );
     }
 
-    // In a real app, you would delete this from the database
+    deleteProduct(id);
     return NextResponse.json(
       { message: 'Product deleted successfully' },
       { status: 200 }

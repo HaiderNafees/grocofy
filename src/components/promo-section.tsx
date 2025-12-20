@@ -14,23 +14,19 @@ const promoGridItems = [
 export function PromoSection() {
   return (
     <section className="container py-12">
-      <div className="bg-[#F5EBE0] flex flex-col md:flex-row items-center rounded-lg overflow-hidden">
-        <div className="w-full md:w-1/2">
+      <div className="bg-[#F5EBE0] relative overflow-hidden rounded-lg">
+        <div className="absolute inset-0">
             {promoBanner && (
                 <Image
                 src={promoBanner.imageUrl}
                 alt={promoBanner.description}
-                width={600}
-                height={400}
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
                 data-ai-hint={promoBanner.imageHint}
                 />
             )}
         </div>
-        <div className="w-full md:w-1/2 p-8 text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-serif">Customized your</h2>
-          <h3 className="text-4xl md:text-5xl font-bold font-serif text-[#B08D57]">Gift Basket</h3>
-          <p className="mt-2 text-muted-foreground">for Every Celebration</p>
+        <div className="relative h-96 flex items-center justify-end p-8">
         </div>
       </div>
       <Link href="#">

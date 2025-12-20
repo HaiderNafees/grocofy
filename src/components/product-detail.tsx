@@ -67,6 +67,33 @@ export function ProductDetail({ product }: ProductDetailProps) {
                         <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                 </div>
+                
+                <div className="flex flex-wrap gap-2 mt-3">
+                    <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="text-xs"
+                        onClick={() => setQuantity(3)}
+                    >
+                        Pack of 3
+                    </Button>
+                    <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="text-xs"
+                        onClick={() => setQuantity(6)}
+                    >
+                        Pack of 6
+                    </Button>
+                    <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="text-xs"
+                        onClick={() => setQuantity(12)}
+                    >
+                        Pack of 12
+                    </Button>
+                </div>
             </div>
             
             <div className="flex flex-col gap-2 sm:gap-3 lg:gap-4">

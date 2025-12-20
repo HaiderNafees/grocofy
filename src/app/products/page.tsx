@@ -9,6 +9,8 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import type { Product } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 
+export const dynamic = 'force-dynamic';
+
 function ProductsContent() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { products, loading } = useProducts();

@@ -50,7 +50,7 @@ export function HeroCarousel() {
         ] : []}
       >
         <CarouselContent>
-          {heroImages.map((image, index) => (
+          {heroImages.slice(0, 3).map((image, index) => (
             <CarouselItem key={index}>
               <div className="relative w-full h-0 hero-aspect-desktop hero-aspect-mobile">
                 <Image
@@ -61,17 +61,7 @@ export function HeroCarousel() {
                   priority={index === 0}
                   data-ai-hint={image.imageHint}
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-end p-8 bg-black/20">
-                  {image.id === "hero-3" && (
-                    <div className="text-center mb-8">
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-                        Customized your Gift Basket
-                      </h2>
-                      <p className="text-lg md:text-xl text-white mb-6 drop-shadow-md">
-                        for Every Celebration
-                      </p>
-                    </div>
-                  )}
+                <div className="absolute inset-0 flex items-center justify-end p-8 bg-black/20">
                   <Link href={getHeroRoute(image.id)} className="absolute bottom-[10%] left-1/2 -translate-x-1/2">
                     <Button 
                       variant="secondary" 

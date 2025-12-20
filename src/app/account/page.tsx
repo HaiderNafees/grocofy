@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default function AccountPage() {
   const { user, loading, logout } = useAuth();
   const router = useRouter();
