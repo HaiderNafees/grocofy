@@ -19,12 +19,25 @@ function ProductsContent() {
 
   useEffect(() => {
     const category = searchParams.get('category');
+    const search = searchParams.get('search');
+    
+    let filtered = products;
+    
+    // Filter by category if specified
     if (category) {
-      const filtered = products.filter(product => product.category === category);
-      setFilteredProducts(filtered);
-    } else {
-      setFilteredProducts(products);
+      filtered = filtered.filter(product => product.category === category);
     }
+    
+    // Filter by search query if specified
+    if (search && search.trim()) {
+      const searchLower = search.toLowerCase().trim();
+      filtered = filtered.filter(product => 
+        product.name.toLowerCase().includes(searchLower) ||
+        product.category.toLowerCase().includes(searchLower)
+      );
+    }
+    
+    setFilteredProducts(filtered);
   }, [searchParams, products]);
 
   const handleProductView = (product: Product) => {
@@ -36,10 +49,18 @@ function ProductsContent() {
   };
 
   const category = searchParams.get('category');
-  const pageTitle = category ? `${category} Products` : 'All Products';
-  const pageDescription = category 
-    ? `Browse our collection of ${category.toLowerCase()} products.` 
-    : 'Browse our full collection of products.';
+  const search = searchParams.get('search');
+  
+  let pageTitle = 'All Products';
+  let pageDescription = 'Browse our full collection of products.';
+  
+  if (search && search.trim()) {
+    pageTitle = `Search Results for "${search.trim()}"`;
+    pageDescription = `Found ${filteredProducts.length} results for "${search.trim()}".`;
+  } else if (category) {
+    pageTitle = `${category} Products`;
+    pageDescription = `Browse our collection of ${category.toLowerCase()} products.`;
+  }
 
   return (
     <>
@@ -63,7 +84,12 @@ function ProductsContent() {
             </div>
         ) : filteredProducts.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No products found in this category.</p>
+            <p className="text-muted-foreground">
+              {search && search.trim() 
+                ? `No products found for "${search.trim()}". Try a different search term.`
+                : 'No products found in this category.'
+              }
+            </p>
           </div>
         ) : (
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">

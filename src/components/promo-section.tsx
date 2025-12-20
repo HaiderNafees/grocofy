@@ -40,16 +40,19 @@ export function PromoSection() {
           const image = PlaceHolderImages.find((img) => img.id === item.id);
           return (
             <div key={item.id} className="relative group overflow-hidden rounded-lg">
+              <div className="aspect-[3/2] relative">
                 {image && (
                     <Image
                         src={image.imageUrl}
                         alt={image.description}
-                        width={600}
-                        height={400}
-                        className="object-cover w-full h-auto transform transition-transform duration-500 group-hover:scale-110"
+                        fill
+                        className="object-cover transform transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         data-ai-hint={image.imageHint}
+                        priority={item.id === 'promo-wedding'}
                     />
                 )}
+              </div>
                 <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-between p-6">
                     <h3 className="text-white text-xl font-semibold text-center uppercase tracking-wider">{item.title}</h3>
                     <Button variant="secondary" className="bg-orange-400 text-black hover:bg-orange-500 rounded-sm font-bold">

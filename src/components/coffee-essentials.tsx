@@ -8,25 +8,31 @@ export function CoffeeEssentials() {
       <div className="container px-0">
         <div className="relative rounded-2xl overflow-hidden bg-gray-100">
           <div className="relative h-64 sm:h-80 md:h-96">
-            <Image
-              src="/pics/coffe.webp"
-              alt="Coffee Essentials"
-              fill
-              className="object-cover"
-              priority
-              style={{ objectPosition: 'center 30%' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 flex flex-col items-center justify-center">
+            <div className="absolute inset-0">
+              <Image
+                src="/coffee.jpg"
+                alt="Coffee Essentials"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectPosition: 'center' }}
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 flex flex-col items-center justify-center">
               <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 mb-4 sm:mb-6">
                 <div className="relative w-full h-full rounded-full border-4 border-white/90 overflow-hidden shadow-xl">
-                  <Image
-                    src="/pics/coffe.webp"
-                    alt="Coffee Icon"
-                    fill
-                    className="object-cover"
-                    style={{ objectPosition: 'center 40%' }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400/30 to-orange-600/40 rounded-full"></div>
+                  <div className="absolute inset-0">
+                    <Image
+                      src="/coffee.jpg"
+                      alt="Coffee Icon"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 64px, (max-width: 1024px) 96px, 128px"
+                      style={{ objectPosition: 'center' }}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-orange-600/30 rounded-full"></div>
                 </div>
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 text-center drop-shadow-2xl px-4">
