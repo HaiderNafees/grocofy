@@ -3,6 +3,7 @@
 
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import type { Product } from '@/lib/types';
+import { productsAPI } from '@/lib/supabase';
 
 export interface ProductContextType {
   products: Product[];
@@ -19,31 +20,40 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchProducts = async (retryCount = 0) => {
+  const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/products', {
-        cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
+      const { data, error } = await productsAPI.getAll();
+      if (error) throw error;
+      
+      // Transform snake_case to camelCase for frontend
+      const transformedData = (data || []).map(product => {
+        try {
+          return {
+            ...product,
+            imageHint: product.image_hint,
+            soldOut: product.sold_out,
+            isNew: product.is_new,
+            packOptions: typeof product.pack_options === 'string' 
+              ? JSON.parse(product.pack_options) 
+              : product.pack_options
+          };
+        } catch (parseError) {
+          console.error('Error parsing pack_options for product:', product.id, parseError);
+          return {
+            ...product,
+            imageHint: product.image_hint,
+            soldOut: product.sold_out,
+            isNew: product.is_new,
+            packOptions: []
+          };
         }
       });
-      if (!response.ok) throw new Error('Failed to fetch products');
-      const data = await response.json();
-      setProducts(data);
-      return data;
+      
+      setProducts(transformedData);
     } catch (error) {
       console.error('Error fetching products:', error);
-      
-      // Retry logic for network errors
-      if (retryCount < 2 && error instanceof TypeError && error.message.includes('fetch')) {
-        console.log(`Retrying fetch attempt ${retryCount + 1}/3...`);
-        await new Promise(resolve => setTimeout(resolve, 1000 * (retryCount + 1))); // Exponential backoff
-        return fetchProducts(retryCount + 1);
-      }
-      
-      throw error;
+      console.error('Error details:', JSON.stringify(error, null, 2));
+      console.error('Error message:', (error as any)?.message);
     } finally {
       setLoading(false);
     }
@@ -64,47 +74,63 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 
   const addProduct = async (product: Product) => {
     try {
-      const response = await fetch('/api/products', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-      });
-      if (!response.ok) throw new Error('Failed to add product');
+      // Transform camelCase to snake_case for database
+      const dbProduct = {
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        image_hint: product.imageHint,
+        category: product.category,
+        sold_out: product.soldOut,
+        is_new: product.isNew,
+        pack_options: JSON.stringify(product.packOptions)
+      };
+      
+      const { error } = await productsAPI.create(dbProduct);
+      if (error) throw error;
       await fetchProducts();
     } catch (error) {
       console.error('Error adding product:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
+      console.error('Error message:', (error as any)?.message);
       throw error;
     }
   };
 
   const updateProduct = async (product: Product) => {
     try {
-      const response = await fetch(`/api/products/${product.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-      });
-      if (!response.ok) throw new Error('Failed to update product');
+      // Transform camelCase to snake_case for database
+      const dbProduct = {
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        image_hint: product.imageHint,
+        category: product.category,
+        sold_out: product.soldOut,
+        is_new: product.isNew,
+        pack_options: JSON.stringify(product.packOptions)
+      };
+      
+      const { error } = await productsAPI.update(product.id, dbProduct);
+      if (error) throw error;
       await fetchProducts();
     } catch (error) {
       console.error('Error updating product:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
+      console.error('Error message:', (error as any)?.message);
       throw error;
     }
   };
 
   const deleteProduct = async (productId: string) => {
     try {
-      const response = await fetch(`/api/products/${productId}`, {
-        method: 'DELETE',
-      });
-      if (!response.ok) throw new Error('Failed to delete product');
+      const { error } = await productsAPI.delete(productId);
+      if (error) throw error;
       await fetchProducts();
     } catch (error) {
       console.error('Error deleting product:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
+      console.error('Error message:', (error as any)?.message);
       throw error;
     }
   };

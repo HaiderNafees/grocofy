@@ -8,6 +8,30 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/backend/api/products',
+        destination: '/api/products',
+        permanent: false,
+      },
+      {
+        source: '/backend/api/products.php',
+        destination: '/api/products',
+        permanent: false,
+      },
+      {
+        source: '/backend/api/users',
+        destination: '/api/users',
+        permanent: false,
+      },
+      {
+        source: '/backend/api/users.php',
+        destination: '/api/users',
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {
@@ -15,7 +39,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://generativelanguage.googleapis.com; frame-src 'self';",
+            value: "default-src 'self' *; script-src 'self' 'unsafe-eval' 'unsafe-inline' *; style-src 'self' 'unsafe-inline' *; font-src 'self' *; img-src 'self' data: https: blob: *; connect-src 'self' *; frame-src 'self' *;",
           },
         ],
       },

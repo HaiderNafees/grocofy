@@ -3,7 +3,7 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/use-auth';
+import { useAuth } from '@/context/firebase-auth-context'; // Now uses Supabase
 import { useProducts } from '@/hooks/use-products';
 import { useBanners } from '@/hooks/use-banners';
 import { ProductForm } from '@/components/admin/product-form';
@@ -24,7 +24,7 @@ import {
 import { Button } from '@/components/ui/button';
 
 export default function AdminPage() {
-  const { user, loading, logout } = useAuth();
+  const { user, loading, signOut, isAdmin } = useAuth();
   const { products, loading: productsLoading } = useProducts();
   const { banners, loading: bannersLoading, refreshBanners } = useBanners();
   const [categoryFilter, setCategoryFilter] = useState('all');
@@ -37,14 +37,14 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!loading && isClient) {
-      if (!user || !user.isAdmin) {
+      if (!user || !isAdmin) {
         router.push('/login');
       }
     }
-  }, [user, loading, isClient, router]);
+  }, [user, loading, isAdmin, isClient, router]);
   
   const handleSignOut = () => {
-    logout();
+    signOut();
     router.push('/');
   };
 

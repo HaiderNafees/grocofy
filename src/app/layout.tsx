@@ -4,8 +4,8 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { CartProvider } from '@/context/cart-context';
-import { AuthProvider } from '@/context/auth-context';
-import { ProductProvider } from '@/context/product-context';
+import { AuthProvider } from '@/context/firebase-auth-context';
+import { ProductProvider } from '@/context/product-context-simple';
 import { BannerProvider } from '@/context/banner-context';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
@@ -19,7 +19,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Grocofy',
-  description: 'A clone of the SHAMS website built with Next.js and Firebase Studio',
+  description: 'A clone of the SHAMS website built with Next.js and Supabase',
   icons: {
     icon: [
       { url: 'https://iili.io/fYFSwtS.png', type: 'image/png' },
@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+export const dynamic = 'force-dynamic';
 
 export default function RootLayout({
   children,

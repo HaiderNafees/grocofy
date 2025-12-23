@@ -22,8 +22,12 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const product = await request.json();
-    const newProducts = addProduct(product);
-    return NextResponse.json(product, { status: 201 });
+    const productWithId = {
+      ...product,
+      id: product?.id ?? `product-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    };
+    addProduct(productWithId);
+    return NextResponse.json(productWithId, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to create product' },
@@ -34,9 +38,28 @@ export async function POST(request: Request) {
 
 export async function PUT(request: Request) {
   try {
-    const product = await request.json();
-    updateProduct(product);
-    return NextResponse.json(product, { status: 200 });
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    const updates = await request.json();
+
+    if (id) {
+      const products = loadProducts();
+      const existing = products.find(p => (p as any)?.id === id);
+
+      if (!existing) {
+        return NextResponse.json(
+          { error: 'Product not found' },
+          { status: 404 }
+        );
+      }
+
+      const merged = { ...existing, ...updates, id };
+      updateProduct(merged as any);
+      return NextResponse.json(merged, { status: 200 });
+    }
+
+    updateProduct(updates);
+    return NextResponse.json(updates, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to update product' },

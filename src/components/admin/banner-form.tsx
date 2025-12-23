@@ -21,7 +21,10 @@ import {
 } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
+import { toast } from 'sonner';
+import { supabase } from '@/lib/supabase';
 import { type Banner } from '@/lib/types';
 import { useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
@@ -104,18 +107,20 @@ export function BannerForm({ bannerToEdit, onFinishEditing }: BannerFormProps) {
         sortOrder: data.sortOrder || 1,
       };
 
-      const url = bannerToEdit ? '/api/banners' : '/api/banners';
-      const method = bannerToEdit ? 'PUT' : 'POST';
-
-      const response = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(finalData),
-      });
-
-      if (!response.ok) throw new Error('Failed to save banner');
+      if (bannerToEdit) {
+        const { error } = await supabase
+          .from('banners')
+          .update(finalData)
+          .eq('id', finalData.id);
+        
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from('banners')
+          .insert([finalData]);
+        
+        if (error) throw error;
+      }
 
       toast({ 
         title: bannerToEdit ? "Banner Updated" : "Banner Added", 

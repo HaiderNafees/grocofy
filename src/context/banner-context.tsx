@@ -2,6 +2,7 @@
 
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import type { Banner } from '@/lib/types';
+import { supabase } from '@/lib/supabase';
 
 export interface BannerContextType {
   banners: Banner[];
@@ -15,31 +16,34 @@ export const BannerProvider = ({ children }: { children: ReactNode }) => {
   const [banners, setBanners] = useState<Banner[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchBanners = async (retryCount = 0) => {
+  const fetchBanners = async () => {
     try {
-      const response = await fetch('/api/banners', {
-        cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
-        }
-      });
-      if (!response.ok) throw new Error('Failed to fetch banners');
-      const data = await response.json();
-      setBanners(data);
-      return data;
+      const { data, error } = await supabase
+        .from('banners')
+        .select('*')
+        .eq('is_active', true)
+        .order('sort_order', { ascending: true });
+
+      if (error) throw error;
+      
+      // Transform snake_case to camelCase for frontend
+      const transformedData = (data || []).map(banner => ({
+        ...banner,
+        imageHint: banner.image_hint,
+        buttonText: banner.button_text,
+        buttonLink: banner.button_link,
+        backgroundColor: banner.background_color,
+        textColor: banner.text_color,
+        isActive: banner.is_active,
+        sortOrder: banner.sort_order
+      }));
+      
+      setBanners(transformedData);
     } catch (error) {
       console.error('Error fetching banners:', error);
-      
-      // Retry logic for network errors
-      if (retryCount < 2 && error instanceof TypeError && error.message.includes('fetch')) {
-        console.log(`Retrying fetch attempt ${retryCount + 1}/3...`);
-        await new Promise(resolve => setTimeout(resolve, 1000 * (retryCount + 1)));
-        return fetchBanners(retryCount + 1);
-      }
-      
-      throw error;
+      console.error('Error details:', JSON.stringify(error, null, 2));
+      console.error('Error message:', (error as any)?.message);
+      console.error('Error details:', (error as any)?.details);
     } finally {
       setLoading(false);
     }

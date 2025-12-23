@@ -3,148 +3,85 @@
 
 import type { ReactNode } from 'react';
 import { createContext, useState, useEffect } from 'react';
+import { authAPI, supabase } from '@/lib/supabase';
 
 interface User {
-  name: string;
+  id: string;
   email: string;
-  isAdmin: boolean;
+  full_name?: string;
+  role: 'user' | 'admin';
 }
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  login: (email: string, pass: string) => Promise<User | null>;
-  logout: () => void;
-  signup: (name: string, email: string, pass: string) => Promise<User | null>;
+  signIn: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, password: string, fullName: string) => Promise<void>;
+  signOut: () => Promise<void>;
+  isAdmin: () => boolean;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-const ADMIN_EMAIL = 'admin@store.com';
-const ADMIN_PASSWORD = 'Admin7989';
-const ADMIN_NAME = 'Admin User';
-
-const initializeUsers = () => {
-    try {
-        if (typeof window !== 'undefined') {
-            const storedUsers = localStorage.getItem('users');
-            if (storedUsers) {
-                const users = JSON.parse(storedUsers);
-                if (!users[ADMIN_EMAIL]) {
-                    users[ADMIN_EMAIL] = { password: ADMIN_PASSWORD, name: ADMIN_NAME };
-                    localStorage.setItem('users', JSON.stringify(users));
-                }
-                return users;
-            } else {
-                const initialUsers = {
-                    [ADMIN_EMAIL]: { password: ADMIN_PASSWORD, name: ADMIN_NAME }
-                };
-                localStorage.setItem('users', JSON.stringify(initialUsers));
-                return initialUsers;
-            }
-        }
-    } catch (error) {
-        console.error("Failed to initialize users in localStorage", error);
-    }
-    return {};
-}
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    initializeUsers();
-    try {
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-        const parsedUser = JSON.parse(storedUser);
-        setUser(parsedUser);
-      } else {
-        // Check if admin should be auto-logged in for development
-        const adminUser = {
-          name: ADMIN_NAME,
-          email: ADMIN_EMAIL,
-          isAdmin: true
-        };
-        // Optionally auto-login admin for development
-        // setUser(adminUser);
-        // localStorage.setItem('user', JSON.stringify(adminUser));
-      }
-    } catch (error) {
-      console.error("Failed to parse user from localStorage", error);
-      setUser(null);
-    } finally {
+    // Check initial auth state
+    const checkAuth = async () => {
+      const { data } = await authAPI.getCurrentProfile();
+      setUser(data);
       setLoading(false);
-    }
+    };
+
+    checkAuth();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (session) {
+          const { data } = await authAPI.getCurrentProfile();
+          setUser(data);
+        } else {
+          setUser(null);
+        }
+        setLoading(false);
+      }
+    );
+
+    return () => subscription.unsubscribe();
   }, []);
 
-  const login = async (email: string, pass: string): Promise<User | null> => {
-    return new Promise((resolve) => {
-        try {
-            if (typeof window === 'undefined') {
-                resolve(null);
-                return;
-            }
-            const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
-            const userData = storedUsers[email];
-            if (userData && userData.password === pass) {
-                const user: User = { 
-                    name: userData.name || email.split('@')[0], 
-                    email, 
-                    isAdmin: email === ADMIN_EMAIL 
-                };
-                localStorage.setItem('user', JSON.stringify(user));
-                setUser(user);
-                resolve(user);
-            } else {
-                resolve(null);
-            }
-        } catch (error) {
-            console.error("Failed during login", error);
-            resolve(null);
-        }
-    });
+  const signIn = async (email: string, password: string) => {
+    const { error } = await authAPI.signIn(email, password);
+    if (error) throw error;
   };
 
-  const signup = async (name: string, email: string, pass: string): Promise<User | null> => {
-     return new Promise((resolve) => {
-        try {
-            if (typeof window === 'undefined') {
-                resolve(null);
-                return;
-            }
-            const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
-            if (storedUsers[email]) {
-                resolve(null); // User already exists
-                return;
-            }
-            storedUsers[email] = { password: pass, name: name };
-            localStorage.setItem('users', JSON.stringify(storedUsers));
-            
-            const user: User = { name, email, isAdmin: email === ADMIN_EMAIL };
-            localStorage.setItem('user', JSON.stringify(user));
-            setUser(user);
-            resolve(user);
-        } catch (error) {
-            console.error("Failed during signup", error);
-            resolve(null);
-        }
-    });
+  const signUp = async (email: string, password: string, fullName: string) => {
+    const { error } = await authAPI.signUp(email, password, fullName);
+    if (error) throw error;
   };
 
-  const logout = () => {
-    try {
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem('user');
-      }
-    } catch (error) {
-       console.error("Failed to remove user from localStorage", error);
-    }
-    setUser(null);
+  const signOut = async () => {
+    const { error } = await authAPI.signOut();
+    if (error) throw error;
   };
 
-  const value = { user, loading, login, logout, signup };
+  const isAdmin = () => {
+    return user?.role === 'admin';
+  };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{
+      user,
+      loading,
+      signIn,
+      signUp,
+      signOut,
+      isAdmin
+    }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

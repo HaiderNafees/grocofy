@@ -10,6 +10,7 @@ import { BannerForm } from './banner-form';
 import { type Banner } from '@/lib/types';
 import { Edit, Trash2, Eye } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/lib/supabase';
 
 interface BannerListProps {
   banners: Banner[];
@@ -30,15 +31,16 @@ export function BannerList({ banners, onBannerUpdate }: BannerListProps) {
     if (!confirm('Are you sure you want to delete this banner?')) return;
 
     try {
-      const response = await fetch(`/api/banners?id=${bannerId}`, {
-        method: 'DELETE',
-      });
+      const { error } = await supabase
+        .from('banners')
+        .delete()
+        .eq('id', bannerId);
 
-      if (!response.ok) throw new Error('Failed to delete banner');
+      if (error) throw error;
 
       toast({
         title: "Banner Deleted",
-        description: "Banner has been deleted successfully.",
+        description: "Banner has been deleted successfully."
       });
 
       onBannerUpdate();

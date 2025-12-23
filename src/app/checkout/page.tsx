@@ -11,6 +11,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
+export const dynamic = 'force-dynamic';
+
 export default function CheckoutPage() {
   const { items, totalPrice } = useCart();
   const [isClient, setIsClient] = useState(false);
