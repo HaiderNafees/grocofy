@@ -3,17 +3,17 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/firebase-auth-context'; // Now uses Supabase
+import { useAuth } from '@/context/firebase-auth-context';
 import { useProducts } from '@/hooks/use-products';
-import { useBanners } from '@/hooks/use-banners';
 import { ProductForm } from '@/components/admin/product-form';
 import { ProductList } from '@/components/admin/product-list';
-import { BannerForm } from '@/components/admin/banner-form';
-import { BannerList } from '@/components/admin/banner-list';
 import { OrdersSection } from '@/components/admin/orders-section';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
+// Force static rendering for export
+export const dynamic = 'force-static';
 import {
   Select,
   SelectContent,
@@ -26,7 +26,6 @@ import { Button } from '@/components/ui/button';
 export default function AdminPage() {
   const { user, loading, signOut, isAdmin } = useAuth();
   const { products, loading: productsLoading } = useProducts();
-  const { banners, loading: bannersLoading, refreshBanners } = useBanners();
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
@@ -37,11 +36,11 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!loading && isClient) {
-      if (!user || !isAdmin) {
+      if (!user) {
         router.push('/login');
       }
     }
-  }, [user, loading, isAdmin, isClient, router]);
+  }, [user, loading, isClient, router]);
   
   const handleSignOut = () => {
     signOut();
@@ -60,7 +59,7 @@ export default function AdminPage() {
     return products.filter(p => p.category === categoryFilter);
   }, [products, categoryFilter]);
 
-  if (!isClient || loading || !user || !user.isAdmin) {
+  if (!isClient || loading || !user) {
     return (
       <div className="container py-12">
         <div className="space-y-4">
@@ -81,9 +80,8 @@ export default function AdminPage() {
         </Button>
       </div>
       <Tabs defaultValue="products" className="w-full">
-        <TabsList className="grid w-full grid-cols-4 mb-6 sm:mb-8">
+        <TabsList className="grid w-full grid-cols-3 mb-6 sm:mb-8">
           <TabsTrigger value="products" className="text-sm sm:text-base">Manage Products</TabsTrigger>
-          <TabsTrigger value="banners" className="text-sm sm:text-base">Manage Banners</TabsTrigger>
           <TabsTrigger value="add-product" className="text-sm sm:text-base">Add Product</TabsTrigger>
           <TabsTrigger value="orders" className="text-sm sm:text-base">Orders</TabsTrigger>
         </TabsList>
@@ -111,20 +109,6 @@ export default function AdminPage() {
                 <p>Loading products...</p>
               ) : (
                 <ProductList products={filteredProducts} />
-              )}
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="banners">
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle className="text-lg sm:text-xl">Manage Banners</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {bannersLoading ? (
-                <p>Loading banners...</p>
-              ) : (
-                <BannerList banners={banners} onBannerUpdate={refreshBanners} />
               )}
             </CardContent>
           </Card>

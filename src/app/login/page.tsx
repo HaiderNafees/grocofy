@@ -27,7 +27,7 @@ import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/use-auth';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Invalid email address.' }),
@@ -38,7 +38,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
-  const { login } = useAuth();
+  const { login, isAdmin } = useAuth();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,7 +52,7 @@ export default function LoginPage() {
     try {
       const user = await login(values.email, values.password);
       if (user) {
-        if (user.isAdmin) {
+        if (user.role === 'admin') {
             router.push('/admin');
         } else {
             router.push('/account');

@@ -21,22 +21,30 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchProducts = async () => {
     try {
-      const data = await productsAPI.getAll();
-      
-      // Transform data if needed (snake_case to camelCase)
-      const transformedData = (data || []).map((product: any) => ({
-        ...product,
-        imageHint: product.image_hint || product.imageHint,
-        soldOut: product.sold_out || product.soldOut,
-        isNew: product.is_new || product.isNew,
-        packOptions: typeof product.pack_options === 'string' 
-          ? JSON.parse(product.pack_options) 
-          : product.packOptions || product.packOptions
-      }));
-      
-      setProducts(transformedData);
+      // Check if we're in a browser environment
+      if (typeof window !== 'undefined') {
+        const data = await productsAPI.getAll();
+        
+        // Transform data if needed (mock data)
+        const transformedData = (data || []).map((product: any) => ({
+          ...product,
+          imageHint: product.image_hint || product.imageHint,
+          soldOut: product.sold_out || product.soldOut,
+          isNew: product.is_new || product.isNew,
+          packOptions: typeof product.pack_options === 'string' 
+            ? JSON.parse(product.pack_options) 
+            : product.packOptions || product.packOptions
+        }));
+        
+        setProducts(transformedData);
+      } else {
+        // Server-side: set empty array for static build
+        setProducts([]);
+      }
     } catch (error) {
       console.error('Error fetching products:', error);
+      // Fallback to mock data
+      setProducts([]);
     } finally {
       setLoading(false);
     }
@@ -44,7 +52,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 
   const addProduct = async (product: Product) => {
     try {
-      // Transform camelCase to snake_case for PHP backend
+      // Transform product for mock API
       const backendProduct = {
         name: product.name,
         price: product.price,
@@ -58,7 +66,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         created_at: new Date().toISOString()
       };
       
-      await productsAPI.create(backendProduct);
+      await productsAPI.create(product);
       await fetchProducts();
     } catch (error) {
       console.error('Error adding product:', error);
@@ -68,7 +76,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
 
   const updateProduct = async (product: Product) => {
     try {
-      // Transform camelCase to snake_case for PHP backend
+      // Transform product for mock API
       const backendProduct = {
         name: product.name,
         price: product.price,
@@ -81,7 +89,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
         updated_at: new Date().toISOString()
       };
       
-      await productsAPI.update(product.id, backendProduct);
+      await productsAPI.update(product.id, product);
       await fetchProducts();
     } catch (error) {
       console.error('Error updating product:', error);

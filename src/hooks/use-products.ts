@@ -2,7 +2,7 @@
 "use client";
 
 import { useContext } from 'react';
-import { ProductContext } from '@/context/product-context';
+import { ProductContext } from '@/context/product-context-simple';
 
 export const useProducts = () => {
   const context = useContext(ProductContext);

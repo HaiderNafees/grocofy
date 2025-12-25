@@ -5,11 +5,11 @@ import { useSearchParams } from 'next/navigation';
 import { ProductCard } from '@/components/product-card';
 import { useProducts } from '@/hooks/use-products';
 import { ProductDetail } from '@/components/product-detail';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import type { Product } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 function ProductsContent() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -106,6 +106,9 @@ function ProductsContent() {
 
       <Dialog open={!!selectedProduct} onOpenChange={handleCloseDialog}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogTitle className="sr-only">
+            {selectedProduct?.name || 'Product Details'}
+          </DialogTitle>
           {selectedProduct && (
             <ProductDetail 
               product={selectedProduct} 

@@ -1,9 +1,11 @@
 import type { ImagePlaceholder } from './placeholder-images';
 
 export interface PackOption {
-  quantity: number;
+  size: string;
   price: number;
-  label: string;
+  stock: number;
+  quantity?: number;
+  label?: string;
 }
 
 export interface Product {
@@ -16,6 +18,10 @@ export interface Product {
   soldOut?: boolean;
   isNew?: boolean;
   packOptions?: PackOption[];
+  description?: string;
+  active?: boolean;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface CartItem {

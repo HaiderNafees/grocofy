@@ -1,93 +1,140 @@
-// Supabase API client - replacing Firebase/PHP backend
-export { authAPI, productsAPI, ordersAPI, usersAPI, storageAPI } from './supabase-api';
+// Local Mock API for development
+import productsData from '../../data/products.json';
+
+// Local mock products API
+export const productsAPI = {
+  getAll: async () => {
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 100));
+    return productsData.map(product => ({
+      ...product,
+      soldOut: product.soldOut || false
+    }));
+  },
+  
+  getById: async (id: string) => {
+    await new Promise(resolve => setTimeout(resolve, 100));
+    const product = productsData.find(p => p.id === id);
+    return product || null;
+  },
+  
+  create: async (product: any) => {
+    console.log('Create product (mock):', product);
+    return { ...product, id: Date.now().toString() };
+  },
+  
+  update: async (id: string, updates: any) => {
+    console.log('Update product (mock):', id, updates);
+    return { ...updates, id };
+  },
+  
+  delete: async (id: string) => {
+    console.log('Delete product (mock):', id);
+  },
+};
+
+// Mock orders API
+export const ordersAPI = {
+  getAll: async () => {
+    await new Promise(resolve => setTimeout(resolve, 100));
+    // Return mock orders data
+    return [
+      {
+        id: '1',
+        customerName: 'John Doe',
+        customerEmail: 'john@example.com',
+        customerPhone: '+1234567890',
+        items: [
+          { id: '1', name: 'Pringles Cheesy Cheese', quantity: 2, price: 945 }
+        ],
+        totalAmount: 1890,
+        status: 'pending',
+        orderDate: '2024-12-25',
+        shippingAddress: {
+          street: '123 Main St',
+          city: 'New York',
+          state: 'NY',
+          zipCode: '10001',
+          country: 'USA'
+        }
+      }
+    ];
+  },
+
+  getUserOrders: async (userId: string) => {
+    await new Promise(resolve => setTimeout(resolve, 100));
+    return [];
+  },
+  
+  create: async (order: any) => {
+    console.log('Create order (mock):', order);
+    return { ...order, id: Date.now().toString() };
+  },
+  
+  update: async (id: string, updates: any) => {
+    console.log('Update order (mock):', id, updates);
+    return { ...updates, id };
+  },
+  
+  delete: async (id: string) => {
+    console.log('Delete order (mock):', id);
+  },
+};
+
+// Mock auth API
+export const authAPI = {
+  signIn: async (email: string, password: string) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Check if it's an admin email (simple logic for demo)
+    const isAdmin = email.includes('admin') || email === 'admin@grocofy.com';
+    
+    return {
+      id: 1,
+      email,
+      full_name: isAdmin ? 'Admin User' : 'Test User',
+      role: isAdmin ? ('admin' as const) : ('user' as const),
+      isAuthenticated: true
+    };
+  },
+  
+  getCurrentProfile: async () => {
+    return null;
+  },
+  
+  signOut: async () => {
+    // Mock sign out
+  },
+  
+  onAuthStateChanged: (callback: (user: any) => void) => {
+    return { unsubscribe: () => {} };
+  },
+};
+
+// Mock APIs for features not yet implemented in PHP backend
+export const usersAPI = {
+  getAll: async () => ({ data: [], error: null }),
+  getById: async (id: string) => ({ data: null, error: new Error('No backend configured') }),
+  update: async (id: string, updates: any) => ({ data: null, error: new Error('No backend configured') }),
+  delete: async (id: string) => ({ data: null, error: new Error('No backend configured') })
+};
+
+export const addressesAPI = {
+  getUserAddresses: async (userId: string) => ({ data: [], error: new Error('No backend configured') }),
+  create: async (address: any) => ({ data: null, error: new Error('No backend configured') }),
+  update: async (id: string, updates: any) => ({ data: null, error: new Error('No backend configured') }),
+  delete: async (id: string) => ({ data: null, error: new Error('No backend configured') })
+};
+
+export const storageAPI = {
+  upload: async (file: any) => ({ data: null, error: new Error('No backend configured') }),
+  delete: async (path: string) => ({ error: new Error('No backend configured') })
+};
 
 // Legacy exports for backward compatibility
 export const legacyAPI = {
-  // Products API (legacy wrapper)
-  products: {
-    getAll: async () => {
-      const { productsAPI } = await import('./supabase-api');
-      return productsAPI.getAll();
-    },
-    getById: async (id: string) => {
-      const { productsAPI } = await import('./supabase-api');
-      return productsAPI.getById(id);
-    },
-    create: async (product: any) => {
-      const { productsAPI } = await import('./supabase-api');
-      return productsAPI.create(product);
-    },
-    update: async (id: string, updates: any) => {
-      const { productsAPI } = await import('./supabase-api');
-      return productsAPI.update(id, updates);
-    },
-    delete: async (id: string) => {
-      const { productsAPI } = await import('./supabase-api');
-      return productsAPI.delete(id);
-    },
-  },
-  
-  // Orders API (legacy wrapper)
-  orders: {
-    getAll: async () => {
-      const { ordersAPI } = await import('./supabase-api');
-      return ordersAPI.getAll();
-    },
-    getById: async (id: string) => {
-      const { ordersAPI } = await import('./supabase-api');
-      return ordersAPI.getById(id);
-    },
-    create: async (order: any) => {
-      const { ordersAPI } = await import('./supabase-api');
-      return ordersAPI.create(order);
-    },
-    update: async (id: string, updates: any) => {
-      const { ordersAPI } = await import('./supabase-api');
-      return ordersAPI.update(id, updates);
-    },
-    delete: async (id: string) => {
-      const { ordersAPI } = await import('./supabase-api');
-      return ordersAPI.delete(id);
-    },
-  },
-  
-  // Users API (legacy wrapper)
-  users: {
-    getAll: async () => {
-      const { usersAPI } = await import('./supabase-api');
-      return usersAPI.getAll();
-    },
-    getById: async (id: string) => {
-      const { usersAPI } = await import('./supabase-api');
-      return usersAPI.getById(id);
-    },
-    create: async (user: any) => {
-      const { usersAPI } = await import('./supabase-api');
-      return usersAPI.update(user.id || user.uid, user);
-    },
-    update: async (id: string, updates: any) => {
-      const { usersAPI } = await import('./supabase-api');
-      return usersAPI.update(id, updates);
-    },
-    delete: async (id: string) => {
-      const { usersAPI } = await import('./supabase-api');
-      return usersAPI.delete(id);
-    },
-  },
-  
-  // Auth API (legacy wrapper)
-  auth: {
-    signIn: async (email: string, password: string) => {
-      const { authAPI } = await import('./supabase-api');
-      return authAPI.signIn(email, password);
-    },
-    signUp: async (userData: any) => {
-      const { authAPI } = await import('./supabase-api');
-      return authAPI.signUp(userData.email, userData.password, userData.displayName);
-    },
-    getCurrentUser: async () => {
-      const { authAPI } = await import('./supabase-api');
-      return authAPI.getCurrentUser();
-    },
-  }
+  products: productsAPI,
+  orders: ordersAPI,
+  users: usersAPI,
+  auth: authAPI
 };

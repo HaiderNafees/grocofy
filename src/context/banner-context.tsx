@@ -2,7 +2,7 @@
 
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import type { Banner } from '@/lib/types';
-import { supabase } from '@/lib/supabase';
+import { productsAPI } from '@/lib/api';
 
 export interface BannerContextType {
   banners: Banner[];
@@ -18,16 +18,11 @@ export const BannerProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchBanners = async () => {
     try {
-      const { data, error } = await supabase
-        .from('banners')
-        .select('*')
-        .eq('is_active', true)
-        .order('sort_order', { ascending: true });
-
+      const { data, error } = await productsAPI.getAll();
       if (error) throw error;
       
-      // Transform snake_case to camelCase for frontend
-      const transformedData = (data || []).map(banner => ({
+      // Transform snake_case to camelCase for frontend (mock data)
+      const transformedData = (data || []).map((banner: any) => ({
         ...banner,
         imageHint: banner.image_hint,
         buttonText: banner.button_text,

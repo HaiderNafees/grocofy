@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useState, useEffect, ReactNode } from 'react';
-import { ordersAPI, authAPI } from '@/lib/supabase';
+import { ordersAPI, authAPI } from '@/lib/api';
 
 interface Order {
   id: string;
@@ -50,7 +50,7 @@ export const OrdersProvider = ({ children }: { children: ReactNode }) => {
         user_id: profile.id
       };
 
-      const { error } = await ordersAPI.create(orderWithUser, orderItems);
+      const { error } = await ordersAPI.create(orderWithUser);
       if (error) throw error;
       
       await fetchOrders();
@@ -63,11 +63,8 @@ export const OrdersProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     fetchOrders();
 
-    // Subscribe to realtime updates
-    const subscription = ordersAPI.subscribe((payload) => {
-      console.log('Order change:', payload);
-      fetchOrders();
-    });
+    // Subscribe to realtime updates (mock)
+    const subscription = { unsubscribe: () => {} };
 
     return () => {
       subscription.unsubscribe();

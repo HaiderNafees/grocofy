@@ -3,7 +3,7 @@
 
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import type { Product } from '@/lib/types';
-import { productsAPI } from '@/lib/supabase';
+import { productsAPI } from '@/lib/api';
 
 export interface ProductContextType {
   products: Product[];

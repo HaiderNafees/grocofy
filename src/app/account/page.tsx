@@ -8,7 +8,8 @@ import { useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
+// Force static rendering for export
+export const dynamic = 'force-static';
 
 export default function AccountPage() {
   const { user, loading, logout } = useAuth();
@@ -65,7 +66,7 @@ export default function AccountPage() {
         <div>
           <h3 className="text-xl font-serif mb-4">Account details</h3>
           <div className="space-y-2">
-            <p>{user.name}</p>
+            <p>{user.full_name || user.email}</p>
             <p>{user.email}</p>
             <Link href="/account/addresses" className="text-sm underline hover:no-underline">
                 View addresses

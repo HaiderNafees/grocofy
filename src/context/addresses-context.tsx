@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useState, useEffect, ReactNode } from 'react';
-import { addressesAPI, authAPI } from '@/lib/supabase';
+import { authAPI, addressesAPI } from '@/lib/api';
 
 interface Address {
   id: string;

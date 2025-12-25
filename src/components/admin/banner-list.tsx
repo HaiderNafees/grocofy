@@ -10,7 +10,7 @@ import { BannerForm } from './banner-form';
 import { type Banner } from '@/lib/types';
 import { Edit, Trash2, Eye } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/lib/supabase';
+import { productsAPI } from '@/lib/api';
 
 interface BannerListProps {
   banners: Banner[];

@@ -30,9 +30,14 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
   const { products } = useProducts();
   const searchRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Filter products as user types
   useEffect(() => {
@@ -195,9 +200,9 @@ export function Header() {
                 <CartSheet>
                     <Button variant="ghost" size="icon" className="relative">
                     <ShoppingCart className="h-5 w-5" />
-                    {itemCount > 0 && (
+                    {isClient && itemCount > 0 && (
                         <span className="absolute right-1 top-1 flex h-4 w-4 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                        {itemCount}
+                            {itemCount}
                         </span>
                     )}
                     <span className="sr-only">Shopping Cart</span>

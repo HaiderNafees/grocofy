@@ -32,6 +32,7 @@ import { ImageUpload } from './image-upload';
 const formSchema = z.object({
   id: z.string().optional(),
   name: z.string().min(1, 'Name is required'),
+  description: z.string().optional(),
   price: z.coerce.number().min(0, 'Price must be a positive number'),
   category: z.string().min(1, 'Category is required'),
   image: z.string().optional(),
@@ -128,6 +129,24 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
                 <FormLabel className="text-sm font-medium">Product Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Pringles Original" {...field} className="w-full" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-medium">Product Description</FormLabel>
+                <FormControl>
+                  <Textarea 
+                    placeholder="Enter product description..." 
+                    className="w-full min-h-[100px]"
+                    {...field} 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

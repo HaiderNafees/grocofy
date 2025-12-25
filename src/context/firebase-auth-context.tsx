@@ -1,14 +1,25 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { authAPI, User as AppUser, isAdmin } from '../lib/supabase-api';
+import { authAPI } from '../lib/api';
+
+interface User {
+  id: number;
+  email: string;
+  full_name?: string;
+  role: 'user' | 'admin';
+  isAuthenticated?: boolean;
+}
 
 interface AuthContextType {
-  user: AppUser | null;
+  user: User | null;
   loading: boolean;
-  signIn: (email: string, password: string) => Promise<AppUser>;
-  signUp: (email: string, password: string, displayName?: string) => Promise<AppUser>;
+  signIn: (email: string, password: string) => Promise<User>;
+  signUp: (email: string, password: string, displayName?: string) => Promise<User>;
   signOut: () => Promise<void>;
+  logout: () => Promise<void>;
+  login: (email: string, password: string) => Promise<User>;
+  signup: (email: string, password: string, displayName?: string) => Promise<User>;
   isAdmin: boolean;
   checkAdminStatus: () => Promise<boolean>;
 }
@@ -16,13 +27,13 @@ interface AuthContextType {
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<AppUser | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const checkAdminStatus = async () => {
     try {
-      const adminStatus = await isAdmin();
+      const adminStatus = user?.role === 'admin';
       setIsAdmin(adminStatus);
       return adminStatus;
     } catch (error) {
@@ -33,31 +44,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    const unsubscribe = authAPI.onAuthStateChanged(async (user) => {
-      setUser(user);
-      if (user) {
-        await checkAdminStatus();
-      } else {
-        setIsAdmin(false);
-      }
-      setLoading(false);
-    });
-
-    return unsubscribe;
+    // Initialize loading state
+    setLoading(false);
   }, []);
 
-  const signIn = async (email: string, password: string): Promise<AppUser> => {
+  const signIn = async (email: string, password: string): Promise<User> => {
     const user = await authAPI.signIn(email, password);
     setUser(user);
     await checkAdminStatus();
     return user;
   };
 
-  const signUp = async (email: string, password: string, displayName?: string): Promise<AppUser> => {
-    const user = await authAPI.signUp(email, password, displayName);
-    setUser(user);
+  const signUp = async (email: string, password: string, displayName?: string): Promise<User> => {
+    // Mock signup - in production you'd implement this in PHP backend
+    const mockUser: User = {
+      id: Date.now(),
+      email,
+      full_name: displayName || email.split('@')[0],
+      role: 'user',
+      isAuthenticated: true
+    };
+    setUser(mockUser);
     await checkAdminStatus();
-    return user;
+    return mockUser;
   };
 
   const signOut = async (): Promise<void> => {
@@ -72,6 +81,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     signIn,
     signUp,
     signOut,
+    logout: signOut,
+    login: signIn,
+    signup: signUp,
     isAdmin,
     checkAdminStatus,
   };

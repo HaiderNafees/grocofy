@@ -27,7 +27,7 @@ import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/use-auth';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 const formSchema = z
   .object({

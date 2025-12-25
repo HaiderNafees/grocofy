@@ -1,51 +1,10 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  async redirects() {
-    return [
-      {
-        source: '/backend/api/products',
-        destination: '/api/products',
-        permanent: false,
-      },
-      {
-        source: '/backend/api/products.php',
-        destination: '/api/products',
-        permanent: false,
-      },
-      {
-        source: '/backend/api/users',
-        destination: '/api/users',
-        permanent: false,
-      },
-      {
-        source: '/backend/api/users.php',
-        destination: '/api/users',
-        permanent: false,
-      },
-    ];
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: "default-src 'self' *; script-src 'self' 'unsafe-eval' 'unsafe-inline' *; style-src 'self' 'unsafe-inline' *; font-src 'self' *; img-src 'self' data: https: blob: *; connect-src 'self' *; frame-src 'self' *;",
-          },
-        ],
-      },
-    ];
-  },
+  output: 'export',
+  trailingSlash: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -85,6 +44,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-};
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/' : undefined,
+  basePath: process.env.NODE_ENV === 'production' ? '' : undefined,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  };
 
 export default nextConfig;

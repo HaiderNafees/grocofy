@@ -19,7 +19,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { NoSSR } from "@/components/no-ssr";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);

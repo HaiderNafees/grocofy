@@ -11,13 +11,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export default function CheckoutPage() {
   const { items, totalPrice } = useCart();
   const [isClient, setIsClient] = useState(false);
   const [shippingMethod, setShippingMethod] = useState("standard");
-  const [paymentMethod, setPaymentMethod] = useState("payfast");
+  const [paymentMethod, setPaymentMethod] = useState("cod");
   const [billingSameAsShipping, setBillingSameAsShipping] = useState(true);
   const [deliveryMethod, setDeliveryMethod] = useState("ship");
 
@@ -189,10 +189,6 @@ export default function CheckoutPage() {
             <CardContent>
               <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
                 <div className="flex items-center space-x-2 p-3 border rounded-lg">
-                  <RadioGroupItem value="payfast" id="payfast" />
-                  <Label htmlFor="payfast">PAYFAST via Debit/Credit/Wallet/Bank Account</Label>
-                </div>
-                <div className="flex items-center space-x-2 p-3 border rounded-lg">
                   <RadioGroupItem value="cod" id="cod" />
                   <Label htmlFor="cod">Cash on Delivery</Label>
                 </div>
@@ -201,6 +197,42 @@ export default function CheckoutPage() {
                   <Label htmlFor="bank">Bank Deposit</Label>
                 </div>
               </RadioGroup>
+
+              {/* Bank Deposit Details */}
+              {paymentMethod === "bank" && (
+                <div className="mt-4 p-4 bg-gray-50 rounded-lg border">
+                  <h4 className="font-semibold mb-3">Bank Deposit Instructions</h4>
+                  
+                  <div className="space-y-4">
+                    <div className="p-3 bg-white rounded border">
+                      <h5 className="font-medium text-blue-800 mb-2">Bank Alfalah Limited</h5>
+                      <div className="text-sm space-y-1">
+                        <p><strong>Title of Account:</strong> Shams Shopping Centre (SMC-Private) Limited</p>
+                        <p><strong>Account No IBAN:</strong> PK82ALFH0461001007624985</p>
+                        <p><strong>Account No 14-digit:</strong> 0461-1007624985</p>
+                        <p><strong>Branch:</strong> F-6 Markaz Branch, Islamabad</p>
+                      </div>
+                    </div>
+
+                    <div className="p-3 bg-white rounded border">
+                      <h5 className="font-medium text-blue-800 mb-2">Faysal Bank Limited</h5>
+                      <div className="text-sm space-y-1">
+                        <p><strong>Title of Account:</strong> Shams Shopping Centre (SMC-Private) Limited</p>
+                        <p><strong>Account No IBAN:</strong> PK33FAYS3552301000004584</p>
+                        <p><strong>Branch:</strong> Blue Area Branch, Islamabad</p>
+                      </div>
+                    </div>
+
+                    <div className="p-3 bg-yellow-50 rounded border border-yellow-200">
+                      <h5 className="font-medium text-yellow-800 mb-2">After transferring the amount:</h5>
+                      <div className="text-sm space-y-1">
+                        <p>• Send a picture/screenshot of the ATM slip or online transfer to WhatsApp: <strong>0300-8505478</strong></p>
+                        <p>• For queries, contact the Supervisor: <strong>0300-8505445</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
 
