@@ -16,13 +16,14 @@ export function ProductDetailClient({ productId }: { productId: string }) {
   const { products, loading } = useProducts();
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
-  const [selectedPack, setSelectedPack] = useState(0);
+  const [selectedPack, setSelectedPack] = useState(product.packOptions?.[0] || { quantity: 1, price: product.price, label: 'Single' });
   const [product, setProduct] = useState(products.find((p) => p.id === productId));
 
   useEffect(() => {
     const foundProduct = products.find((p) => p.id === productId);
     if (foundProduct) {
       setProduct(foundProduct);
+      setSelectedPack(foundProduct.packOptions?.[0] || { quantity: 1, price: foundProduct.price, label: 'Single' });
     }
   }, [products, productId]);
 
@@ -53,12 +54,12 @@ export function ProductDetailClient({ productId }: { productId: string }) {
   }
 
   const handleAddToCart = () => {
-    const selectedOption = product.packOptions?.[selectedPack];
-    addItem({
+    const cartItem = {
       ...product,
-      selectedSize: selectedOption?.size || 'One Size',
-      selectedPrice: selectedOption?.price || product.price,
-    });
+      price: selectedPack.price,
+      quantity: quantity * selectedPack.quantity
+    };
+    addItem(cartItem, 1);
   };
 
   const relatedProducts = products
@@ -83,7 +84,7 @@ export function ProductDetailClient({ productId }: { productId: string }) {
         <div className="space-y-6">
           <div>
             <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
-            <p className="text-2xl font-semibold">${product.price}</p>
+            <p className="text-2xl font-semibold">${selectedPack.price}</p>
           </div>
 
           <p className="text-gray-600">{product.description || 'No description available'}</p>
@@ -92,14 +93,14 @@ export function ProductDetailClient({ productId }: { productId: string }) {
             <div>
               <h3 className="font-semibold mb-2">Select Size/Option:</h3>
               <div className="flex gap-2 flex-wrap">
-                {product.packOptions?.map((option, index) => (
+                {product.packOptions?.map((option) => (
                   <Button
-                    key={index}
-                    variant={selectedPack === index ? 'default' : 'outline'}
-                    onClick={() => setSelectedPack(index)}
+                    key={option.quantity}
+                    variant={selectedPack.quantity === option.quantity ? 'default' : 'outline'}
+                    onClick={() => setSelectedPack(option)}
                     disabled={option.stock === 0}
                   >
-                    {option.size} - ${option.price}
+                    {option.label}
                     {option.stock === 0 && ' (Out of Stock)'}
                   </Button>
                 ))}
@@ -131,10 +132,10 @@ export function ProductDetailClient({ productId }: { productId: string }) {
           <div className="space-y-4">
             <Button
               onClick={handleAddToCart}
-              disabled={product.packOptions?.[selectedPack]?.stock === 0}
+              disabled={selectedPack.stock === 0}
               className="w-full"
             >
-              {product.packOptions?.[selectedPack]?.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+              {selectedPack.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
             </Button>
             <div className="flex gap-2">
               <Button variant="outline" size="icon">
@@ -149,10 +150,10 @@ export function ProductDetailClient({ productId }: { productId: string }) {
             </div>
           </div>
 
-          {product.packOptions?.[selectedPack]?.stock > 0 && (
+          {selectedPack.stock > 0 && (
             <div className="flex items-center gap-2 text-green-600">
               <CheckCircle2 className="h-4 w-4" />
-              <span>In Stock ({product.packOptions?.[selectedPack]?.stock} available)</span>
+              <span>In Stock ({selectedPack.stock} available)</span>
             </div>
           )}
         </div>
