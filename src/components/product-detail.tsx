@@ -24,7 +24,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
         const cartItem = {
             ...product,
             price: selectedPack.price,
-            quantity: quantity * selectedPack.quantity
+            quantity: quantity * (selectedPack.quantity || 1)
         };
         addItem(cartItem, 1);
         toast({

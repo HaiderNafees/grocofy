@@ -16,14 +16,16 @@ export function ProductDetailClient({ productId }: { productId: string }) {
   const { products, loading } = useProducts();
   const router = useRouter();
   const [quantity, setQuantity] = useState(1);
-  const [selectedPack, setSelectedPack] = useState(product.packOptions?.[0] || { quantity: 1, price: product.price, label: 'Single' });
   const [product, setProduct] = useState(products.find((p) => p.id === productId));
+  const [selectedPack, setSelectedPack] = useState(
+    product?.packOptions?.[0] || { quantity: 1, price: product?.price || 0, label: 'Single', stock: 1 }
+  );
 
   useEffect(() => {
     const foundProduct = products.find((p) => p.id === productId);
     if (foundProduct) {
       setProduct(foundProduct);
-      setSelectedPack(foundProduct.packOptions?.[0] || { quantity: 1, price: foundProduct.price, label: 'Single' });
+      setSelectedPack(foundProduct.packOptions?.[0] || { quantity: 1, price: foundProduct.price, label: 'Single', stock: 1 });
     }
   }, [products, productId]);
 
@@ -57,7 +59,7 @@ export function ProductDetailClient({ productId }: { productId: string }) {
     const cartItem = {
       ...product,
       price: selectedPack.price,
-      quantity: quantity * selectedPack.quantity
+      quantity: quantity * (selectedPack.quantity || 1)
     };
     addItem(cartItem, 1);
   };
@@ -98,10 +100,10 @@ export function ProductDetailClient({ productId }: { productId: string }) {
                     key={option.quantity}
                     variant={selectedPack.quantity === option.quantity ? 'default' : 'outline'}
                     onClick={() => setSelectedPack(option)}
-                    disabled={option.stock === 0}
+                    disabled={(option.stock || 1) === 0}
                   >
                     {option.label}
-                    {option.stock === 0 && ' (Out of Stock)'}
+                    {(option.stock || 1) === 0 && ' (Out of Stock)'}
                   </Button>
                 ))}
               </div>
@@ -132,10 +134,10 @@ export function ProductDetailClient({ productId }: { productId: string }) {
           <div className="space-y-4">
             <Button
               onClick={handleAddToCart}
-              disabled={selectedPack.stock === 0}
+              disabled={(selectedPack.stock || 1) === 0}
               className="w-full"
             >
-              {selectedPack.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+              {(selectedPack.stock || 1) === 0 ? 'Out of Stock' : 'Add to Cart'}
             </Button>
             <div className="flex gap-2">
               <Button variant="outline" size="icon">
@@ -150,10 +152,10 @@ export function ProductDetailClient({ productId }: { productId: string }) {
             </div>
           </div>
 
-          {selectedPack.stock > 0 && (
+          {(selectedPack.stock || 1) > 0 && (
             <div className="flex items-center gap-2 text-green-600">
               <CheckCircle2 className="h-4 w-4" />
-              <span>In Stock ({selectedPack.stock} available)</span>
+              <span>In Stock ({selectedPack.stock || 1} available)</span>
             </div>
           )}
         </div>
